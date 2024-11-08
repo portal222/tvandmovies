@@ -1,0 +1,20 @@
+[
+    { "title": "Action"},
+    { "title": "Adventure"},
+    { "title": "Animation"},
+    { "title": "Anime"},
+    { "title": "Comedy"},
+    { "title": "Crime"},
+    { "title": "Documentary"},
+    { "title": "Drama"},
+    { "title": "Family"},
+    { "title": "Fantasy"},
+    { "title": "Horror"},
+    { "title": "Music"},
+    { "title": "Musical"},
+    { "title": "Mystery"},
+    { "title": "Romance"},
+    { "title": "Sci-Fi"},
+    { "title": "Thriller"},
+    { "title": "Western"}
+]

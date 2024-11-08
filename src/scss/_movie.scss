@@ -1,0 +1,533 @@
+$color10: #323769;
+$color11: #2D3250;
+$color13: #7077A1;
+$color14: whitesmoke;
+$color15: #f6b17a;
+$color16: #ffd2ae;
+$color7: rgba(18, 16, 62, 0.635);
+$color8: rgb(18, 17, 58);
+
+.hrGenre {
+    padding-top: 10px;
+    width: 1300px;
+    margin: auto;
+    border-bottom: 1px solid $color15;
+}
+
+.detailMain,
+.movieMain {
+    margin: auto;
+    width: 1300px;
+    padding: 30px 30px 5px 30px;
+    background-color: $color10;
+
+    .detailMov {
+        display: flex;
+
+        .movieTitle {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 400;
+            padding: 20px;
+            color: $color14;
+        }
+
+        .divGenre {
+            display: block;
+
+            .genres {
+                display: flex;
+                padding: 10px 30px;
+                width: 760px;
+                overflow: hidden;
+
+                p {
+                    margin: 0px;
+                    color: $color14;
+                    font-size: 20px;
+                    padding: 5px;
+                }
+
+                span {
+                    margin: 0px;
+                    padding: 5px 5px 5px 120px;
+                    font-size: 14px;
+                    color: $color14;
+                    width: 300px;
+                    vertical-align: bottom;
+                }
+            }
+        }
+
+        .description {
+            font-size: 20px;
+            padding: 30px;
+            color: $color14;
+            width: 760px;
+        }
+
+        .casting {
+            display: flex;
+            flex-direction: row;
+            padding: 5px 30px;
+            width: 760px;
+
+            img {
+                border-radius: 7px;
+                box-shadow: 0px 0px 6px 3px $color13;
+            }
+
+            p {
+                margin: 2px;
+                padding: 2px 20px;
+                font-size: 20px;
+                color: $color14;
+            }
+
+            .actorName {
+                color: $color15;
+                cursor: pointer;
+                font-size: 20px;
+
+                &:hover {
+                    color: $color16;
+                }
+            }
+        }
+
+        .sugestion {
+            display: flex;
+            flex-direction: row;
+
+            .screen {
+                padding: 10px 30px;
+
+                p {
+                    color: $color14;
+                }
+
+                .image {
+                    border-radius: 8px;
+                }
+
+                .screenImg {
+                    margin-top: 10px;
+                    position: relative;
+                    cursor: pointer;
+
+                    .dropScreen {
+                        display: none;
+                        position: absolute;
+                        min-width: 1280px;
+                        top: -10px;
+                        left: -550px;
+                        border: 1px solid $color15;
+                        border-radius: 10px;
+                        z-index: 1;
+                    }
+
+                    &:hover .dropScreen {
+                        display: block;
+                    }
+                }
+            }
+
+            .torrent {
+                margin: 10px 20px;
+                font-size: 15px;
+                width: 350px;
+                background-color: $color11;
+                color: $color14;
+                border-collapse: collapse;
+                border-radius: 8px;
+
+                td {
+                    text-align: center;
+                    padding: 5px 10px;
+                }
+
+                a {
+                    text-decoration: none;
+                    cursor: pointer;
+                    padding: 10px 20px;
+                    color: $color14;
+                    background-color: #009966;
+                    border-radius: 8px;
+
+                    &:hover {
+                        background-color: #46CB18;
+                    }
+                }
+            }
+        }
+    }
+
+    .iframe {
+        margin-top: 20px;
+        width: 500px;
+        height: 310px;
+        border: 0px;
+    }
+
+    .sugestionMain {
+        margin-top: 20px;
+        display: flex;
+        color: $color14;
+
+        .image {
+            width: 1370px;
+            padding: 5px 30px;
+
+            img {
+
+                border-radius: 8px;
+            }
+        }
+    }
+
+    .holder {
+        width: 230px;
+
+        .dropdownM {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+
+            .dropImg {
+                width: 230px;
+            }
+
+            .dropdown-contentM {
+                display: none;
+                font-size: 18px;
+                text-align: center;
+                font-weight: 200;
+                position: absolute;
+                width: 230px;
+                height: 335px;
+                top: 0px;
+                vertical-align: bottom;
+                cursor: pointer;
+                color: $color14;
+                justify-content: end;
+                flex-direction: column;
+                text-align: center;
+                padding-bottom: 10px;
+                background-image: linear-gradient($color7, $color8);
+
+                p {
+                    margin: 0px;
+                    padding: 2px;
+                }
+            }
+
+            &:hover .dropdown-contentM {
+                display: flex;
+            }
+        }
+
+        .titleLong {
+            text-align: center;
+            color: $color15;
+            font-size: 20px;
+            padding: 10px 5px;
+            font-weight: 200;
+            cursor: pointer;
+
+            &:hover {
+                color: $color16;
+            }
+        }
+    }
+
+    .similar {
+        font-size: 20px;
+        padding-top: 30px;
+        padding-left: 0px;
+    }
+}
+
+.movieMain {
+    padding: 10px 25px;
+    display: grid;
+    gap: 25px;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.movieNum {
+    margin: auto;
+    display: flex;
+    width: 1300px;
+    overflow-x: auto;
+
+    .numb {
+
+        padding: 7px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 400;
+        color: $color15;
+        cursor: pointer;
+
+        &:hover {
+            color: $color16;
+        }
+
+        &:active {
+            color: $color13;
+        }
+    }
+
+    .numbAct {
+        text-align: center;
+        padding: 7px;
+        font-size: 20px;
+        font-weight: 400;
+        background-color: $color13;
+        border-radius: 5px;
+        color: $color14;
+    }
+}
+
+.movieGenre {
+    padding: 5px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+    width: 1300px;
+
+    .genreName {
+        padding: 2px 10px;
+        text-align: center;
+        font-weight: 400;
+        font-size: 22px;
+        cursor: pointer;
+        color: $color15;
+
+        &:hover {
+            color: $color16;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .hrGenre {
+        width: 355px;
+    }
+
+    .detailMain,
+    .movieMain {
+
+        width: 355px;
+        padding: 0px;
+
+        .detailMov {
+            display: block;
+
+            .movieTitle {
+                text-align: center;
+                font-size: 20px;
+
+                padding: 15px;
+            }
+
+            .divGenre {
+                display: flex;
+
+                .genres {
+                    display: block;
+                    padding: 5px 10px;
+                    width: 355px;
+
+                    p {
+                        margin: 0px;
+                        color: $color14;
+                        font-size: 15px;
+                        padding: 3px;
+                    }
+
+                    span {
+                        margin: 0px;
+                        padding: 3px 3px 3px 3px;
+                        width: 230px;
+                        font-size: 10px;
+                        color: $color14;
+                    }
+                }
+            }
+
+            .description {
+                font-size: 16px;
+                padding: 10px;
+
+                color: $color14;
+                width: 355px;
+
+            }
+
+            .casting {
+                display: flex;
+                flex-direction: row;
+                padding: 5px 20px;
+                width: 355px;
+
+
+
+
+                p {
+                    margin: 2px;
+                    padding: 2px 10px;
+                    font-size: 14px;
+                    color: $color14;
+                }
+
+                .actorName {
+                    color: $color15;
+                    cursor: pointer;
+                    font-size: 14px;
+                }
+            }
+
+            .sugestion {
+                display: block;
+                flex-direction: row;
+
+                .screen {
+                    padding: 10px 30px;
+
+                    p {
+                        color: $color14;
+                    }
+
+                    .image {
+                        border-radius: 8px;
+                    }
+
+                    .screenImg {
+                        margin-top: 10px;
+                        position: relative;
+                        cursor: pointer;
+
+                        .dropScreen {
+                            display: none;
+                            position: absolute;
+                            min-width: 355px;
+                            top: -5px;
+                            left: -30px;
+                            border: 1px solid $color14;
+                            border-radius: 3px;
+                            z-index: 1;
+                        }
+
+                        &:hover .dropScreen {
+                            display: block;
+                        }
+                    }
+                }
+
+                .torrent {
+                    margin: 10px 30px;
+                    font-size: 12px;
+                    width: 295px;
+
+                    td {
+                        text-align: center;
+                        padding: 2px 5px;
+                    }
+
+                    a {
+                        padding: 5px 15px;
+                        border-radius: 8px;
+                    }
+                }
+            }
+
+        }
+
+        .iframe {
+            margin-top: 15px;
+            width: 355px;
+            height: 209px;
+        }
+
+        .holder {
+            width: 160px;
+
+            .dropdownM {
+
+                .dropImg {
+                    width: 160px;
+                }
+
+                .dropdown-contentM {
+                    width: 160px;
+                    height: 233px;
+                    font-size: 13px;
+                    font-weight: 100;
+                    overflow: hidden;
+                }
+            }
+
+            .titleLong {
+
+                font-size: 15px;
+                padding: 5px 3px;
+
+            }
+        }
+
+        .similar {
+            font-size: 16px;
+            padding-top: 10px;
+            padding-left: 10px;
+        }
+    }
+
+
+
+    .movieMain {
+        padding: 10px 10px;
+
+        gap: 15px;
+        grid-template-columns: auto auto;
+
+
+
+
+    }
+
+    .movieNum {
+        margin: auto;
+        display: flex;
+        width: 355px;
+        overflow-x: auto;
+
+        .numb {
+            padding: 5px;
+            font-size: 18px;
+        }
+
+        .numbAct {
+            padding: 5px;
+            font-size: 18px;
+        }
+    }
+
+    .movieGenre {
+
+        margin: auto;
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        width: 355px;
+        height: 130px;
+
+        .genreName {
+            padding: 2px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 200;
+
+        }
+    }
+}

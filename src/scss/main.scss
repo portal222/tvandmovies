@@ -1,0 +1,1192 @@
+@import '../scss/_movie';
+
+$color1: #323769;
+$color2: #2D3250;
+$color3: #7077A1;
+$color4: whitesmoke;
+$color5: #f6b17a;
+$color6: #ffd2ae;
+$color7: rgba(18, 16, 62, 0.635);
+$color8: rgb(18, 17, 58);
+$color9: green;
+$color10: rgb(5, 175, 5);
+
+
+body {
+    background-color: $color2;
+    font-family: Tahoma, sans-serif;
+    color: $color4;
+}
+
+.place {
+    width: 100vh;
+    height: 600px;
+}
+
+.average {
+    color: transparent;
+}
+
+.provider {
+    margin: auto;
+    width: 1300px;
+
+    .fixed {
+        position: fixed;
+        width: 1300px;
+        height: 50px;
+        background-color: $color3;
+        z-index: 1;
+    }
+}
+
+.navigation {
+    margin: auto;
+    display: flex;
+    width: 1300px;
+    background-color: rgb(248, 141, 9);
+
+    .search {
+        display: flex;
+    }
+}
+
+.home {
+    width: 1300px;
+    margin: auto;
+    background-color: aquamarine;
+}
+
+.place {
+    margin: auto;
+    width: 1300px;
+    padding: 80px 10px 10px 10px;
+    justify-content: center;
+    background-color: $color1;
+
+    .placeBut {
+        display: flex;
+        justify-content: space-around;
+
+        .paper {
+            width: 240px;
+            height: 42px;
+            margin: 4px;
+
+            .base {
+                padding-left: 8px;
+                width: 140px;
+            }
+        }
+    }
+}
+
+.guestCast {
+    margin: auto;
+    width: 1300px;
+    text-align: left;
+    padding-left: 20px;
+    background-color: #cccccc;
+    font-size: 20px;
+}
+
+.gridTv {
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    width: 1300px;
+    gap: 20px;
+    background-color: $color1;
+    font-size: 18px;
+    padding: 20px 18px;
+
+    .time {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 400;
+        padding: 3px 25px;
+        color: $color4;
+    }
+
+    .gridItem {
+        max-width: 194px;
+        text-align: center;
+        position: relative;
+
+        img {
+            min-width: 194px;
+            min-height: 272px;
+            cursor: pointer;
+        }
+
+        .genresTv {
+            position: absolute;
+            width: 194px;
+            height: 273px;
+            font-size: 18px;
+            font-weight: 200;
+            color: $color4;
+            top: 0px;
+            display: none;
+            text-align: center;
+            flex-direction: column;
+            padding: 0px;
+            justify-content: end;
+            padding-bottom: 10px;
+            background-image: linear-gradient($color7, $color8);
+            cursor: pointer;
+
+            .episode {
+                font-weight: 400;
+                font-size: 20px;
+                padding: 5px;
+            }
+
+            p {
+                margin: 0px;
+                padding: 2px;
+            }
+        }
+
+        &:hover .genresTv {
+            display: flex;
+        }
+
+        .showName {
+            max-width: 194px;
+            font-size: 20px;
+            font-weight: 200;
+            cursor: pointer;
+            margin: 0;
+            padding: 10px 5px;
+            color: $color5;
+
+            &:hover {
+                color: $color6;
+            }
+        }
+    }
+}
+
+.searchMain {
+    margin: auto;
+    padding-top: 10px;
+    width: 1300px;
+    height: 1400px;
+    font-size: 26px;
+    color: $color4;
+    text-shadow: 2px 2px 5px gray;
+    text-align: center;
+    // background-image: linear-gradient($color2, $color1);
+    background-color: $color1;
+}
+
+.guestCast {
+    background-color: $color3;
+    font-size: 20px;
+}
+
+.showMain,
+.showActor {
+    padding-top: 2px;
+    margin: auto;
+    width: 1300px;
+    // background-image: linear-gradient($color2, $color1);
+    background-color: $color1;
+    font-size: 18px;
+    padding: 50px 10px 10px 10px;
+
+    .borderBotom {
+        border-bottom: 1px solid $color2;
+
+        p {
+            margin: 2px;
+        }
+    }
+
+    .wrap {
+        color: $color5;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+            color: $color6;
+        }
+    }
+
+    .sezone {
+        padding-left: 6px;
+        font-size: 18px;
+        width: 400px;
+        max-width: 400px;
+        max-height: 80px;
+        overflow-x: auto;
+
+        p {
+            margin: 3px 0px;
+        }
+    }
+
+    .bigImg {
+        width: 1280px;
+        text-align: center;
+    }
+
+    .clickShow {
+        font-weight: 400;
+        font-size: 26px;
+        cursor: pointer;
+        width: 300px;
+        color: $color5;
+
+        &:hover {
+            color: $color6;
+        }
+    }
+
+    .showCast {
+        font-size: 20px;
+        border-bottom: 2px solid $color2;
+        background-color: #cccccc;
+    }
+
+    .holdImg {
+
+        padding-right: 10PX;
+        vertical-align: top;
+
+        .imgShow {
+            margin-top: 2px;
+            min-width: 500px;
+            max-width: 500px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .imgActor {
+            min-width: 350px;
+            max-width: 350px;
+
+        }
+    }
+
+    .imgEpisode {
+        min-width: 400px;
+        max-width: 400px;
+        border-radius: 8px;
+    }
+
+    .number {
+        padding-left: 30px;
+        font-size: 22px;
+        font-weight: 400;
+        width: 100px;
+    }
+
+    .showName {
+        padding: 2px 10px;
+        font-weight: 500;
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .airDate {
+        width: 70px;
+        padding: 3px 10px;
+
+    }
+
+    .showNameActor {
+        padding: 2px 30px;
+        font-weight: 400;
+        font-size: 28px;
+        cursor: pointer;
+        color: $color5;
+
+        &:hover {
+            color: $color6;
+        }
+    }
+
+    .forSummary {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .summary {
+        margin-left: 25px;
+        max-width: 395px;
+        min-width: 395px;
+        padding: 10px 15px;
+        font-size: 24px;
+        border: 1px solid $color2;
+        border-radius: 19px;
+        color: $color4;
+        background-color: $color3;
+    }
+
+    .summaryRes {
+        margin-left: 5px;
+        max-width: 650px;
+        min-width: 650px;
+        padding: 10px 15px;
+        font-size: 24px;
+        border: 1px solid $color2;
+        background-color: $color3;
+        border-radius: 19px;
+    }
+
+    .language {
+        padding: 2px 10px;
+        font-weight: 400;
+        min-width: 335px;
+        max-width: 335px;
+    }
+
+    a {
+        padding-left: 8px;
+    }
+
+    .genres {
+        display: flex;
+        font-size: 20px;
+        margin: 0;
+        color: $color4;
+        list-style: none;
+        padding: 0px 5px 0px 2px;
+
+        li {
+            padding-right: 5px;
+        }
+    }
+
+    a {
+        font-weight: 400;
+        font-size: 20px;
+        text-decoration: none;
+        color: $color5;
+        cursor: pointer;
+
+        &:hover {
+            color: $color6;
+        }
+    }
+
+
+    .nameComm {
+        font-size: 24px;
+        width: 800px;
+
+        ul {
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+            padding: 0;
+        }
+    }
+
+    .collapseTv {
+        display: flex;
+        flex-direction: row;
+        background-color: #DFFF00;
+    }
+
+    .tvName {
+        width: 300px;
+        font-weight: 400;
+    }
+
+    th {
+        text-align: left;
+    }
+
+    .imgTv {
+        width: 60px;
+        padding: 5px;
+    }
+}
+
+.showActor {
+    padding-top: 10px;
+}
+
+.details {
+    display: flex;
+    margin: auto;
+    width: 1300px;
+    background-color: $color1;
+    font-size: 18px;
+    padding: 60px 10px 10px 10px;
+
+    p {
+        padding: 5px;
+        margin: 0;
+    }
+
+    .more {
+        border-radius: 5px;
+        background-color: $color9;
+        color: $color4;
+        font-size: 16px;
+        font-weight: 300;
+        cursor: pointer;
+        text-align: center;
+        vertical-align: middle;
+        width: 160px;
+        padding: 10px 15px;
+
+        &:hover {
+
+            background-color: $color10;
+        }
+    }
+
+    .holdImg {
+        padding-right: 25px;
+        vertical-align: top;
+
+        .imgShow {
+            margin-top: 2px;
+            min-width: 500px;
+            max-width: 500px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
+
+    .sezone {
+
+        padding-left: 6px;
+        font-size: 18px;
+        width: 750px;
+        max-width: 750px;
+        max-height: 75px;
+        overflow-x: auto;
+
+        div {
+            display: flex;
+
+            p {
+                margin: 3px 0px;
+                padding-right: 15px;
+            }
+        }
+
+
+    }
+
+    .clickShow {
+        font-weight: 400;
+        font-size: 26px;
+        cursor: pointer;
+        width: 300px;
+        color: $color5;
+
+        &:hover {
+            color: $color6;
+        }
+    }
+
+    .showName {
+        padding: 2px 10px;
+        font-weight: 500;
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .showCast {
+        background-color: $color3;
+        font-size: 19px;
+        padding-left: 15px;
+        height: 30px;
+    }
+
+    .summary {
+
+        max-width: 750px;
+        min-width: 750px;
+        padding: 10px 15px;
+        font-size: 24px;
+
+        color: $color4;
+        background-color: $color3;
+
+        border-radius: 10px;
+        vertical-align: top;
+    }
+
+    .runtime {
+        display: flex;
+        vertical-align: top;
+
+        .rating {
+            font-weight: bold;
+            margin: 0px;
+        }
+
+        .rating2 {
+            margin: 0px;
+            padding-left: 10px;
+            font-weight: bold;
+        }
+
+    }
+
+    .rating3 {
+        padding: 6px;
+    }
+
+    .language {
+        padding: 2px 10px;
+        font-weight: 300;
+        min-width: 335px;
+        max-width: 335px;
+        vertical-align: top;
+    }
+
+    .genres {
+        display: flex;
+        font-size: 20px;
+        margin: 0;
+
+        list-style: none;
+        padding: 0px 5px 0px 2px;
+
+        li {
+            padding-right: 5px;
+        }
+    }
+
+    a {
+        font-weight: 300;
+        font-size: 20px;
+        text-decoration: none;
+        color: $color5;
+        cursor: pointer;
+
+        &:hover {
+            color: $color6;
+        }
+    }
+}
+
+.sezoneList {
+    display: flex;
+    margin: auto;
+    width: 1300px;
+    // background-image: linear-gradient($color2, $color1);
+    background-color: $color1;
+
+    .epNumber {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 400;
+        padding: 3px 10px;
+        width: 440px;
+    }
+
+    .epName {
+        margin: 0;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 400;
+        width: 440px;
+        padding: 10px 10px;
+    }
+
+    .epTitle {
+        padding: 15px 10px;
+        margin: 0;
+        text-align: center;
+        font-size: 24px;
+        color: $color5;
+        font-weight: 200;
+        width: 440px;
+        cursor: pointer;
+
+        &:hover {
+            color: $color6;
+        }
+    }
+
+    .airdate {
+        margin: 0;
+        width: 200px;
+        padding: 3px 10px;
+    }
+
+    .episName {
+        width: 200px;
+    }
+
+    .summaryEpis {
+        width: 540px;
+    }
+
+    .imgSezons {
+        min-width: 400px;
+        padding: 5px;
+    }
+
+    .sezonNum {
+        font-size: 25px;
+        font-weight: 400;
+        width: 50px;
+    }
+
+    .sezonDate {
+        width: 250px;
+        padding-left: 15px;
+        font-weight: 400;
+    }
+
+    .summEpis {
+        margin-top: 5px;
+        width: 450px;
+        padding: 10px 15px;
+        font-size: 22px;
+        border-radius: 19px;
+        vertical-align: top;
+    }
+}
+
+.collapse {
+    margin: auto;
+    width: 1300px;
+    border-bottom: solid 1px $color3;
+}
+
+.footer {
+    text-align: center;
+    font-size: 18px;
+    padding-top: 500px;
+    background-color: $color2;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 300px;
+    cursor: pointer;
+    border-radius: 5px;
+
+    .arrowup {
+        align-items: center;
+        width: 30px;
+        height: 25px;
+        color: $color3;
+        background-color: $color7;
+        border-radius: 5px;
+        border: solid 3px $color3;
+    }
+}
+
+.loader {
+    display: flex;
+    width: 1300px;
+    background-color: $color2;
+    color: $color5;
+    height: 1200px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.sliderDiv {
+    width: 740px;
+    min-height: 30px;
+    margin: auto;
+
+    .imageActor {
+        max-width: 170px;
+        min-height: 239px;
+        cursor: pointer;
+        border: 1px solid transparent;
+
+
+        &:hover {
+            border: 1px solid $color5;
+        }
+    }
+
+
+    .imageCaracter {
+        max-width: 170px;
+        min-height: 239px;
+    }
+
+    .vertical {
+        width: 3px;
+        height: 239px;
+    }
+
+    .clickActor {
+        max-width: 170px;
+        margin: 0;
+        padding: 5px;
+        color: $color5;
+        cursor: pointer;
+        font-size: 18px;
+        overflow: hidden;
+
+        &:hover {
+            color: $color6;
+        }
+    }
+
+    p {
+        width: 170px;
+        margin: 0;
+        padding: 5px;
+        overflow: hidden;
+
+    }
+
+}
+
+
+@media screen and (max-width: 500px) {
+    .searchMain {
+        width: 355px;
+        font-size: 20px;
+    }
+
+    .guestCast {
+        width: 345px;
+        padding-left: 10px;
+        font-size: 16px;
+    }
+
+    .showActor {
+        display: block;
+        width: 355px;
+        font-size: 14px;
+        padding: 20px 5px 5px 5px;
+
+        .holdImg {
+            padding: 2px;
+
+            .imgShow {
+                max-width: 345px;
+                min-width: 345px;
+            }
+        }
+
+        .forSummary {
+            flex-direction: column;
+        }
+
+        .summary {
+            font-size: 18px;
+        }
+
+        a {
+            font-size: 16px;
+        }
+
+        .language {
+            padding: 1px 4px;
+            max-width: 150px;
+            min-width: 150px;
+        }
+
+        .showCast {
+            max-width: 350px;
+            font-size: 16px;
+        }
+
+        .clickShow {
+            font-size: 18px;
+            max-width: 150px;
+
+            .genres {
+                font-size: 16px;
+            }
+        }
+
+        .showName {
+            padding: 1px 5px;
+            font-size: 22px;
+            max-width: 350px;
+        }
+
+        .genres {
+            font-size: 14px;
+        }
+
+        .sezone {
+            padding-left: 4px;
+            font-size: 16px;
+            width: 335px;
+            max-width: 335px;
+            max-height: 55px;
+        }
+    }
+
+    .details {
+        display: block;
+        width: 355px;
+        font-size: 14px;
+        padding: 60px 5px 5px 5px;
+
+        .more {
+            font-size: 14px;
+            padding: 5px 10px;
+            width: 130px;
+        }
+
+        .holdImg {
+            padding: 2px;
+
+            .imgShow {
+                max-width: 345px;
+                min-width: 345px;
+                border-radius: 7px;
+            }
+        }
+
+        .forSummary {
+            flex-direction: column;
+        }
+
+        .summary {
+            font-size: 18px;
+            max-width: 330px;
+            min-width: 330px;
+        }
+
+        a {
+            font-size: 14px;
+        }
+
+        .language {
+            padding: 1px 4px;
+            max-width: 150px;
+            min-width: 150px;
+        }
+
+        .showCast {
+            max-width: 350px;
+            font-size: 16px;
+        }
+
+        .clickShow {
+            font-size: 18px;
+            max-width: 150px;
+
+            .genres {
+                font-size: 16px;
+            }
+        }
+
+        .showName {
+            padding: 1px 5px;
+            font-size: 22px;
+            max-width: 350px;
+        }
+
+        .genres {
+            font-size: 14px;
+        }
+
+        .sezone {
+            padding-left: 4px;
+            font-size: 14px;
+            width: 335px;
+            max-width: 335px;
+            max-height: 62px;
+        }
+    }
+
+    .place {
+        width: 355px;
+        padding: 50px 5px 5px 5px;
+
+        .placeBut {
+            padding: 2px;
+            display: block;
+        }
+    }
+
+    .gridTv {
+        grid-template-columns: auto auto auto;
+        width: 355px;
+        font-size: 16px;
+        gap: 8px;
+        padding: 10px 4px;
+
+        .time {
+            font-size: 16px;
+            font-weight: 300;
+            padding: 5px 10px;
+        }
+
+        .gridItem {
+            padding: 2px;
+            max-width: 107x;
+
+            img {
+                min-width: 107px;
+                min-height: 156px;
+            }
+
+            .genresTv {
+                position: absolute;
+                width: 107px;
+                height: 157px;
+                font-size: 12px;
+                font-weight: 100;
+                top: 1px;
+                padding-bottom: 8px;
+
+                .episode {
+                    font-weight: 300;
+                    font-size: 14px;
+                    padding: 5px;
+                }
+
+                p {
+                    margin: 0px;
+                    padding: 2px;
+                }
+            }
+
+            &:hover .genresTv {
+                display: flex;
+            }
+
+            .showName {
+                max-width: 95px;
+                font-size: 12px;
+                padding: 5px 3px;
+            }
+        }
+    }
+
+    .showActor {
+        width: 355px;
+
+        .imgCastMain {
+            max-width: 345px;
+
+            .guest {
+                display: flex;
+                width: 200px;
+
+                .guestImgClick,
+                .guestImg {
+                    width: 100px;
+                }
+            }
+
+            .guestName {
+                display: flex;
+                justify-content: space-between;
+                height: 50px;
+
+                p {
+                    width: 100px;
+                    font-size: 12px;
+                    padding-left: 3px;
+                }
+
+                .click {
+                    font-size: 12px;
+                    cursor: pointer;
+                    text-align: right;
+                    padding-right: 5px;
+                    width: 100px;
+                }
+            }
+
+            .imgCast {
+                min-width: 100px;
+            }
+        }
+
+        .wrap {
+            font-size: 16px;
+        }
+
+        .bigImg {
+            width: 345px;
+        }
+
+        .imgEpisode {
+            min-width: 345px;
+            max-width: 345px;
+        }
+
+        .number {
+            padding-left: 15px;
+            font-size: 18px;
+        }
+
+        .summary {
+            margin-left: 0px;
+            max-width: 345px;
+            min-width: 345px;
+        }
+    }
+
+    .sezoneList {
+        display: block;
+        margin: auto;
+        width: 355px;
+
+        .episName {
+            width: 200px;
+        }
+
+        .epNumber {
+            font-size: 16px;
+        }
+
+        .epName {
+            font-size: 18px;
+            width: 350px;
+            padding: 4px 5px;
+        }
+
+        .epTitle {
+            padding: 7px 5px;
+            margin: 0px;
+            width: 355px;
+            font-size: 18px;
+        }
+
+        .summaryEpis {
+            width: 345px;
+        }
+
+        .imgSezons {
+            min-width: 345px;
+            padding: 2px;
+        }
+
+        .sezonNum {
+            font-size: 18px;
+
+            width: 50px;
+        }
+
+        .sezonDate {
+            width: 250px;
+        }
+
+        .summEpis {
+            width: 350px;
+            padding: 5px 5px;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+    }
+
+    .showMain {
+        padding-top: 50px;
+        width: 355px;
+
+        .bigImg {
+            width: 340px;
+        }
+
+        .holdImg {
+            padding-right: 2px;
+
+            .imgShow {
+                padding-right: 3px;
+                min-width: 115px;
+                max-width: 115px;
+            }
+
+            .imgActor {
+                min-width: 110px;
+                max-width: 110px;
+            }
+        }
+
+        .showNameActor {
+            font-size: 22px;
+        }
+
+        a,
+        .language {
+            min-width: 95px;
+            max-width: 95px;
+            font-size: 14px;
+        }
+
+        .clickShow {
+            font-size: 22px;
+        }
+
+        .summary {
+            max-width: 100px;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        .summaryRes {
+            margin-left: 3px;
+            padding: 8px 6px;
+            max-width: 100px;
+            min-width: 100px;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        td,
+        .genres {
+            font-size: 14px;
+        }
+    }
+
+    .collapse {
+        width: 345px;
+    }
+
+    .footer {
+        padding-top: 100px;
+        font-size: 14px;
+    }
+
+    .back-to-top {
+        right: 20px;
+    }
+
+    .sliderDiv {
+        width: 300px;
+        min-height: 15px;
+
+        .imageActor {
+            max-width: 60px;
+            min-height: 84.4px;
+        }
+
+        .imageCaracter {
+            max-width: 60px;
+            min-height: 84.4px;
+        }
+
+        .vertical {
+            width: 3px;
+            height: 84.4px;
+        }
+
+        .clickActor {
+            max-width: 60px;
+            margin: 0;
+            padding: 3px;
+            font-size: 12px;
+        }
+
+        p {
+            font-size: 12px;
+            width: 60px;
+            padding: 3px;
+        }
+    }
+}
