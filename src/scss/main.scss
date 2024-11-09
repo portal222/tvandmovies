@@ -141,6 +141,7 @@ body {
             }
 
             p {
+                font-weight: 300;
                 margin: 0px;
                 padding: 2px;
             }
@@ -193,7 +194,6 @@ body {
     padding-top: 2px;
     margin: auto;
     width: 1300px;
-    // background-image: linear-gradient($color2, $color1);
     background-color: $color1;
     font-size: 18px;
     padding: 50px 10px 10px 10px;
@@ -224,6 +224,7 @@ body {
         max-width: 400px;
         max-height: 80px;
         overflow-x: auto;
+        font-weight: 300;
 
         p {
             margin: 3px 0px;
@@ -504,6 +505,9 @@ body {
         font-size: 19px;
         padding-left: 15px;
         height: 30px;
+        td {
+            padding-left: 10px;
+        }
     }
 
     .summary {
@@ -630,8 +634,8 @@ body {
     }
 
     .imgSezons {
-        min-width: 400px;
-        padding: 5px;
+        width: 400px;
+        padding: 5px 5px;
     }
 
     .sezonNum {
@@ -672,7 +676,7 @@ body {
 
     hr {
         color: $color3;
-    background-color: $color3;
+        background-color: $color3;
 
     }
 }
@@ -700,7 +704,7 @@ body {
     width: 1300px;
     background-color: $color2;
     color: $color5;
-    height: 1200px;
+    height: 1000px;
     margin: auto;
     justify-content: center;
     align-items: center;
@@ -1074,8 +1078,8 @@ body {
         }
 
         .imgSezons {
-            min-width: 345px;
-            padding: 2px;
+            width: 355px;
+            padding: 5px 0px;
         }
 
         .sezonNum {
@@ -1166,6 +1170,11 @@ body {
 
     .back-to-top {
         right: 20px;
+    }
+
+    .loader {
+        width: 355px;
+        height: 700px;
     }
 
     .sliderDiv {

@@ -71,7 +71,7 @@ const Home = () => {
                                     </>
                                 )}
                                 {serija._embedded.show.runtime && (
-                                    <p style={{paddingTop: "15px"}}>⏲{serija._embedded.show.runtime} min</p>
+                                    <p style={{paddingTop: "10px"}}>⏲{serija._embedded.show.runtime} min</p>
                                 )}
                             </div>
 

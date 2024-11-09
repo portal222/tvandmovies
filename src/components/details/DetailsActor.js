@@ -47,6 +47,8 @@ const DetailsActor = () => {
             setIsLoading(false);
             setResults(data.length);
 
+            console.log("guest cast", dataCast)
+
 
         } catch (err) {
             setError(err);

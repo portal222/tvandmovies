@@ -22,7 +22,7 @@ const SezoneList = (props) => {
                         </div>
                         <div>
                             <img className="imgSezons"
-                                src={sezon.image?.medium} />
+                                src={sezon.image?.original} />
                         </div>
                         <div className="summEpis" dangerouslySetInnerHTML={{ __html: sezon.summary }}>
                         </div>

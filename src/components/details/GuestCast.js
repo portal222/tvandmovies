@@ -31,7 +31,7 @@ const GuestCast = (props) => {
                     </div>
                 </div>
                 <div>
-                    <p> <img src={props.guestCast._embedded.episode.image?.medium} className="imgSezons" /> </p>
+                    <p> <img src={props.guestCast._embedded.episode.image?.original} className="imgSezons" /> </p>
                 </div>
                 <div >
                     <p className="summEpis" dangerouslySetInnerHTML={{ __html: props.guestCast._embedded.episode.summary }}></p>
