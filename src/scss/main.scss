@@ -18,10 +18,7 @@ body {
     color: $color4;
 }
 
-.place {
-    width: 100vh;
-    height: 600px;
-}
+
 
 .average {
     color: transparent;
@@ -60,6 +57,7 @@ body {
 .place {
     margin: auto;
     width: 1300px;
+    height: 300px;
     padding: 80px 10px 10px 10px;
     justify-content: center;
     background-color: $color1;
@@ -124,7 +122,7 @@ body {
             width: 194px;
             height: 273px;
             font-size: 18px;
-            font-weight: 200;
+            font-weight: 300;
             color: $color4;
             top: 0px;
             display: none;
@@ -155,7 +153,7 @@ body {
         .showName {
             max-width: 194px;
             font-size: 20px;
-            font-weight: 200;
+            font-weight: 300;
             cursor: pointer;
             margin: 0;
             padding: 10px 5px;
@@ -179,6 +177,10 @@ body {
     text-align: center;
     // background-image: linear-gradient($color2, $color1);
     background-color: $color1;
+
+    p {
+        margin: 0;
+    }
 }
 
 .guestCast {
@@ -207,7 +209,7 @@ body {
     .wrap {
         color: $color5;
         font-size: 18px;
-        font-weight: bold;
+        font-weight: 300;
         cursor: pointer;
 
         &:hover {
@@ -579,7 +581,6 @@ body {
     display: flex;
     margin: auto;
     width: 1300px;
-    // background-image: linear-gradient($color2, $color1);
     background-color: $color1;
 
     .epNumber {
@@ -665,7 +666,15 @@ body {
     text-align: center;
     font-size: 18px;
     padding-top: 500px;
+    padding-bottom: 10px;
     background-color: $color2;
+    color: $color3;
+
+    hr {
+        color: $color3;
+    background-color: $color3;
+
+    }
 }
 
 .back-to-top {
@@ -1152,7 +1161,7 @@ body {
 
     .footer {
         padding-top: 100px;
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .back-to-top {

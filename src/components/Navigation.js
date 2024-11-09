@@ -38,15 +38,15 @@ const Navigation = () => {
           <div className="fixed">
             <NavLink to="/">
               <Button variant="contained" sx={{ ml: 2 }}>
-                Home</Button >
-            </NavLink>
-            <NavLink to="/search">
-              <Button variant="contained" sx={{ ml: 2 }}>
-                Search</Button>
+                TV Show</Button >
             </NavLink>
             <NavLink to="/movie">
               <Button variant="contained" sx={{ ml: 2 }}>
                 Movies</Button>
+            </NavLink>
+            <NavLink to="/search">
+              <Button variant="contained" sx={{ ml: 2 }}>
+                Search</Button>
             </NavLink>
           </div>
 
