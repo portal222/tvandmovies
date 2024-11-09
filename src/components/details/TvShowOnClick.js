@@ -5,12 +5,16 @@ import ResultsTvTime from "../results/ResultsTvTime";
 import TvShowClickDetails from "./TvShowClickDetails";
 import EpisodeNumberClick from "./EpisodeNumberClick";
 import { useNavigate } from "react-router-dom";
+import Loader from "../Loader";
+
 
 
 const TvShowOnClick = () => {
 
 
     const [show, setShow] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
 
 
     const navigate = useNavigate();
@@ -38,6 +42,9 @@ const TvShowOnClick = () => {
             const response = await axios.get(url);
             const data = response.data;
             setShow(data);
+            setIsLoading(false);
+
+
 
 
         } catch (err) {
@@ -81,7 +88,11 @@ const TvShowOnClick = () => {
     }
 
 
-
+    if (isLoading) {
+        return (
+            <Loader />
+        )
+    }
 
     return (
         <>

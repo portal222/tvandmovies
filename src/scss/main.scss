@@ -479,7 +479,7 @@ body {
     }
 
     .clickShow {
-        font-weight: 400;
+        font-weight: 300;
         font-size: 26px;
         cursor: pointer;
         width: 300px;
@@ -523,20 +523,22 @@ body {
         vertical-align: top;
 
         .rating {
-            font-weight: bold;
+            font-weight: 300;
             margin: 0px;
         }
 
         .rating2 {
             margin: 0px;
             padding-left: 10px;
-            font-weight: bold;
+            font-weight: 300;
         }
 
     }
 
     .rating3 {
         padding: 6px;
+        font-weight: 300;
+
     }
 
     .language {
@@ -551,7 +553,7 @@ body {
         display: flex;
         font-size: 20px;
         margin: 0;
-
+        font-weight: 300;
         list-style: none;
         padding: 0px 5px 0px 2px;
 
@@ -603,7 +605,7 @@ body {
         text-align: center;
         font-size: 24px;
         color: $color5;
-        font-weight: 200;
+        font-weight: 300;
         width: 440px;
         cursor: pointer;
 

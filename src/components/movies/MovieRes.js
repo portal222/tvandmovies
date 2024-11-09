@@ -86,7 +86,7 @@ const MovieRes = () => {
                                         ))}
                                     </>
                                 )}
-                                <p style={{paddingTop: "15px"}}> ⏲{movie.runtime} min 🧡{movie.rating}</p>
+                                <p style={{paddingTop: "15px"}}> ⏲{movie.runtime} min ⭐{movie.rating}</p>
 
                             </span>
                         </div>

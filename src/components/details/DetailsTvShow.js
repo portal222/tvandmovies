@@ -7,6 +7,8 @@ import SezoneList from "./SezoneList";
 import EpisodeNumber from "./EpisodeNumber";
 import BackToTop from "../BackToTop";
 import Slider from "react-slick";
+import Loader from "../Loader";
+
 
 
 const DetailsTvShow = () => {
@@ -14,7 +16,8 @@ const DetailsTvShow = () => {
     const [show, setShow] = useState([]);
     const [cast, setCast] = useState([]);
     const [sezons, setSezons] = useState([]);
-    const [images, setImages] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
 
     const navigate = useNavigate();
 
@@ -43,6 +46,8 @@ const DetailsTvShow = () => {
             setShow(data);
             setCast(data._embedded.cast);
             setSezons(dataSez)
+            setIsLoading(false);
+
 
             console.log("podaci za cast", data._embedded.cast)
             console.log("detalji serija", data)
@@ -110,6 +115,11 @@ const DetailsTvShow = () => {
         }
     }
 
+    if (isLoading) {
+        return (
+            <Loader />
+        )
+    }
     return (
         <>
             <div className="details">

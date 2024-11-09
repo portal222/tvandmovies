@@ -1,30 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import Loader from "../Loader";
 import Time from "../Time";
+import datas from "../../../public/category.json";
 
 const MovieYts = () => {
 
     const [movies, setMovies] = useState([]);
     const [page, setPage] = useState(1);
     const [totalMovies, setTotalMovies] = useState(0);
-    const [category, setCategory] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     const limit = 10;
 
     const navigate = useNavigate();
-
-    useEffect(() => {
-        axios.get(`../category.json`).then(res => {
-            const data = res.data;
-            setCategory(data)
-
-            console.log("muvies kategorije podaci", data)
-        });
-    }, []);
-
 
     useEffect(() => {
         fetchMovies(page);
@@ -57,7 +46,7 @@ const MovieYts = () => {
         return (
             <>
                 <div className="movieGenre">
-                    {category.map((categ, id) => (
+                    {datas.map((categ, id) => (
                         <div key={id} className="genreName"
                             onClick={() => clickMovie(categ.title)}>
                             {categ.title}
@@ -74,7 +63,7 @@ const MovieYts = () => {
                 <p className="time">Movies <Time /></p>
             </div>
             <div className="movieGenre">
-                {category.map((categ, id) => (
+                {datas.map((categ, id) => (
                     <div key={id} className="genreName"
                         onClick={() => clickMovie(categ.title)}>
                         {categ.title}
@@ -101,7 +90,7 @@ const MovieYts = () => {
                                         ))}
                                     </>
                                 )}
-                                <p style={{paddingTop: "15px"}}> ⏲{movie.runtime} min ⭐{movie.rating}</p>
+                                <p style={{ paddingTop: "15px" }}> ⏲{movie.runtime} min ⭐{movie.rating}</p>
 
                             </span>
                         </div>
@@ -120,7 +109,7 @@ const MovieYts = () => {
                         onClick={() => setPage(i + 1)}
                         disabled={i + 1 === page}
                     >
-                            {i + 1}      
+                        {i + 1}
                     </div>
                 ))}
             </div>
