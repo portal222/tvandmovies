@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import BackToTop from "../BackToTop";
 
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader";
 
-import axios from "axios";
+
 
 
 
@@ -92,6 +93,7 @@ const MovieYtsCateg = () => {
                 ))}
             </div>
             <div className="place"></div>
+            <BackToTop />
         </>
     );
 };

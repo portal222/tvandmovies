@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import MovieActor from "./MovieActor";
+import BackToTop from "../BackToTop";
+
 
 
 
@@ -196,7 +198,7 @@ const MovieDetails2 = () => {
 
                                     <p>{genre}</p>
                                 ))}
-                                <p style={{paddingTop: "15px"}}> ⏲{movie.runtime} min ⭐{movie.rating}</p>
+                                <p style={{ paddingTop: "15px" }}> ⏲{movie.runtime} min ⭐{movie.rating}</p>
 
 
                             </span>
@@ -208,9 +210,8 @@ const MovieDetails2 = () => {
 
                     </div>
                 ))}
-
             </div>
-
+            <BackToTop />
         </>
     )
 

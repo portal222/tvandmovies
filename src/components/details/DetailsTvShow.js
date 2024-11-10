@@ -164,6 +164,7 @@ const DetailsTvShow = () => {
                         <EpisodeNumber sezones={sezons} />
 
                         <tr>
+                            
                             <td className="rating3">Premiered:{" " + show.premiered}</td>
                             {show.ended && (
                                 <td className={`rating3 ${classFunction3(show.ended)}`}>

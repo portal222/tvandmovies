@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../Loader";
 import Time from "../Time";
 import datas from "../../../public/category.json";
+import BackToTop from "../BackToTop";
+
 
 const MovieYts = () => {
 
@@ -114,6 +116,7 @@ const MovieYts = () => {
                 ))}
             </div>
             <div className="place"></div>
+            <BackToTop />
         </>
     );
 };

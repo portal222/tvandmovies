@@ -55,7 +55,7 @@ const GuestCaracter = (props) => {
                         </table>
                     </div>
                 ) : ((props.embedded.length == 0) ? (
-                    <div className="sliderDiv" style={{ textAlign: "center" }}>No guest character data available</div>
+                    <div className="sliderDiv" style={{ textAlign: "center", padding: "10px" }}>No guest character data available</div>
                 ) : (
                     <div className="sliderDiv">
                         <Slider {...settings}>

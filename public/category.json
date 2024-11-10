@@ -2,7 +2,6 @@
     { "title": "Action"},
     { "title": "Adventure"},
     { "title": "Animation"},
-    { "title": "Anime"},
     { "title": "Comedy"},
     { "title": "Crime"},
     { "title": "Documentary"},
@@ -15,6 +14,7 @@
     { "title": "Mystery"},
     { "title": "Romance"},
     { "title": "Sci-Fi"},
+    { "title": "Sport"},
     { "title": "Thriller"},
     { "title": "Western"}
 ]

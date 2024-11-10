@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import MovieActor from "./MovieActor";
+import BackToTop from "../BackToTop";
+
 
 
 
@@ -218,7 +220,7 @@ const MovieDetails = () => {
                 ))}
 
             </div>
-
+            <BackToTop />
         </>
     )
 

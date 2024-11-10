@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import GlobalContext from "../GlobalContext";
 import Loader from "../Loader";
+import BackToTop from "../BackToTop";
+
 
 
 const MovieRes = () => {
@@ -109,6 +111,7 @@ const MovieRes = () => {
                 ))}
             </div>
             <div className="place"></div>
+            <BackToTop />
         </>
     );
 }

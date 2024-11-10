@@ -57,7 +57,8 @@ const Home = () => {
                         <div key={serija._embedded.show.id}
                             className="gridItem">
 
-                            <img src={serija._embedded.show.image?.medium} alt="no picture" />
+                            <img src={serija._embedded.show.image?.medium} alt="" />
+
 
                             <div className="genresTv">
                                 <p className="episode">S{serija.season}  E{serija.number}</p>
@@ -71,7 +72,7 @@ const Home = () => {
                                     </>
                                 )}
                                 {serija._embedded.show.runtime && (
-                                    <p style={{paddingTop: "10px"}}>⏲{serija._embedded.show.runtime} min</p>
+                                    <p style={{ paddingTop: "10px" }}>⏲{serija._embedded.show.runtime} min</p>
                                 )}
                             </div>
 
