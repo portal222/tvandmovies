@@ -179,7 +179,6 @@ $color8: rgb(18, 17, 58);
             padding: 5px 30px;
 
             img {
-
                 border-radius: 8px;
             }
         }
@@ -195,6 +194,7 @@ $color8: rgb(18, 17, 58);
 
             .dropImg {
                 width: 230px;
+                height: 345px;
             }
 
             .dropdown-contentM {
@@ -280,7 +280,6 @@ $color8: rgb(18, 17, 58);
         text-align: center;
         padding: 8px 10px;
         font-size: 20px;
-        font-weight: 300;
         background-color: $color13;
         border-radius: 5px;
         color: $color14;
@@ -316,7 +315,6 @@ $color8: rgb(18, 17, 58);
 
     .detailMain,
     .movieMain {
-
         width: 355px;
         padding: 0px;
 
@@ -433,7 +431,6 @@ $color8: rgb(18, 17, 58);
                     }
                 }
             }
-
         }
 
         .iframe {
@@ -449,6 +446,7 @@ $color8: rgb(18, 17, 58);
 
                 .dropImg {
                     width: 160px;
+                    height: 240px;
                 }
 
                 .dropdown-contentM {

@@ -5,10 +5,6 @@ import { useNavigate } from "react-router-dom";
 import MovieActor from "./MovieActor";
 import BackToTop from "../BackToTop";
 
-
-
-
-
 const MovieDetails = () => {
 
     const [movies, setMovies] = useState([]);
@@ -18,9 +14,7 @@ const MovieDetails = () => {
     const navigate = useNavigate();
 
     const params = useParams();
-
     const numId = params.numId;
-
 
     useEffect(() => {
         getDetails();
@@ -28,12 +22,8 @@ const MovieDetails = () => {
 
     const getDetails = async () => {
 
-
-        const url = `https://yts.mx/api/v2/movie_details.json?movie_id=${numId}&with_images=true&with_cast=true&with_direct=true`;
+        const url = `https://yts.mx/api/v2/movie_details.json?movie_id=${numId}&with_images=true&with_cast=true&with_rt_ratings`;
         const urlSub = `https://yts.mx/api/v2/movie_suggestions.json?movie_id=${numId}`;
-
-
-
 
         try {
             const response = await axios.get(url);
@@ -45,7 +35,6 @@ const MovieDetails = () => {
             console.log("filmovi detalji", data)
             console.log("filmovi sugestije", dataSub)
 
-
             setMovies(data)
             setSugestions(dataSub)
 
@@ -53,7 +42,6 @@ const MovieDetails = () => {
             setError(err);
         }
     };
-
 
     const clickShow = (numId) => {
         const LinkTo = `/movieDetails2/${numId}`;
@@ -68,17 +56,13 @@ const MovieDetails = () => {
                         <div>
                             {movies.large_cover_image && (
                                 <img src={movies.large_cover_image} alt="no picture" />
-
                             )}
                         </div>
                         <div >
-
                             <iframe src={`https://www.youtube.com/embed/${movies.yt_trailer_code}`} allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                 className="iframe"></iframe>
                         </div>
                     </div>
-
-
                     <div>
                         <div className="movieTitle">
                             {movies.title_long}
@@ -93,34 +77,27 @@ const MovieDetails = () => {
                             )}
                             <div className="genres">
                                 <p>{"⏲" + movies.runtime + " min " + "⭐" + movies.rating} </p>
-
                                 <span>Uploaded {movies.date_uploaded}</span>
                             </div>
                         </div>
-
                         <div className="description">
                             {movies.description_full}
                         </div>
-
                         {movies.cast && (
                             <div>
                                 {movies.cast.map(item => (
                                     <div className="casting">
                                         {item.url_small_image && (
-
                                             <img src={item.url_small_image} alt="no picture"
                                                 style={{ width: "60px", height: "60px" }} />
                                         )}
                                         <MovieActor actor={item.name} />
                                         <p> as {item.character_name}</p>
-
-
                                     </div>
                                 ))}
                             </div>
                         )}
                         <div className="sugestion">
-
                             <div className="screen">
                                 <div className="screenImg">
                                     <img src={movies.medium_screenshot_image1} />
@@ -141,9 +118,6 @@ const MovieDetails = () => {
                                     </span>
                                 </div>
                             </div>
-
-
-
                             {movies.torrents && (
                                 <div>
                                     {movies.torrents.map((tor, id) => (
@@ -174,22 +148,12 @@ const MovieDetails = () => {
                                     ))}
                                 </div>
                             )}
-
-
                         </div>
-
-
-
-
-
                     </div>
-
                 </div>
-
                 <div className="similar">
                     Similar Movies
                 </div>
-
             </div>
             <div className="movieMain">
                 {sugestions.map(movie => (
@@ -197,33 +161,28 @@ const MovieDetails = () => {
                         className="holder">
                         <div className="dropdownM">
                             <div>
-                                <img src={movie.medium_cover_image} alt="no picture"
+                                <img src={movie.medium_cover_image} alt=""
                                 />
                             </div>
                             <span className="dropdown-contentM"
                             >
-                                {movie.genres.map(genre => (
-
-                                    <p>{genre}</p>
+                                {movie.genres.map((genre, id) => (
+                                    <p key={id}>{genre}</p>
                                 ))}
                                 <p style={{ paddingTop: "15px" }}> ⏲{movie.runtime} min ⭐{movie.rating}</p>
-
-
                             </span>
                         </div>
                         <div onClick={() => clickShow(movie.id)}
                             className="titleLong">
                             {movie.title_long}
                         </div>
-
                     </div>
                 ))}
-
             </div>
+            <div className="place"></div>
+            <div className="place"></div>
             <BackToTop />
         </>
     )
-
-
 }
 export default MovieDetails;

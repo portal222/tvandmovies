@@ -80,7 +80,7 @@ const MovieYts = () => {
                         className="holder">
                         <div className="dropdownM">
                             <div>
-                                <img src={movie.medium_cover_image} alt="no picture" className="dropImg"
+                                <img src={movie.medium_cover_image} alt="" className="dropImg"
                                 />
                             </div>
                             <span className="dropdown-contentM"

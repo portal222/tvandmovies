@@ -163,8 +163,7 @@ const DetailsTvShow = () => {
 
                         <EpisodeNumber sezones={sezons} />
 
-                        <tr>
-                            
+                        <tr>      
                             <td className="rating3">Premiered:{" " + show.premiered}</td>
                             {show.ended && (
                                 <td className={`rating3 ${classFunction3(show.ended)}`}>
@@ -210,16 +209,14 @@ const DetailsTvShow = () => {
                             <tbody>
                                 <tr >
                                     {cast[0].person?.image?.medium && (
-
-
                                         <td> <img className="imageActor"
-                                            src={cast[0].person?.image?.medium} alt="no picture"
+                                            src={cast[0].person?.image?.medium} alt=""
                                             onClick={() => clickPerson(cast[0].person.id)} />
                                         </td>
                                     )}
                                     {cast[0].character?.image?.medium && (
                                         <td >  <img
-                                            src={cast[0].character?.image?.medium} alt="no picture"
+                                            src={cast[0].character?.image?.medium} alt=""
                                             className="imageCaracter" />
                                         </td>
                                     )}
@@ -237,7 +234,7 @@ const DetailsTvShow = () => {
 
 
                 ) : ((cast.length == 0) ? (
-                    <div className="sliderDiv" style={{ textAlign: "center" }}>No cast data available</div>
+                    <div className="sliderDiv" style={{ textAlign: "center", padding: "10px" }}>No cast data available</div>
                 ) : (
                     <div className="sliderDiv">
                         <Slider {...settings}>

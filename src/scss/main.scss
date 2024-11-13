@@ -52,7 +52,7 @@ body {
 .place {
     margin: auto;
     width: 1300px;
-    height: 300px;
+    height: 600px;
     padding: 80px 10px 10px 10px;
     justify-content: center;
     background-color: $color1;
@@ -78,8 +78,8 @@ body {
     margin: auto;
     width: 1300px;
     text-align: left;
-    padding-left: 20px;
-    background-color: #cccccc;
+    padding: 7px 10px;
+    background-color: #7077A1;
     font-size: 20px;
 }
 
@@ -174,11 +174,6 @@ body {
     p {
         margin: 0;
     }
-}
-
-.guestCast {
-    background-color: $color3;
-    font-size: 20px;
 }
 
 .showMain,
@@ -759,7 +754,6 @@ body {
 
     .guestCast {
         width: 345px;
-        padding-left: 10px;
         font-size: 16px;
     }
 

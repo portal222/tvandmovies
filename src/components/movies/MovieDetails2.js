@@ -5,10 +5,6 @@ import { useNavigate } from "react-router-dom";
 import MovieActor from "./MovieActor";
 import BackToTop from "../BackToTop";
 
-
-
-
-
 const MovieDetails2 = () => {
 
     const [movies, setMovies] = useState([]);
@@ -18,9 +14,7 @@ const MovieDetails2 = () => {
     const navigate = useNavigate();
 
     const params = useParams();
-
     const numId = params.numId;
-
 
     useEffect(() => {
         getDetails();
@@ -28,12 +22,8 @@ const MovieDetails2 = () => {
 
     const getDetails = async () => {
 
-
         const url = `https://yts.mx/api/v2/movie_details.json?movie_id=${numId}&with_images=true&with_cast=true&with_direct=true`;
         const urlSub = `https://yts.mx/api/v2/movie_suggestions.json?movie_id=${numId}`;
-
-
-
 
         try {
             const response = await axios.get(url);
@@ -44,7 +34,6 @@ const MovieDetails2 = () => {
 
             console.log("filmovi detalji", data)
             console.log("filmovi sugestije", dataSub)
-
 
             setMovies(data)
             setSugestions(dataSub)
@@ -67,18 +56,14 @@ const MovieDetails2 = () => {
                     <div>
                         <div>
                             {movies.large_cover_image && (
-                                <img src={movies.large_cover_image} alt="no picture" />
-
+                                <img src={movies.large_cover_image} alt="" />
                             )}
                         </div>
                         <div >
-
                             <iframe src={`https://www.youtube.com/embed/${movies.yt_trailer_code}`} allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                 className="iframe"></iframe>
                         </div>
                     </div>
-
-
                     <div>
                         <div className="movieTitle">
                             {movies.title_long}
@@ -106,8 +91,7 @@ const MovieDetails2 = () => {
                                 {movies.cast.map(item => (
                                     <div className="casting">
                                         {item.url_small_image && (
-
-                                            <img src={item.url_small_image} alt="no picture" style={{ width: "60px", height: "60px" }} />
+                                            <img src={item.url_small_image} alt="" style={{ width: "60px", height: "60px" }} />
                                         )}
                                         <MovieActor actor={item.name} />
                                         <p> as {item.character_name}</p>
@@ -166,22 +150,12 @@ const MovieDetails2 = () => {
                                     ))}
                                 </div>
                             )}
-
-
                         </div>
-
-
-                        {/* <img src={movies.large_screenshot_image1} /> */}
-
-
                     </div>
-
                 </div>
-
                 <div className="similar">
                     Similar Movies
                 </div>
-
             </div>
             <div className="movieMain">
                 {sugestions.map(movie => (
@@ -194,27 +168,24 @@ const MovieDetails2 = () => {
                             </div>
                             <span className="dropdown-contentM"
                             >
-                                {movie.genres.map(genre => (
+                                {movie.genres.map((genre, id) => (
 
-                                    <p>{genre}</p>
+                                    <p key={id}>{genre}</p>
                                 ))}
                                 <p style={{ paddingTop: "15px" }}> ⏲{movie.runtime} min ⭐{movie.rating}</p>
-
-
                             </span>
                         </div>
                         <div onClick={() => clickShow(movie.id)}
                             className="titleLong">
                             {movie.title_long}
                         </div>
-
                     </div>
                 ))}
             </div>
+            <div className="place"></div>
+            <div className="place"></div>
             <BackToTop />
         </>
     )
-
-
 }
 export default MovieDetails2;

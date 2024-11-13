@@ -14,6 +14,9 @@ const Loader = () => {
                 </div>
             </div>
             <div className="place"></div>
+            <div className="place"></div>
+            <div className="place"></div>
+
         </>
     )
 }
