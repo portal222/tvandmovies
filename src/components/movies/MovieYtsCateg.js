@@ -33,7 +33,7 @@ const MovieYtsCateg = () => {
     }, [page]);
 
     const fetchMovies = async (page) => {
-        const response = await fetch(`https://yts.mx/api/v2/list_movies.json?genre=${genre}&limit=${limit}&page=${page}`);
+        const response = await fetch(`https://yts.mx/api/v2/list_movies.json?sort_by=year&genre=${genre}&limit=${limit}&page=${page}`);
         const data = await response.json();
         setMovies(data.data.movies);
         setTotalMovies(data.data.movie_count);
