@@ -69,6 +69,8 @@ const MovieRes = () => {
             <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
             <p className="time">Results for: {searchStringValue}</p>
             </div>
+            <div className="hrGenre"></div>
+
             <div className="movieMain" >
                 {movies.map(movie => (
                     <div key={movie.id}

@@ -293,7 +293,10 @@ $color8: rgb(18, 17, 58);
     grid-template-columns: auto auto auto auto auto auto auto auto auto;
     width: 1300px;
 
-    .genreName {
+ 
+
+    .genreName,
+    .timeGenre {
         padding: 2px 10px;
         text-align: center;
         font-weight: 500;
@@ -305,6 +308,11 @@ $color8: rgb(18, 17, 58);
             color: $color16;
         }
     }
+
+    .timeGenre {
+        color: $color14;
+    }
+ 
 }
 
 @media screen and (max-width: 500px) {
@@ -500,10 +508,14 @@ $color8: rgb(18, 17, 58);
         width: 355px;
         height: 130px;
 
-        .genreName {
+        .genreName,
+        .timeGenre {
             padding: 2px;
             text-align: center;
             font-size: 14px;
+        }
+        .timeGenre {
+            color: $color14;
         }
     }
 }

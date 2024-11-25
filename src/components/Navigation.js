@@ -16,6 +16,9 @@ import MovieDetails from "./movies/MovieDetails";
 import MovieDetails2 from "./movies/MovieDetails2";
 import MovieRes from "./movies/MovieRes";
 import MovieYtsCateg from "./movies/MovieYtsCateg";
+import MovieRating from "./movies/MovieRating";
+import MovieYear from "./movies/MovieYear";
+
 
 
 const theme = createTheme({
@@ -72,6 +75,8 @@ const Navigation = () => {
           <Route path="/movieDetails2/:numId" element={<MovieDetails2 />} />
           <Route path="/movies" element={<MovieRes />} />
           <Route path="/categ/:genre" element={<MovieYtsCateg />} />
+          <Route path="/rating" element={<MovieRating />} />
+          <Route path="/year" element={<MovieYear />} />
 
 
 

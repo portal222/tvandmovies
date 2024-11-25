@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loader from "../Loader";
-import Time from "../Time";
-import datas from "../../../public/category.json";
 import BackToTop from "../BackToTop";
-import Year from "../Year";
 
 
-const MovieYts = () => {
+const MovieRating = () => {
 
     const [movies, setMovies] = useState([]);
     const [page, setPage] = useState(1);
@@ -23,13 +20,11 @@ const MovieYts = () => {
     }, [page]);
 
     const fetchMovies = async (page) => {
-        const response = await fetch(`https://yts.mx/api/v2/list_movies.json?limit=${limit}&page=${page}`);
+        const response = await fetch(`https://yts.mx/api/v2/list_movies.json?sort_by=rating&limit=${limit}&page=${page}`);
         const data = await response.json();
         setMovies(data.data.movies);
         setTotalMovies(data.data.movie_count);
         setIsLoading(false);
-
-        console.log("filmovi yts", data.data)
     }
 
     const totalPages = Math.ceil(totalMovies / limit);
@@ -44,53 +39,23 @@ const MovieYts = () => {
         navigate(LinkTo);
     }
 
-    const clickRating = () => {
-        const LinkTo = `/rating`;
-        navigate(LinkTo);
-    }
-
-    const clickYear = () => {
-        const LinkTo = `/year`;
-        navigate(LinkTo);
-    }
-
 
     if (isLoading) {
         return (
             <>
-                <div className="movieGenre">
-                    {datas.map((categ, id) => (
-                        <div key={id} className="genreName"
-                            onClick={() => clickMovie(categ.title)}>
-                            {categ.title}
-                        </div>
-                    ))}
-                </div>
+              <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
+                <p className="time">Sort by best rating</p>
+            </div>
                 <Loader />
             </>
         )
     }
     return (
         <>
-            <div className="movieGenre" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
-                <p className="timeGenre">Movies <Time /></p>
-                <p className="genreName"
-                onClick={() => clickRating()}>
-                    Rating
-                </p>
-                <p className="genreName"
-                onClick={() => clickYear()}>
-                    <Year />
-                </p>
+            <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
+                <p className="time">Sort by best rating</p>
             </div>
-            <div className="movieGenre">
-                {datas.map((categ, id) => (
-                    <div key={id} className="genreName"
-                        onClick={() => clickMovie(categ.title)}>
-                        {categ.title}
-                    </div>
-                ))}
-            </div>
+         
             <div className="hrGenre"></div>
 
             <div className="movieMain">
@@ -139,4 +104,4 @@ const MovieYts = () => {
         </>
     );
 };
-export default MovieYts;
+export default MovieRating;

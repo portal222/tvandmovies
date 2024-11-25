@@ -33,7 +33,7 @@ const MovieYtsCateg = () => {
     }, [page]);
 
     const fetchMovies = async (page) => {
-        const response = await fetch(`https://yts.mx/api/v2/list_movies.json?sort_by=year&genre=${genre}&limit=${limit}&page=${page}`);
+        const response = await fetch(`https://yts.mx/api/v2/list_movies.json?genre=${genre}&limit=${limit}&page=${page}`);
         const data = await response.json();
         setMovies(data.data.movies);
         setTotalMovies(data.data.movie_count);
@@ -58,6 +58,8 @@ const MovieYtsCateg = () => {
             <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
                 <p className="time"> {genre}</p>
             </div>
+            <div className="hrGenre"></div>
+
             <div className="movieMain" >
                 {movies.map(movie => (
                     <div key={movie.id}
