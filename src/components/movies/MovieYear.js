@@ -33,12 +33,6 @@ const MovieYear = () => {
         navigate(LinkTo);
     }
 
-    const clickMovie = (genre) => {
-        const LinkTo = `/categ/${genre}`;
-        navigate(LinkTo);
-    }
-
-
     if (isLoading) {
         return (
             <>
@@ -74,7 +68,6 @@ const MovieYear = () => {
                                     </>
                                 )}
                                 <p style={{ paddingTop: "15px" }}> ⏲{movie.runtime} min ⭐{movie.rating}</p>
-
                             </span>
                         </div>
                         <div onClick={() => clickShow(movie.id)}
@@ -84,7 +77,6 @@ const MovieYear = () => {
                     </div>
                 ))}
             </div>
-
             <div className="movieNum">
                 {Array.from({ length: totalPages }, (_, i) => (
                     <div className={page === i + 1 ? 'numbAct' : 'numb'}
@@ -96,7 +88,6 @@ const MovieYear = () => {
                     </div>
                 ))}
             </div>
-            <div className="place"></div>
             <BackToTop />
         </>
     );

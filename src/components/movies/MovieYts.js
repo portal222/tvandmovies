@@ -6,7 +6,6 @@ import datas from "../../../public/category.json";
 import BackToTop from "../BackToTop";
 import Year from "../Year";
 
-
 const MovieYts = () => {
 
     const [movies, setMovies] = useState([]);
@@ -28,8 +27,6 @@ const MovieYts = () => {
         setMovies(data.data.movies);
         setTotalMovies(data.data.movie_count);
         setIsLoading(false);
-
-        console.log("filmovi yts", data.data)
     }
 
     const totalPages = Math.ceil(totalMovies / limit);
@@ -53,7 +50,6 @@ const MovieYts = () => {
         const LinkTo = `/year`;
         navigate(LinkTo);
     }
-
 
     if (isLoading) {
         return (
@@ -112,7 +108,6 @@ const MovieYts = () => {
                                     </>
                                 )}
                                 <p style={{ paddingTop: "15px" }}> ⏲{movie.runtime} min ⭐{movie.rating}</p>
-
                             </span>
                         </div>
                         <div onClick={() => clickShow(movie.id)}
@@ -122,7 +117,6 @@ const MovieYts = () => {
                     </div>
                 ))}
             </div>
-
             <div className="movieNum">
                 {Array.from({ length: totalPages }, (_, i) => (
                     <div className={page === i + 1 ? 'numbAct' : 'numb'}
@@ -134,7 +128,6 @@ const MovieYts = () => {
                     </div>
                 ))}
             </div>
-            <div className="place"></div>
             <BackToTop />
         </>
     );

@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from "react";
 import BackToTop from "../BackToTop";
-
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader";
-
-
-
-
-
 
 const MovieYtsCateg = () => {
 
@@ -25,9 +19,6 @@ const MovieYtsCateg = () => {
     const params = useParams();
     const genre = params.genre;
 
-
-
-
     useEffect(() => {
         fetchMovies(page);
     }, [page]);
@@ -38,8 +29,6 @@ const MovieYtsCateg = () => {
         setMovies(data.data.movies);
         setTotalMovies(data.data.movie_count);
         setIsLoading(false);
-
-        console.log("filmovi yts", data.data)
     }
 
     const totalPages = Math.ceil(totalMovies / limit);
@@ -47,11 +36,14 @@ const MovieYtsCateg = () => {
     const clickShow = (numId) => {
         const LinkTo = `/movieDetails/${numId}`;
         navigate(LinkTo);
-        console.log("klik na film id genre", numId);
     }
 
     if (isLoading) {
-        <Loader />
+        return (
+            <>
+                <Loader />
+            </>
+        )
     }
     return (
         <>
@@ -59,7 +51,6 @@ const MovieYtsCateg = () => {
                 <p className="time"> {genre}</p>
             </div>
             <div className="hrGenre"></div>
-
             <div className="movieMain" >
                 {movies.map(movie => (
                     <div key={movie.id}
@@ -94,8 +85,6 @@ const MovieYtsCateg = () => {
                     </div>
                 ))}
             </div>
-            <div className="place"></div>
-            <div className="place"></div>
             <BackToTop />
         </>
     );

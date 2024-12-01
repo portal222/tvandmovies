@@ -4,8 +4,6 @@ import GlobalContext from "../GlobalContext";
 import Loader from "../Loader";
 import BackToTop from "../BackToTop";
 
-
-
 const MovieRes = () => {
 
     const [movies, setMovies] = useState([]);
@@ -13,20 +11,12 @@ const MovieRes = () => {
     const [totalMovies, setTotalMovies] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
 
-
     const limit = 10;
 
     const navigate = useNavigate();
 
     const globalCtx = useContext(GlobalContext);
     const searchStringValue = globalCtx.searchStringValue;
-
-    console.log("trazeno ime", searchStringValue)
-
-
-
-
-
 
     useEffect(() => {
         fetchMovies(searchStringValue, page);
@@ -38,9 +28,6 @@ const MovieRes = () => {
         setMovies(data.data.movies);
         setTotalMovies(data.data.movie_count);
         setIsLoading(false);
-
-
-        console.log("filmovi search yts", data.data)
     }
 
     const totalPages = Math.ceil(totalMovies / limit);
@@ -67,7 +54,7 @@ const MovieRes = () => {
     return (
         <>
             <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
-            <p className="time">Results for: {searchStringValue}</p>
+            <p className="time">{totalMovies} results for: {searchStringValue}</p>
             </div>
             <div className="hrGenre"></div>
 
@@ -112,7 +99,6 @@ const MovieRes = () => {
                     </div>
                 ))}
             </div>
-            <div className="place"></div>
             <BackToTop />
         </>
     );

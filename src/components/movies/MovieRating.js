@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../Loader";
 import BackToTop from "../BackToTop";
 
-
 const MovieRating = () => {
 
     const [movies, setMovies] = useState([]);
@@ -34,12 +33,6 @@ const MovieRating = () => {
         navigate(LinkTo);
     }
 
-    const clickMovie = (genre) => {
-        const LinkTo = `/categ/${genre}`;
-        navigate(LinkTo);
-    }
-
-
     if (isLoading) {
         return (
             <>
@@ -55,9 +48,7 @@ const MovieRating = () => {
             <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
                 <p className="time">Sort by best rating</p>
             </div>
-         
             <div className="hrGenre"></div>
-
             <div className="movieMain">
                 {movies.map(movie => (
                     <div key={movie.id}
@@ -87,7 +78,6 @@ const MovieRating = () => {
                     </div>
                 ))}
             </div>
-
             <div className="movieNum">
                 {Array.from({ length: totalPages }, (_, i) => (
                     <div className={page === i + 1 ? 'numbAct' : 'numb'}
@@ -99,7 +89,6 @@ const MovieRating = () => {
                     </div>
                 ))}
             </div>
-            <div className="place"></div>
             <BackToTop />
         </>
     );

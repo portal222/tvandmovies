@@ -26,7 +26,7 @@ const MovieActor = (props) => {
 
             setTvShow(data);
             setResults(data.length);
-            console.log("podaci iz MovieActor", data);
+
         } catch (err) {
             setError(err);
         }

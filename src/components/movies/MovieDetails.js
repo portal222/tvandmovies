@@ -32,9 +32,6 @@ const MovieDetails = () => {
             const data = response.data.data.movie
             const dataSub = responseSub.data.data.movies
 
-            console.log("filmovi detalji", data)
-            console.log("filmovi sugestije", dataSub)
-
             setMovies(data)
             setSugestions(dataSub)
 
@@ -179,8 +176,6 @@ const MovieDetails = () => {
                     </div>
                 ))}
             </div>
-            <div className="place"></div>
-            <div className="place"></div>
             <BackToTop />
         </>
     )
