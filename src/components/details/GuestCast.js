@@ -18,7 +18,10 @@ const GuestCast = (props) => {
                 <div >
                     <div >
                         <div className="epTitle"
-                            onClick={() => clickShow(props.guestCast._embedded.episode._links.show.name)}>
+                            onClick={() => {
+                                clickShow(props.guestCast._embedded.episode._links.show.name);
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}>
                             {props.guestCast._embedded.episode._links.show.name}
                         </div>
                         <div className="epNumber">

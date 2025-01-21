@@ -40,15 +40,21 @@ const Navigation = () => {
         <div className="provider">
           <div className="fixed">
             <NavLink to="/">
-              <Button variant="contained" sx={{ ml: 2 }}>
+              <Button variant="contained" sx={{ ml: 2 }}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
                 TV Show</Button >
             </NavLink>
             <NavLink to="/movie">
-              <Button variant="contained" sx={{ ml: 2 }}>
+              <Button variant="contained" sx={{ ml: 2 }}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
                 Movies</Button>
             </NavLink>
             <NavLink to="/search">
-              <Button variant="contained" sx={{ ml: 2 }}>
+              <Button variant="contained" sx={{ ml: 2 }}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
                 Search</Button>
             </NavLink>
           </div>

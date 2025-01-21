@@ -81,7 +81,10 @@ const MovieRes = () => {
 
                             </span>
                         </div>
-                        <div onClick={() => clickShow(movie.id)}
+                        <div onClick={() => {
+                            clickShow(movie.id);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
                             className="titleLong">
                             {movie.title_long}
                         </div>
@@ -92,7 +95,10 @@ const MovieRes = () => {
                 {Array.from({ length: totalPages }, (_, i) => (
                     <div className={page === i + 1 ? 'numbAct' : 'numb'}
                         key={i + 1}
-                        onClick={() => setPage(i + 1)}
+                        onClick={() => {
+                            setPage(i + 1);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
                         disabled={i + 1 === page}
                     >
                         {i + 1}

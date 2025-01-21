@@ -7,45 +7,28 @@ import EpisodeNumberClick from "./EpisodeNumberClick";
 import { useNavigate } from "react-router-dom";
 import Loader from "../Loader";
 
-
-
 const TvShowOnClick = () => {
-
 
     const [show, setShow] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-
-
     const navigate = useNavigate();
-
-
     const params = useParams()
     const showId = params.showId;
 
-
-
     useEffect(() => {
         getShow();
-
     }, []);
-
-    console.log("iz tvShowOnClick:", showId);
 
     const getShow = async () => {
 
         const url = `https://api.tvmaze.com/singlesearch/shows?q=${showId}`;
-
-
 
         try {
             const response = await axios.get(url);
             const data = response.data;
             setShow(data);
             setIsLoading(false);
-
-
-
 
         } catch (err) {
             setError(err);
@@ -116,11 +99,11 @@ const TvShowOnClick = () => {
                             </td>
                             <td >
                                 {show.genres && (
-                                    <td >
+                                    <>
                                         {show.genres.map((genre, id) => (
                                             <p key={id}>{genre}</p>
                                         ))}
-                                    </td>
+                                    </>
                                 )}
                             </td>
                         </tr>
@@ -144,7 +127,7 @@ const TvShowOnClick = () => {
                                 {"Ended: " + show.ended}</td>
                         </tr>
                         <tr>
-                            <td colSpan={3} className="summary" dangerouslySetInnerHTML={{ __html: show.summary }}>
+                            <td colSpan={2} className="summary" dangerouslySetInnerHTML={{ __html: show.summary }}>
                             </td>
                         </tr>
                         <tr>
@@ -162,10 +145,16 @@ const TvShowOnClick = () => {
                             </td>
                         </tr>
                         <tr>
+
                             <ResultsTvTime datum={show.updated} />
+
+
                             <td style={{ verticalAlign: "top" }}>
                                 <p className="more"
-                                    onClick={() => clickImg(show.id)}>MORE PICTURE
+                                    onClick={() => {
+                                        clickImg(show.id);
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    }}>MORE PICTURE
                                 </p>
                             </td>
                         </tr>

@@ -68,8 +68,8 @@ const MovieDetails2 = () => {
                         <div className="divGenre">
                             {movies.genres && (
                                 <div className="genres">
-                                    {movies.genres.map(genre => (
-                                        <p>{genre}</p>
+                                    {movies.genres.map((genre, id) => (
+                                        <p key={id}>{genre}</p>
                                     ))}
                                 </div>
                             )}
@@ -85,8 +85,9 @@ const MovieDetails2 = () => {
 
                         {movies.cast && (
                             <div>
-                                {movies.cast.map(item => (
-                                    <div className="casting">
+                                {movies.cast.map((item, id) => (
+                                    <div className="casting"
+                                        key={id}>
                                         {item.url_small_image && (
                                             <img src={item.url_small_image} alt="" style={{ width: "60px", height: "60px" }} />
                                         )}
@@ -120,8 +121,9 @@ const MovieDetails2 = () => {
                             {movies.torrents && (
                                 <div>
                                     {movies.torrents.map((tor, id) => (
-                                        <table className="torrent">
-                                            <tbody key={id}>
+                                        <table className="torrent"
+                                            key={id}>
+                                            <tbody >
                                                 <tr>
                                                     <td colSpan={2}>
                                                         {tor.date_uploaded}
@@ -172,7 +174,10 @@ const MovieDetails2 = () => {
                                 <p style={{ paddingTop: "15px" }}> ⏲{movie.runtime} min ⭐{movie.rating}</p>
                             </span>
                         </div>
-                        <div onClick={() => clickShow(movie.id)}
+                        <div onClick={() => {
+                            clickShow(movie.id);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
                             className="titleLong">
                             {movie.title_long}
                         </div>

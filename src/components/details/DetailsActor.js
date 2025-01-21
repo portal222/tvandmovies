@@ -47,9 +47,6 @@ const DetailsActor = () => {
             setIsLoading(false);
             setResults(data.length);
 
-            console.log("guest cast", dataCast)
-
-
         } catch (err) {
             setError(err);
         }
@@ -67,7 +64,7 @@ const DetailsActor = () => {
         return (
             <div className="showMain">
                 <br></br>
-              
+
                 <h3>Nothing found</h3>
             </div>
         )
@@ -110,8 +107,8 @@ const DetailsActor = () => {
                             <td>Show name</td>
                             <td>Cast</td>
                         </tr>
-                        {cast.map((dataCast) => (
-                            <tr key={dataCast.id}>
+                        {cast.map((dataCast, id) => (
+                            <tr key={id}>
                                 <td className="borderBotom">
                                     <ActorCharacterShow show={dataCast._links.show.href} />
                                 </td>
@@ -129,28 +126,33 @@ const DetailsActor = () => {
 
             <Box>
                 {paginatedPosts.length > 1 && (
-                    <Box mt={2} display="flex" justifyContent="center">
+                    <Box mt={2} display="flex" justifyContent="center" className="guestCast">
                         <Pagination
-                        color="primary"
+                            color="primary"
                             count={paginatedPosts.length}
                             page={currentPage}
-                            onChange={(_, newPage) => setCurrentPage(newPage)}
+                            onChange={(_, newPage) =>
+                                setCurrentPage(newPage)
+                            }
                         />
                     </Box>
                 )}
                 <div >
                     {currentPosts &&
-                        currentPosts.map((guestCast) => (
-                            <GuestCast key={guestCast.id} guestCast={guestCast} />
+                        currentPosts.map((guestCast, id) => (
+                            <GuestCast key={id} guestCast={guestCast} />
                         ))}
                 </div>
                 {paginatedPosts.length > 1 && (
-                    <Box mt={2} display="flex" justifyContent="center">
+                    <Box mt={2} display="flex" justifyContent="center" className="guestCast">
                         <Pagination
-                          color="primary"
+                            color="primary"
                             count={paginatedPosts.length}
                             page={currentPage}
-                            onChange={(_, newPage) => setCurrentPage(newPage)}
+                            onChange={(_, newPage) =>
+                                setCurrentPage(newPage)
+
+                            }
                         />
                     </Box>
                 )}

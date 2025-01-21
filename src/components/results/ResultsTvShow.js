@@ -21,7 +21,7 @@ const ResultsTvShow = () => {
     useEffect(() => {
         getTvShow(searchStringValue);
     }, [searchStringValue]);
-    console.log("iz results tvShow", searchStringValue)
+
 
     const getTvShow = async (searchStringValue) => {
         const url = `https://api.tvmaze.com/search/shows?q=${searchStringValue}`;
@@ -34,9 +34,6 @@ const ResultsTvShow = () => {
 
             const data = response.data;
             const dataAct = responseAct.data;
-
-            console.log("rezultat serija tvShow", data);
-            console.log("rezultat glumaca tvShow", dataAct);
 
             setTvShow(data);
             setTvActor(dataAct);
@@ -61,9 +58,9 @@ const ResultsTvShow = () => {
     if (results == 0 && resAct == 0) {
         return (
             <>
-               <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
-                <p className="time">{searchStringValue} Not found</p>
-            </div>
+                <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
+                    <p className="time">{searchStringValue} Not found</p>
+                </div>
                 <div className="place"></div>
             </>
         )
@@ -77,10 +74,17 @@ const ResultsTvShow = () => {
                             <td rowSpan={7} className="holdImg">
                                 <img className="imgShow"
                                     src={dataObj.show.image?.original}
-                                    onClick={() => clickShow(dataObj.show.id)} />
+                                    onClick={() => {
+                                        clickShow(dataObj.show.id);
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    }}
+                                />
                             </td>
                             <td className="clickShow"
-                                onClick={() => clickShow(dataObj.show.id)}>
+                                onClick={() => {
+                                    clickShow(dataObj.show.id);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}>
                                 {dataObj.show.name}
                             </td>
                         </tr>
@@ -120,8 +124,8 @@ const ResultsTvShow = () => {
                 ))}
             </table >
             <table className="showMain">
-                {tvActor.map((dataObj) => (
-                    <tbody key={dataObj.person.id}>
+                {tvActor.map((dataObj, id) => (
+                    <tbody key={id}>
                         <tr>
                             <td rowSpan={5} className="holdImg">
                                 <img className="imgActor"
@@ -129,7 +133,10 @@ const ResultsTvShow = () => {
                             </td>
                             <td colSpan={2}
                                 className="showNameActor"
-                                onClick={() => clickActor(dataObj.person.id)}>
+                                onClick={() => {
+                                    clickActor(dataObj.person.id);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' })
+                                }}>
                                 {dataObj.person?.name}
                             </td>
                         </tr>

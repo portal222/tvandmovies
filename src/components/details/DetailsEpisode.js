@@ -21,7 +21,6 @@ const DetailsEpisode = (props) => {
 
         try {
             const response = await axios.get(url);
-
             const data = response.data;
 
             setEpisode(data._embedded.show);
@@ -42,7 +41,10 @@ const DetailsEpisode = (props) => {
                 <tbody>
                     <tr>
                         <td className="clickShow"
-                            onClick={() => clickShow(episode.id)}>
+                            onClick={() => {
+                                clickShow(episode.id);
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}>
                             {episode.name}</td>
                     </tr>
                 </tbody>

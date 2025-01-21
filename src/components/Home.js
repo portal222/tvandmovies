@@ -31,7 +31,6 @@ const Home = () => {
             const dataTv = responseTv.data
             setSerije(dataTv);
             setIsLoading(false);
-            console.log("tv serije home", dataTv)
 
         } catch (err) {
             setError(err);
@@ -52,9 +51,9 @@ const Home = () => {
                 <p className="time">Series <Time /></p>
             </div>
             <div className="gridTv">
-                {serije.map((serija) => (
+                {serije.map((serija, id) => (
                     <>
-                        <div key={serija._embedded.show.id}
+                        <div key={id}
                             className="gridItem">
 
                             <img src={serija._embedded.show.image?.medium} alt="" />
@@ -77,7 +76,10 @@ const Home = () => {
                             </div>
 
                             <p className="showName"
-                                onClick={() => clickShow(serija._embedded.show.id)}>
+                                onClick={() => {
+                                    clickShow(serija._embedded.show.id);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}>
                                 {serija._embedded.show.name}</p>
                         </div>
                     </>

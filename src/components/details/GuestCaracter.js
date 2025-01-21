@@ -35,7 +35,10 @@ const GuestCaracter = (props) => {
                                     {props.embedded[0].person?.image?.medium && (
                                         <td> <img className="imageActor"
                                             src={props.embedded[0].person?.image?.medium} alt="no picture"
-                                            onClick={() => clickPerson(props.embedded[0].person.id)} />
+                                            onClick={() => {
+                                                clickPerson(props.embedded[0].person.id);
+                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                            }} />
                                         </td>
                                     )}
                                     {props.embedded[0].character?.image?.medium && (
@@ -47,7 +50,10 @@ const GuestCaracter = (props) => {
                                 </tr>
                                 <tr>
                                     <td>   <p className="clickActor"
-                                        onClick={() => clickPerson(props.embedded[0].person.id)}>{props.embedded[0].person?.name}</p></td>
+                                        onClick={() => {
+                                            clickPerson(props.embedded[0].person.id);
+                                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                                        }}>{props.embedded[0].person?.name}</p></td>
                                     <td> <p>{props.embedded[0].character?.name}</p></td>
                                     <td></td>
                                 </tr>
@@ -66,7 +72,10 @@ const GuestCaracter = (props) => {
                                             {person.person?.image?.medium && (
                                                 <td> <img className="imageActor"
                                                     src={person.person?.image?.medium} alt="no picture"
-                                                    onClick={() => clickPerson(person.person.id)} />
+                                                    onClick={() => {
+                                                        clickPerson(person.person.id);
+                                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                                    }} />
                                                 </td>
                                             )}
                                             {person.character?.image?.medium && (
@@ -79,7 +88,13 @@ const GuestCaracter = (props) => {
                                         </tr>
                                         <tr>
                                             <td>   <p className="clickActor"
-                                                onClick={() => clickPerson(person.person.id)}>{person.person?.name}</p></td>
+                                                onClick={() => {
+                                                    clickPerson(person.person.id);
+                                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                                }}>
+                                                {person.person?.name}
+                                            </p>
+                                            </td>
                                             <td> <p>{person.character?.name}</p></td>
                                             <td></td>
                                         </tr>

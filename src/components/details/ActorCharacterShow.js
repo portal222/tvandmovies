@@ -42,7 +42,10 @@ const ActorCharacterShow = (props) => {
         <>
             <div >
                 <p className="clickShow"
-                    onClick={() => clickShow(show.id)}>
+                    onClick={() => {
+                        clickShow(show.id);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}>
                     {show.name}
                 </p>
                 <p>{show.premiered}</p>

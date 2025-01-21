@@ -66,7 +66,10 @@ const ResultsTvActors = () => {
                             </td>
                             <td colSpan={2}
                                 className="showNameActor"
-                                onClick={() => clickActor(dataObj.person.id)}>
+                                onClick={() => {
+                                    clickActor(dataObj.person.id);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}>
                                 {dataObj.person?.name}
                             </td>
                         </tr>

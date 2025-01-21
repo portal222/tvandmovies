@@ -48,10 +48,6 @@ const DetailsTvShow = () => {
             setSezons(dataSez)
             setIsLoading(false);
 
-
-            console.log("podaci za cast", data._embedded.cast)
-            console.log("detalji serija", data)
-
         } catch (err) {
             setError(err);
         }
@@ -163,7 +159,7 @@ const DetailsTvShow = () => {
 
                         <EpisodeNumber sezones={sezons} />
 
-                        <tr>      
+                        <tr>
                             <td className="rating3">Premiered:{" " + show.premiered}</td>
                             {show.ended && (
                                 <td className={`rating3 ${classFunction3(show.ended)}`}>
@@ -194,7 +190,11 @@ const DetailsTvShow = () => {
                             <ResultsTvTime datum={show.updated} />
                             <td style={{ verticalAlign: "top" }}>
                                 <p className="more"
-                                    onClick={() => clickImg(show.id)}>MORE PICTURE
+                                    onClick={() => {
+                                        clickImg(show.id);
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    }}>
+                                    MORE PICTURE
                                 </p>
                             </td>
                         </tr>
@@ -211,7 +211,10 @@ const DetailsTvShow = () => {
                                     {cast[0].person?.image?.medium && (
                                         <td> <img className="imageActor"
                                             src={cast[0].person?.image?.medium} alt=""
-                                            onClick={() => clickPerson(cast[0].person.id)} />
+                                            onClick={() => {
+                                                clickPerson(cast[0].person.id);
+                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                            }} />
                                         </td>
                                     )}
                                     {cast[0].character?.image?.medium && (
@@ -224,7 +227,13 @@ const DetailsTvShow = () => {
                                 </tr>
                                 <tr>
                                     <td>   <p className="clickActor"
-                                        onClick={() => clickPerson(cast[0].person.id)}>{cast[0].person?.name}</p></td>
+                                        onClick={() => {
+                                            clickPerson(cast[0].person.id);
+                                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                                        }}>
+                                        {cast[0].person?.name}
+                                    </p>
+                                    </td>
                                     <td> <p>{cast[0].character?.name}</p></td>
                                     <td></td>
                                 </tr>
@@ -244,10 +253,12 @@ const DetailsTvShow = () => {
                                         <tr >
                                             {person.person?.image?.medium && (
 
-
                                                 <td> <img className="imageActor"
                                                     src={person.person?.image?.medium} alt="no picture"
-                                                    onClick={() => clickPerson(person.person.id)} />
+                                                    onClick={() => {
+                                                        clickPerson(person.person.id);
+                                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                                    }} />
                                                 </td>
                                             )}
                                             {person.character?.image?.medium && (
@@ -260,7 +271,12 @@ const DetailsTvShow = () => {
                                         </tr>
                                         <tr>
                                             <td>   <p className="clickActor"
-                                                onClick={() => clickPerson(person.person.id)}>{person.person?.name}</p></td>
+                                                onClick={() => {
+                                                    clickPerson(person.person.id);
+                                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                                }}>
+                                                {person.person?.name}</p>
+                                            </td>
                                             <td> <p>{person.character?.name}</p></td>
                                             <td></td>
                                         </tr>

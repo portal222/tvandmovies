@@ -61,8 +61,8 @@ const MovieYtsCateg = () => {
                                 />
                             </div>
                             <span className="dropdown-contentM" >
-                                {movie.genres.map(genre => (
-                                    <p>{genre}</p>
+                                {movie.genres.map((genre, id) => (
+                                    <p key={id}>{genre}</p>
                                 ))}
                                 <p style={{ paddingTop: "15px" }}> ⏲{movie.runtime} min ⭐{movie.rating}</p>
                             </span>
@@ -78,7 +78,10 @@ const MovieYtsCateg = () => {
                 {Array.from({ length: totalPages }, (_, i) => (
                     <div className={page === i + 1 ? 'numbAct' : 'numb'}
                         key={i + 1}
-                        onClick={() => setPage(i + 1)}
+                        onClick={() => {
+                            setPage(i + 1);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
                         disabled={i + 1 === page}
                     >
                         {i + 1}

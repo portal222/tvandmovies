@@ -14,14 +14,12 @@ const MovieActor = (props) => {
     useEffect(() => {
         getTvShow();
     }, []);
-    console.log("iz maovie actor", props.actor)
 
     const getTvShow = async () => {
         const url = `https://api.tvmaze.com/search/people?q=${actors}`;
 
         try {
             const response = await axios.get(url);
-
             const data = response.data;
 
             setTvShow(data);
@@ -49,7 +47,10 @@ const MovieActor = (props) => {
         <>
             <p colSpan={2}
                 className="actorName"
-                onClick={() => clickActor(tvShow?.[0].person.id)}>
+                onClick={() => {
+                    clickActor(tvShow?.[0].person.id);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}>
                 {actors}
             </p>
         </>

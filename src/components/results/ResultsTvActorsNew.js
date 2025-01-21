@@ -8,7 +8,7 @@ const ResultsTvActorsNew = (props) => {
     const [error, setError] = useState(null);
     const [tvShow, setTvShow] = useState([]);
     const [results, setResults] = useState([]);
-    
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -24,11 +24,9 @@ const ResultsTvActorsNew = (props) => {
 
             const data = response.data;
 
-            console.log("rezultat glumci tvShowActors", data)
-
             setTvShow(data);
             setResults(data.length);
-         
+
 
         } catch (err) {
             setError(err);
@@ -52,7 +50,10 @@ const ResultsTvActorsNew = (props) => {
                             </td>
                             <td colSpan={2}
                                 className="showNameActor"
-                                onClick={() => clickActor(dataObj.person.id)}>
+                                onClick={() => {
+                                    clickActor(dataObj.person.id);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}>
                                 {dataObj.person?.name}
                             </td>
                         </tr>
