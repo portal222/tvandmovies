@@ -23,7 +23,6 @@ const DetailsActor = () => {
 
     useEffect(() => {
         getPerson();
-
     }, []);
 
     const getPerson = async () => {
@@ -131,6 +130,7 @@ const DetailsActor = () => {
                             color="primary"
                             count={paginatedPosts.length}
                             page={currentPage}
+                            siblingCount={0}
                             onChange={(_, newPage) =>
                                 setCurrentPage(newPage)
                             }
@@ -149,9 +149,9 @@ const DetailsActor = () => {
                             color="primary"
                             count={paginatedPosts.length}
                             page={currentPage}
+                            siblingCount={0}
                             onChange={(_, newPage) =>
                                 setCurrentPage(newPage)
-
                             }
                         />
                     </Box>
