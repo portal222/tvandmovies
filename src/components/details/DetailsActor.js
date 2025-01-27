@@ -150,9 +150,10 @@ const DetailsActor = () => {
                             count={paginatedPosts.length}
                             page={currentPage}
                             siblingCount={0}
-                            onChange={(_, newPage) =>
-                                setCurrentPage(newPage)
-                            }
+                            onChange={(_, newPage) => {
+                                setCurrentPage(newPage);
+                            document.querySelector('.guestCast').scrollIntoView({ behavior: 'smooth' });
+                            }}
                         />
                     </Box>
                 )}
