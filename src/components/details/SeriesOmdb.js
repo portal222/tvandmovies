@@ -15,7 +15,7 @@ const SeriesOmdb = (props) => {
 
     const getDetails = async () => {
 
-        const url = `http://www.omdbapi.com/?i=${imdbId}&apikey=f91358c4&plot=full&type=series`;
+        const url = `https://www.omdbapi.com/?i=${imdbId}&apikey=f91358c4&plot=full&type=series`;
 
         try {
             const response = await axios.get(url);
@@ -42,13 +42,17 @@ const SeriesOmdb = (props) => {
             return 'average';
         }
     }
+    const classFunctionP = (average) => {
+        if (average == "N/A") {
+            return 'average';
+        }
+    }
 
     return (
         <>
             {movies.Plot && (
                 <tr>
-                    <td colSpan={3} className="summary">
-
+                    <td colSpan={3} className={`summary ${classFunctionP(movies.Plot)}`}>
                         {movies.Plot}
                     </td>
                 </tr>

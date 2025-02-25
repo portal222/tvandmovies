@@ -14,7 +14,7 @@ const MovieOmdb = (props) => {
 
     const getDetails = async () => {
 
-        const url = `http://www.omdbapi.com/?i=${imdbId}&apikey=f91358c4&plot=full`;
+        const url = `https://www.omdbapi.com/?i=${imdbId}&apikey=f91358c4&plot=full`;
 
         try {
             const response = await axios.get(url);
