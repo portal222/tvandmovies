@@ -19,8 +19,6 @@ import MovieYtsCateg from "./movies/MovieYtsCateg";
 import MovieRating from "./movies/MovieRating";
 import MovieYear from "./movies/MovieYear";
 
-
-
 const theme = createTheme({
   palette: {
     primary: green,
@@ -28,12 +26,9 @@ const theme = createTheme({
   },
 });
 
-
-
 const Navigation = () => {
 
   return (
-
     <>
       <HashRouter
         basename="/">
@@ -58,20 +53,12 @@ const Navigation = () => {
                 Search</Button>
             </NavLink>
           </div>
-
-
-
-
-
         </div>
-
-
 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<MainSearch />} />
           <Route path="/tvShow" element={<ResultsTvShow />} />
-
           <Route path="/showDetails/:showId" element={<DetailsTvShow />} />
           <Route path="/imgShow/:images" element={<ShowImg />} />
           <Route path="/actorDetails/:actorId" element={<DetailsActor />} />
@@ -83,18 +70,12 @@ const Navigation = () => {
           <Route path="/categ/:genre" element={<MovieYtsCateg />} />
           <Route path="/rating" element={<MovieRating />} />
           <Route path="/year" element={<MovieYear />} />
-
-
-
         </Routes>
-
       </HashRouter>
 
       <div className="footer">
         <hr></hr>
-        <p>
-          Data base from TvMaze and YTS.mx</p>
-
+        <p>Data base from TvMaze, YTS.mx and OMDb</p>
         &copy; InTerVal
       </div>
     </>

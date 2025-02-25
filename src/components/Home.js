@@ -14,8 +14,9 @@ const Home = () => {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth'});
 
+    useEffect(() => {
         getTv();
     }, [])
 
@@ -31,7 +32,6 @@ const Home = () => {
             const dataTv = responseTv.data
             setSerije(dataTv);
             setIsLoading(false);
-
         } catch (err) {
             setError(err);
         }
@@ -55,10 +55,7 @@ const Home = () => {
                     <>
                         <div key={id}
                             className="gridItem">
-
                             <img src={serija._embedded.show.image?.medium} alt="" />
-
-
                             <div className="genresTv">
                                 <p className="episode">S{serija.season}  E{serija.number}</p>
                                 <p>{serija._embedded.show.language}</p>
@@ -74,7 +71,6 @@ const Home = () => {
                                     <p style={{ paddingTop: "10px" }}>⏲{serija._embedded.show.runtime} min</p>
                                 )}
                             </div>
-
                             <p className="showName"
                                 onClick={() => {
                                     clickShow(serija._embedded.show.id);
@@ -88,6 +84,5 @@ const Home = () => {
             <BackToTop />
         </>
     )
-
 }
 export default Home;

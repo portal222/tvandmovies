@@ -4,6 +4,7 @@ import GlobalContext from "../GlobalContext";
 import ResultsTvTime from "./ResultsTvTime";
 import { useNavigate } from "react-router-dom";
 import BackToTop from "../BackToTop";
+import SeriesOmdb from "../details/SeriesOmdb";
 
 const ResultsTvShow = () => {
     const [error, setError] = useState(null);
@@ -12,6 +13,7 @@ const ResultsTvShow = () => {
     const [results, setResults] = useState([]);
     const [resAct, setResAct] = useState([]);
     const [open, setOpen] = useState(false);
+    const [omdb, setOmdb] = useState([]);
 
     const navigate = useNavigate();
 
@@ -22,23 +24,26 @@ const ResultsTvShow = () => {
         getTvShow(searchStringValue);
     }, [searchStringValue]);
 
-
     const getTvShow = async (searchStringValue) => {
         const url = `https://api.tvmaze.com/search/shows?q=${searchStringValue}`;
         const urlAct = `https://api.tvmaze.com/search/people?q=${searchStringValue}`;
-
+        const urlOmd = `http://www.omdbapi.com/?s=${searchStringValue}&apikey=f91358c4&plot=full&type=series`;
 
         try {
             const response = await axios.get(url);
             const responseAct = await axios.get(urlAct);
+            const responseOmd = await axios.get(urlOmd);
 
             const data = response.data;
             const dataAct = responseAct.data;
+            const dataOmd = responseOmd.data;
 
             setTvShow(data);
             setTvActor(dataAct);
             setResults(data.length);
             setResAct(dataAct.length);
+            setOmdb(dataOmd.Search)
+
         } catch (err) {
             setError(err);
         }
@@ -53,7 +58,6 @@ const ResultsTvShow = () => {
         const LinkTo = `/actorDetails/${actorId}`;
         navigate(LinkTo);
     }
-
 
     if (results == 0 && resAct == 0) {
         return (
@@ -123,6 +127,48 @@ const ResultsTvShow = () => {
                     </tbody>
                 ))}
             </table >
+
+            <table className="showMain">
+                {omdb.map((dataObj, id) => (
+                    <tbody key={id}>
+                        <tr>
+                            <td rowSpan={4} className="holdImg">
+                                <img className="imgShow"
+                                    src={dataObj.Poster}
+                               
+                                />
+                            </td>
+                            <td className="clickShow">
+                         
+                                {dataObj.Title}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="genres">
+                             
+                                    {dataObj.Type}
+                            
+                            </td>
+                        </tr>
+                       
+                        <tr>
+                            <td>{dataObj.Year}</td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                            <SeriesOmdb number={dataObj.imdbID} />
+                            </td>
+                        </tr>
+                     
+                        <tr>
+                            <td colSpan={2}><hr></hr></td>
+                        </tr>
+
+                    </tbody>
+                ))}
+            </table >
+
             <table className="showMain">
                 {tvActor.map((dataObj, id) => (
                     <tbody key={id}>

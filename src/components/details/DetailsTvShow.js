@@ -8,8 +8,8 @@ import EpisodeNumber from "./EpisodeNumber";
 import BackToTop from "../BackToTop";
 import Slider from "react-slick";
 import Loader from "../Loader";
-
-
+import SeriesOmdb from "./SeriesOmdb";
+import OmdbImgSeries from "./OmdbImgSeries";
 
 const DetailsTvShow = () => {
     const [error, setError] = useState(null);
@@ -17,7 +17,6 @@ const DetailsTvShow = () => {
     const [cast, setCast] = useState([]);
     const [sezons, setSezons] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
 
     const navigate = useNavigate();
 
@@ -64,7 +63,6 @@ const DetailsTvShow = () => {
         autoplaySpeed: 2500,
         cssEase: "linear"
     };
-
     const clickPerson = (actorId) => {
         const LinkTo = `/actorDetails/${actorId}`;
         navigate(LinkTo);
@@ -74,25 +72,21 @@ const DetailsTvShow = () => {
         const LinkTo = `/imgShow/${images}`;
         navigate(LinkTo);
     }
-
     const classFunction = (average) => {
         if (average == null) {
             return 'average';
         }
     }
-
     const classFunction2 = (runtime) => {
         if (runtime == null) {
             return 'average';
         }
     }
-
     const classFunction3 = (ended) => {
         if (ended == null) {
             return 'average';
         }
     }
-
     const classFunction4 = (name) => {
         if (name == undefined) {
             return 'average';
@@ -123,6 +117,7 @@ const DetailsTvShow = () => {
                     className="holdImg">
                     <img className="imgShow"
                         src={show.image?.original} />
+                        <OmdbImgSeries number={show.externals.imdb} />
                 </div>
                 <table>
                     <tbody>
@@ -156,9 +151,7 @@ const DetailsTvShow = () => {
                                 </p>
                             </td>
                         </tr>
-
                         <EpisodeNumber sezones={sezons} />
-
                         <tr>
                             <td className="rating3">Premiered:{" " + show.premiered}</td>
                             {show.ended && (
@@ -170,6 +163,7 @@ const DetailsTvShow = () => {
                             <td colSpan={3} className="summary" dangerouslySetInnerHTML={{ __html: show.summary }}>
                             </td>
                         </tr>
+                                <SeriesOmdb number={show.externals.imdb} />
                         <tr>
                             {show.webChannel?.name && (
                                 <td className={`rating3 ${classFunction4(show.webChannel?.name)}`}>
@@ -199,7 +193,6 @@ const DetailsTvShow = () => {
                             </td>
                         </tr>
                     </tbody>
-
                 </table>
             </div>
             {cast && (
@@ -223,7 +216,6 @@ const DetailsTvShow = () => {
                                             className="imageCaracter" />
                                         </td>
                                     )}
-
                                 </tr>
                                 <tr>
                                     <td>   <p className="clickActor"
@@ -240,8 +232,6 @@ const DetailsTvShow = () => {
                             </tbody>
                         </table>
                     </div>
-
-
                 ) : ((cast.length == 0) ? (
                     <div className="sliderDiv" style={{ textAlign: "center", padding: "10px" }}>No cast data available</div>
                 ) : (

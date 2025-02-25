@@ -19,6 +19,7 @@ body {
 
 .average {
     color: transparent;
+    display: none;
 }
 
 .provider {
@@ -30,7 +31,7 @@ body {
         width: 1300px;
         height: 50px;
         background-color: $color3;
-        z-index: 1;
+        z-index: 2;
     }
 }
 
@@ -430,13 +431,29 @@ body {
     .holdImg {
         padding-right: 25px;
         vertical-align: top;
+        position: relative;
+        cursor: pointer;
+
 
         .imgShow {
             margin-top: 2px;
             min-width: 500px;
             max-width: 500px;
             border-radius: 10px;
-            cursor: pointer;
+        }
+
+        .imgOmdb {
+            display: none;
+            position: absolute;
+            top: 0px;
+            width: 500px;
+            border-radius: 10px;
+
+            z-index: 1;
+
+        }
+        &:hover .imgOmdb {
+            display: block;
         }
     }
 
@@ -830,9 +847,9 @@ body {
         padding: 60px 5px 5px 5px;
 
         .more {
-            font-size: 14px;
-            padding: 5px 10px;
-            width: 130px;
+            font-size: 10px;
+            padding: 4px 6px;
+            width: 100px;
         }
 
         .holdImg {

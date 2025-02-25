@@ -4,12 +4,18 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import MovieActor from "./MovieActor";
 import BackToTop from "../BackToTop";
+import MovieOmdb from "./MovieOmdb";
+import OmdbImg from "./OmdbImg";
+import Released from "./Released";
+import Loader from "../Loader";
+
 
 const MovieDetails = () => {
 
     const [movies, setMovies] = useState([]);
     const [error, setError] = useState(null);
     const [sugestions, setSugestions] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     const navigate = useNavigate();
 
@@ -32,8 +38,9 @@ const MovieDetails = () => {
             const data = response.data.data.movie
             const dataSub = responseSub.data.data.movies
 
-            setMovies(data)
-            setSugestions(dataSub)
+            setMovies(data);
+            setSugestions(dataSub);
+            setIsLoading(false);
 
         } catch (err) {
             setError(err);
@@ -45,15 +52,24 @@ const MovieDetails = () => {
         navigate(LinkTo);
     }
 
+    if (isLoading) {
+        return (
+            <Loader />
+        )
+    }
+
     return (
         <>
             <div className="detailMain" style={{ paddingTop: "80px" }}>
                 <div className="detailMov">
                     <div>
-                        <div>
+                        <div className="cover">
                             {movies.large_cover_image && (
                                 <img src={movies.large_cover_image} alt="no picture" />
                             )}
+                            <span >
+                                <OmdbImg number={movies.imdb_code} />
+                            </span>
                         </div>
                         <div >
                             <iframe src={`https://www.youtube.com/embed/${movies.yt_trailer_code}`} allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -74,11 +90,11 @@ const MovieDetails = () => {
                             )}
                             <div className="genres">
                                 <p>{"⏲" + movies.runtime + " min " + "⭐" + movies.rating} </p>
-                                <span>Uploaded {movies.date_uploaded}</span>
+                                <Released number={movies.imdb_code} />
                             </div>
                         </div>
-                        <div className="description">
-                            {movies.description_full}
+                        <div>
+                            <MovieOmdb number={movies.imdb_code} />
                         </div>
                         {movies.cast && (
                             <div>
@@ -145,6 +161,9 @@ const MovieDetails = () => {
                                             </tbody>
                                         </table>
                                     ))}
+                                    <div className="torrent" style={{ padding: "20px" }}>
+                                        <span >Uploaded {movies.date_uploaded}</span>
+                                    </div>
                                 </div>
                             )}
                         </div>
