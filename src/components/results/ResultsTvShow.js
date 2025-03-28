@@ -29,7 +29,7 @@ const ResultsTvShow = () => {
     const getTvShow = async (searchStringValue) => {
         const url = `https://api.tvmaze.com/search/shows?q=${searchStringValue}`;
         const urlAct = `https://api.tvmaze.com/search/people?q=${searchStringValue}`;
-        const urlOmd = `http://www.omdbapi.com/?s=${searchStringValue}&apikey=f91358c4&plot=full&type=series`;
+        const urlOmd = `https://www.omdbapi.com/?s=${searchStringValue}&apikey=f91358c4&plot=full&type=series`;
 
         try {
             const response = await axios.get(url);
