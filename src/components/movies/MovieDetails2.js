@@ -8,6 +8,8 @@ import MovieOmdb from "./MovieOmdb";
 import OmdbImg from "./OmdbImg";
 import Released from "./Released";
 import Loader from "../Loader";
+import FullscreenIcon from '@mui/icons-material/Fullscreen';
+
 
 
 
@@ -41,7 +43,7 @@ const MovieDetails2 = () => {
 
             setMovies(data);
             setSugestions(dataSub);
-        setIsLoading(false);
+            setIsLoading(false);
 
 
         } catch (err) {
@@ -116,20 +118,23 @@ const MovieDetails2 = () => {
                         )}
                         <div className="sugestion">
                             <div className="screen">
+                                <img src={movies.medium_screenshot_image1} />
                                 <div className="screenImg">
-                                    <img src={movies.medium_screenshot_image1} />
+                                    <span className="fullScreen"><FullscreenIcon /></span>
                                     <span>
                                         <img src={movies.large_screenshot_image1} className="dropScreen" />
                                     </span>
                                 </div>
+                                <img src={movies.medium_screenshot_image2} />
                                 <div className="screenImg">
-                                    <img src={movies.medium_screenshot_image2} />
+                                    <span className="fullScreen"><FullscreenIcon /></span>
                                     <span>
                                         <img src={movies.large_screenshot_image2} className="dropScreen" />
                                     </span>
                                 </div>
+                                <img src={movies.medium_screenshot_image3} />
                                 <div className="screenImg">
-                                    <img src={movies.medium_screenshot_image3} />
+                                    <span className="fullScreen"><FullscreenIcon /></span>
                                     <span>
                                         <img src={movies.large_screenshot_image3} className="dropScreen" />
                                     </span>

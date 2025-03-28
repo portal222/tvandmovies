@@ -17,8 +17,6 @@ const SearchTvShow = (props) => {
 
         globalCtx.setSearchStringFn(searchString.current.value.trim());
         navigate(props.linkTo);
-        
-        console.log("pretraga por tvShow", searchString)
     };
 
     const handleKeyDown = (e) => {

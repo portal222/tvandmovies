@@ -20,6 +20,8 @@ const ResultsTvShow = () => {
     const globalCtx = useContext(GlobalContext);
     const searchStringValue = globalCtx.searchStringValue;
 
+   
+
     useEffect(() => {
         getTvShow(searchStringValue);
     }, [searchStringValue]);
@@ -38,11 +40,16 @@ const ResultsTvShow = () => {
             const dataAct = responseAct.data;
             const dataOmd = responseOmd.data;
 
+            console.log("serije pretraga", data);
+            console.log("glumci", dataAct);
+      
+
             setTvShow(data);
             setTvActor(dataAct);
             setResults(data.length);
             setResAct(dataAct.length);
             setOmdb(dataOmd.Search)
+
 
         } catch (err) {
             setError(err);
@@ -154,13 +161,7 @@ const ResultsTvShow = () => {
                         <tr>
                             <td>{dataObj.Year}</td>
                         </tr>
-                        <tr>
-                            <td>
-
                             <SeriesOmdb number={dataObj.imdbID} />
-                            </td>
-                        </tr>
-                     
                         <tr>
                             <td colSpan={2}><hr></hr></td>
                         </tr>

@@ -146,6 +146,14 @@ $color8: rgb(18, 17, 58);
                     position: relative;
                     cursor: pointer;
 
+                    .fullScreen {
+                        position: absolute;
+                        left: 280px;
+                        top: -43px;
+                        background-color: rgba(129, 161, 225, 0.455);
+                        border-radius: 3px;
+                    }
+
                     .dropScreen {
                         display: none;
                         position: absolute;
@@ -454,6 +462,12 @@ $color8: rgb(18, 17, 58);
                         margin-top: 10px;
                         position: relative;
                         cursor: pointer;
+
+                        .fullScreen {
+                        
+                            left: 270px;
+                         
+                        }
 
                         .dropScreen {
                             display: none;

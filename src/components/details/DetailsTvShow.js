@@ -47,6 +47,8 @@ const DetailsTvShow = () => {
             setSezons(dataSez)
             setIsLoading(false);
 
+            console.log("glumci", data._embedded.cast )
+
         } catch (err) {
             setError(err);
         }
