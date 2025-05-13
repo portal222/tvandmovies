@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import GlobalContext from "../GlobalContext";
 import Loader from "../Loader";
 import BackToTop from "../BackToTop";
+import SearchActors from "../search/SearchActors";
+import SearchTvShow from "../search/SearchTvShow";
 
 const MovieRes = () => {
 
@@ -47,7 +49,12 @@ const MovieRes = () => {
                 <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
                 <p className="time">{searchStringValue} not found</p>
                 </div>
-                <div className="place"></div>
+                <div className="place">
+                    <div className="placeBut">
+                        <SearchTvShow placeholder={'Tv Show & Actor'} linkTo={'/tvShow'} />
+                        <SearchActors placeholder={'Movies'} linkTo={'/movies'} />
+                    </div>
+                </div>
             </>
         )
     }

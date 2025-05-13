@@ -63,7 +63,9 @@ const Home = () => {
                                 {serija._embedded.show.genres && (
                                     <>
                                         {serija._embedded.show.genres.map((genre, id) => (
-                                            <p key={id}>{genre}</p>
+                                            < div key={id}>
+                                            <p >{genre}</p>
+                                            </ div>
                                         ))}
                                     </>
                                 )}

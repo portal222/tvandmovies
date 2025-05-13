@@ -5,6 +5,8 @@ import ResultsTvTime from "./ResultsTvTime";
 import { useNavigate } from "react-router-dom";
 import BackToTop from "../BackToTop";
 import SeriesOmdb from "../details/SeriesOmdb";
+import SearchTvShow from "../search/SearchTvShow";
+import SearchActors from "../search/SearchActors";
 
 const ResultsTvShow = () => {
     const [error, setError] = useState(null);
@@ -13,14 +15,11 @@ const ResultsTvShow = () => {
     const [results, setResults] = useState([]);
     const [resAct, setResAct] = useState([]);
     const [open, setOpen] = useState(false);
-    const [omdb, setOmdb] = useState([]);
 
     const navigate = useNavigate();
 
     const globalCtx = useContext(GlobalContext);
     const searchStringValue = globalCtx.searchStringValue;
-
-   
 
     useEffect(() => {
         getTvShow(searchStringValue);
@@ -29,26 +28,26 @@ const ResultsTvShow = () => {
     const getTvShow = async (searchStringValue) => {
         const url = `https://api.tvmaze.com/search/shows?q=${searchStringValue}`;
         const urlAct = `https://api.tvmaze.com/search/people?q=${searchStringValue}`;
-        const urlOmd = `https://www.omdbapi.com/?s=${searchStringValue}&apikey=f91358c4&plot=full&type=series`;
 
         try {
             const response = await axios.get(url);
             const responseAct = await axios.get(urlAct);
-            const responseOmd = await axios.get(urlOmd);
 
             const data = response.data;
             const dataAct = responseAct.data;
-            const dataOmd = responseOmd.data;
+        
 
             console.log("serije pretraga", data);
             console.log("glumci", dataAct);
-      
+   
+
 
             setTvShow(data);
             setTvActor(dataAct);
+
             setResults(data.length);
             setResAct(dataAct.length);
-            setOmdb(dataOmd.Search)
+        
 
 
         } catch (err) {
@@ -72,7 +71,13 @@ const ResultsTvShow = () => {
                 <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
                     <p className="time">{searchStringValue} Not found</p>
                 </div>
-                <div className="place"></div>
+
+                <div className="place">
+                    <div className="placeBut">
+                        <SearchTvShow placeholder={'Tv Show & Actor'} linkTo={'/tvShow'} />
+                        <SearchActors placeholder={'Movies'} linkTo={'/movies'} />
+                    </div>
+                </div>
             </>
         )
     }
@@ -131,41 +136,6 @@ const ResultsTvShow = () => {
                         <tr>
                             <td colSpan={3}><hr></hr></td>
                         </tr>
-                    </tbody>
-                ))}
-            </table >
-
-            <table className="showMain">
-                {omdb.map((dataObj, id) => (
-                    <tbody key={id}>
-                        <tr>
-                            <td rowSpan={4} className="holdImg">
-                                <img className="imgShow"
-                                    src={dataObj.Poster}
-                               
-                                />
-                            </td>
-                            <td className="clickShow">
-                         
-                                {dataObj.Title}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="genres">
-                             
-                                    {dataObj.Type}
-                            
-                            </td>
-                        </tr>
-                       
-                        <tr>
-                            <td>{dataObj.Year}</td>
-                        </tr>
-                            <SeriesOmdb number={dataObj.imdbID} />
-                        <tr>
-                            <td colSpan={2}><hr></hr></td>
-                        </tr>
-
                     </tbody>
                 ))}
             </table >
