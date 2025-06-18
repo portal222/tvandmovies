@@ -1,5 +1,5 @@
 import React, { useRef, useContext } from "react";
-import { Paper,InputBase,IconButton } from "@mui/material";
+import { Paper, InputBase, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import GlobalContext from "../GlobalContext";
 
@@ -28,29 +28,28 @@ const SearchTvShow = (props) => {
 
     return (
         <Paper className="paper"
-        component = 'form'
-        se={{
-            p: '2px 4px',
-            display: 'flex',
-            alignItems: 'center',
-            width: '40rem',
-            fontSize: '28px',
-            backgroundColor: 'red',
-        }}
+            component='form'
+            se={{
+                p: '2px 4px',
+                display: 'flex',
+                alignItems: 'center',
+                width: '40rem',
+                fontSize: '28px',
+                backgroundColor: 'red',
+            }}
         >
             <InputBase className="base"
-            autoFocus
-            placeholder={props.placeholder}
-            inputRef={searchString}
-            onKeyDown={handleKeyDown}
+                placeholder={props.placeholder}
+                inputRef={searchString}
+                onKeyDown={handleKeyDown}
             />
-            <IconButton 
-            type='button'
-            onClick={handleClickSearch}
-            sx={{ p: '10px'}}
-            aria-label='search'
+            <IconButton
+                type='button'
+                onClick={handleClickSearch}
+                sx={{ p: '10px' }}
+                aria-label='search'
             >
-        📺🎭
+                📺🎭
             </IconButton>
         </Paper>
     );

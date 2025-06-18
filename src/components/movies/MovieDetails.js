@@ -9,6 +9,8 @@ import OmdbImg from "./OmdbImg";
 import Released from "./Released";
 import Loader from "../Loader";
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
+import FreeMovies from "./FreeMovies";
+import FreeMoviesReview from "./FreeMoviesReview";
 
 
 
@@ -51,6 +53,11 @@ const MovieDetails = () => {
 
     const clickShow = (numId) => {
         const LinkTo = `/movieDetails2/${numId}`;
+        navigate(LinkTo);
+    }
+
+    const clickPicture = (images) => {
+        const LinkTo = `/moviePicture/${images}`;
         navigate(LinkTo);
     }
 
@@ -98,44 +105,55 @@ const MovieDetails = () => {
                         <div>
                             <MovieOmdb number={movies.imdb_code} />
                         </div>
-                        {movies.cast && (
-                            <div>
-                                {movies.cast.map((item, id) => (
-                                    <div className="casting"
-                                        key={id}>
-                                        {item.url_small_image && (
-                                            <img src={item.url_small_image} alt="no picture"
-                                                style={{ width: "60px", height: "60px" }} />
-                                        )}
-                                        <MovieActor actor={item.name} />
-                                        <p> as {item.character_name}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        )}
+
+
+                        <FreeMoviesReview imdbId={movies.imdb_code} />
+
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div className="detailMain">
+                <div className="detailMov">
+                    <FreeMovies imdbId={movies.imdb_code} />
+                    <div>
                         <div className="sugestion">
                             <div className="screen">
-                                <img src={movies.medium_screenshot_image1} />
-                                <div className="screenImg">
-                                    <span className="fullScreen"><FullscreenIcon /></span>
-                                    <span>
-                                        <img src={movies.large_screenshot_image1} className="dropScreen" />
-                                    </span>
-                                </div>
-                                <img src={movies.medium_screenshot_image2} />
-                                <div className="screenImg">
-                                    <span className="fullScreen"><FullscreenIcon /></span>
-                                    <span >
-                                        <img src={movies.large_screenshot_image2} className="dropScreen" />
-                                    </span>
-                                </div>
-                                <img src={movies.medium_screenshot_image3} />
-                                <div className="screenImg">
-                                    <span className="fullScreen"><FullscreenIcon /></span>
-                                    <span>
-                                        <img src={movies.large_screenshot_image3} className="dropScreen" />
-                                    </span>
-                                </div>
+                                {movies.medium_screenshot_image1 && (
+                                    <>
+                                        <img src={movies.medium_screenshot_image1} className="imgMedium" />
+                                        <div className="screenImg">
+                                            <span className="fullScreen"><FullscreenIcon /></span>
+                                            <span>
+                                                <img src={movies.large_screenshot_image1} className="dropScreen" />
+                                            </span>
+                                        </div>
+                                    </>
+                                )}
+                                {movies.medium_screenshot_image2 && (
+                                    <>
+                                        <img src={movies.medium_screenshot_image2} className="imgMedium" />
+                                        <div className="screenImg">
+                                            <span className="fullScreen"><FullscreenIcon /></span>
+                                            <span >
+                                                <img src={movies.large_screenshot_image2} className="dropScreen" />
+                                            </span>
+                                        </div>
+                                    </>
+                                )}
+                                {movies.medium_screenshot_image3 && (
+                                    <>
+                                        <img src={movies.medium_screenshot_image3} className="imgMedium" />
+                                        <div className="screenImg">
+                                            <span className="fullScreen"><FullscreenIcon /></span>
+                                            <span>
+                                                <img src={movies.large_screenshot_image3} className="dropScreen" />
+                                            </span>
+                                        </div>
+                                    </>
+                                )}
                             </div>
                             {movies.torrents && (
                                 <div>
@@ -169,9 +187,22 @@ const MovieDetails = () => {
                                     <div className="torrent" style={{ padding: "20px" }}>
                                         <span >Uploaded {movies.date_uploaded}</span>
                                     </div>
+                                    <div className="torrent" style={{ padding: "20px" }}>
+                                        <p className="pictureButt"
+                                            onClick={() => {
+                                                clickPicture(movies.imdb_code);
+                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                            }}
+                                        >
+                                            MORE PICTURE
+                                        </p>
+                                    </div>
+
                                 </div>
                             )}
                         </div>
+
+
                     </div>
                 </div>
                 <div className="similar">
@@ -205,6 +236,7 @@ const MovieDetails = () => {
                     </div>
                 ))}
             </div>
+
             <BackToTop />
         </>
     )

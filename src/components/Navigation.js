@@ -18,6 +18,7 @@ import MovieRes from "./movies/MovieRes";
 import MovieYtsCateg from "./movies/MovieYtsCateg";
 import MovieRating from "./movies/MovieRating";
 import MovieYear from "./movies/MovieYear";
+import FreeMoviesImg from "./movies/FreeMoviesImg";
 
 const theme = createTheme({
   palette: {
@@ -70,6 +71,7 @@ const Navigation = () => {
           <Route path="/categ/:genre" element={<MovieYtsCateg />} />
           <Route path="/rating" element={<MovieRating />} />
           <Route path="/year" element={<MovieYear />} />
+          <Route path="/moviePicture/:images" element={<FreeMoviesImg />} />
         </Routes>
       </HashRouter>
 

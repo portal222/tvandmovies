@@ -9,7 +9,8 @@ import OmdbImg from "./OmdbImg";
 import Released from "./Released";
 import Loader from "../Loader";
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
-
+import FreeMovies from "./FreeMovies";
+import FreeMoviesReview from "./FreeMoviesReview";
 
 
 
@@ -31,7 +32,7 @@ const MovieDetails2 = () => {
 
     const getDetails = async () => {
 
-        const url = `https://yts.mx/api/v2/movie_details.json?movie_id=${numId}&with_images=true&with_cast=true&with_direct=true`;
+        const url = `https://yts.mx/api/v2/movie_details.json?movie_id=${numId}&with_images=true&with_cast=true&with_rt_ratings`;
         const urlSub = `https://yts.mx/api/v2/movie_suggestions.json?movie_id=${numId}`;
 
         try {
@@ -45,15 +46,18 @@ const MovieDetails2 = () => {
             setSugestions(dataSub);
             setIsLoading(false);
 
-
         } catch (err) {
             setError(err);
         }
     };
 
-
     const clickShow = (numId) => {
         const LinkTo = `/movieDetails/${numId}`;
+        navigate(LinkTo);
+    }
+
+    const clickPicture = (images) => {
+        const LinkTo = `/moviePicture/${images}`;
         navigate(LinkTo);
     }
 
@@ -62,6 +66,7 @@ const MovieDetails2 = () => {
             <Loader />
         )
     }
+
     return (
         <>
             <div className="detailMain" style={{ paddingTop: "80px" }}>
@@ -69,9 +74,9 @@ const MovieDetails2 = () => {
                     <div>
                         <div className="cover">
                             {movies.large_cover_image && (
-                                <img src={movies.large_cover_image} alt="" />
+                                <img src={movies.large_cover_image} alt="no picture" />
                             )}
-                            <span>
+                            <span >
                                 <OmdbImg number={movies.imdb_code} />
                             </span>
                         </div>
@@ -95,50 +100,60 @@ const MovieDetails2 = () => {
                             <div className="genres">
                                 <p>{"⏲" + movies.runtime + " min " + "⭐" + movies.rating} </p>
                                 <Released number={movies.imdb_code} />
-
                             </div>
                         </div>
                         <div>
                             <MovieOmdb number={movies.imdb_code} />
                         </div>
 
-                        {movies.cast && (
-                            <div>
-                                {movies.cast.map((item, id) => (
-                                    <div className="casting"
-                                        key={id}>
-                                        {item.url_small_image && (
-                                            <img src={item.url_small_image} alt="" style={{ width: "60px", height: "60px" }} />
-                                        )}
-                                        <MovieActor actor={item.name} />
-                                        <p> as {item.character_name}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        )}
+
+                        <FreeMoviesReview imdbId={movies.imdb_code} />
+
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div className="detailMain">
+                <div className="detailMov">
+                    <FreeMovies imdbId={movies.imdb_code} />
+                    <div>
                         <div className="sugestion">
                             <div className="screen">
-                                <img src={movies.medium_screenshot_image1} />
-                                <div className="screenImg">
-                                    <span className="fullScreen"><FullscreenIcon /></span>
-                                    <span>
-                                        <img src={movies.large_screenshot_image1} className="dropScreen" />
-                                    </span>
-                                </div>
-                                <img src={movies.medium_screenshot_image2} />
-                                <div className="screenImg">
-                                    <span className="fullScreen"><FullscreenIcon /></span>
-                                    <span>
-                                        <img src={movies.large_screenshot_image2} className="dropScreen" />
-                                    </span>
-                                </div>
-                                <img src={movies.medium_screenshot_image3} />
-                                <div className="screenImg">
-                                    <span className="fullScreen"><FullscreenIcon /></span>
-                                    <span>
-                                        <img src={movies.large_screenshot_image3} className="dropScreen" />
-                                    </span>
-                                </div>
+                                {movies.medium_screenshot_image1 && (
+                                    <>
+                                        <img src={movies.medium_screenshot_image1} className="imgMedium" />
+                                        <div className="screenImg">
+                                            <span className="fullScreen"><FullscreenIcon /></span>
+                                            <span>
+                                                <img src={movies.large_screenshot_image1} className="dropScreen" />
+                                            </span>
+                                        </div>
+                                    </>
+                                )}
+                                {movies.medium_screenshot_image2 && (
+                                    <>
+                                        <img src={movies.medium_screenshot_image2} className="imgMedium" />
+                                        <div className="screenImg">
+                                            <span className="fullScreen"><FullscreenIcon /></span>
+                                            <span >
+                                                <img src={movies.large_screenshot_image2} className="dropScreen" />
+                                            </span>
+                                        </div>
+                                    </>
+                                )}
+                                {movies.medium_screenshot_image3 && (
+                                    <>
+                                        <img src={movies.medium_screenshot_image3} className="imgMedium" />
+                                        <div className="screenImg">
+                                            <span className="fullScreen"><FullscreenIcon /></span>
+                                            <span>
+                                                <img src={movies.large_screenshot_image3} className="dropScreen" />
+                                            </span>
+                                        </div>
+                                    </>
+                                )}
                             </div>
                             {movies.torrents && (
                                 <div>
@@ -172,10 +187,22 @@ const MovieDetails2 = () => {
                                     <div className="torrent" style={{ padding: "20px" }}>
                                         <span >Uploaded {movies.date_uploaded}</span>
                                     </div>
+                                    <div className="torrent" style={{ padding: "20px" }}>
+                                        <p className="pictureButt"
+                                            onClick={() => {
+                                                clickPicture(movies.imdb_code);
+                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                            }}
+                                        >
+                                            MORE PICTURE
+                                        </p>
+                                    </div>
+
                                 </div>
                             )}
-
                         </div>
+
+
                     </div>
                 </div>
                 <div className="similar">
@@ -188,13 +215,12 @@ const MovieDetails2 = () => {
                         className="holder">
                         <div className="dropdownM">
                             <div>
-                                <img src={movie.medium_cover_image} alt="no picture"
+                                <img src={movie.medium_cover_image} alt=""
                                 />
                             </div>
                             <span className="dropdown-contentM"
                             >
                                 {movie.genres.map((genre, id) => (
-
                                     <p key={id}>{genre}</p>
                                 ))}
                                 <p style={{ paddingTop: "15px" }}> ⏲{movie.runtime} min ⭐{movie.rating}</p>
@@ -210,6 +236,7 @@ const MovieDetails2 = () => {
                     </div>
                 ))}
             </div>
+
             <BackToTop />
         </>
     )

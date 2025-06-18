@@ -27,6 +27,8 @@ const MovieYts = () => {
         setMovies(data.data.movies);
         setTotalMovies(data.data.movie_count);
         setIsLoading(false);
+
+        console.log("detalji filmova",data.data.movies);
     }
 
     const totalPages = Math.ceil(totalMovies / limit);

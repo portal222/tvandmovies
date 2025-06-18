@@ -11,6 +11,9 @@ const MovieActor = (props) => {
 
 
     const actors = props.actor
+
+    console.log("iz movie Actor props", actors);
+
     useEffect(() => {
         getTvShow();
     }, []);
@@ -24,6 +27,7 @@ const MovieActor = (props) => {
 
             setTvShow(data);
             setResults(data.length);
+            console.log("results iz movie actor", data.length)
 
         } catch (err) {
             setError(err);
@@ -37,9 +41,9 @@ const MovieActor = (props) => {
 
     if (results == 0) {
         return (<>
-        <p>
-            {actors}
-        </p>
+            <p>
+                {actors}
+            </p>
         </>)
     }
 

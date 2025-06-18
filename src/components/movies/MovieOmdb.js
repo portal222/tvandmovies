@@ -87,9 +87,9 @@ const MovieOmdb = (props) => {
                 <div className={`description ${classFunctionP(movies.Plot)}`}>
                     {movies.Plot}
                 </div>
-                {movies.Actors && (
+                {/* {movies.Actors && (
                     <div className={`writer ${classFunctionA(movies.Actors)}`}>Actors: {movies.Actors}</div>
-                )}
+                )} */}
                 {movies.Director && (
                     <div className={`writer ${classFunctionD(movies.Director)}`}> Director: {movies.Director}</div>
                 )}
@@ -104,7 +104,7 @@ const MovieOmdb = (props) => {
                         - Votes: {movies.imdbVotes}</div>
                 )}
                 {movies.BoxOffice && (
-                    <div className={`writer ${classFunction2(movies.BoxOffice)}`}>BoxOffice: {movies.BoxOffice}</div>
+                    <div className={`office ${classFunction2(movies.BoxOffice)}`}>BoxOffice: {movies.BoxOffice}</div>
                 )}
             </div>
         </>
