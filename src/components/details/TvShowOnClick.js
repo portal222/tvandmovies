@@ -118,9 +118,7 @@ const TvShowOnClick = () => {
                                 </p>
                             </td>
                         </tr>
-
                         <EpisodeNumberClick showId={show.id} />
-
                         <tr>
                             <td className="rating3">Premiered:{" " + show.premiered}</td>
                             <td className={`rating3 ${classFunction3(show.ended)}`}>
@@ -145,10 +143,7 @@ const TvShowOnClick = () => {
                             </td>
                         </tr>
                         <tr>
-
                             <ResultsTvTime datum={show.updated} />
-
-
                             <td style={{ verticalAlign: "top" }}>
                                 <p className="more"
                                     onClick={() => {

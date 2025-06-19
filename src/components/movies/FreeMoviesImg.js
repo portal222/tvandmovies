@@ -10,7 +10,6 @@ const FreeMoviesImg = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [photo, setPhoto] = useState([]);
 
-
     const params = useParams()
     const images = params.images;
 
@@ -19,7 +18,6 @@ const FreeMoviesImg = () => {
     }, [])
 
     const getImg = async () => {
-
 
         const urlImg = `https://imdb.iamidiotareyoutoo.com/search?tt=${images}`
 
@@ -46,7 +44,6 @@ const FreeMoviesImg = () => {
 
     return (
         <>
-
             <div className="showMain">
                 {photo.map((image, id) => (
                     <div key={id} className="bigImg">

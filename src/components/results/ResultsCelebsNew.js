@@ -22,17 +22,13 @@ const ResultsCelebsNew = () => {
     useEffect(() => {
         getTvShow(searchStringValue);
     }, [searchStringValue]);
-    console.log("iz results tvShow", searchStringValue)
 
     const getTvShow = async (searchStringValue) => {
         const url = `https://api.tvmaze.com/search/people?q=${searchStringValue}`;
 
         try {
             const response = await axios.get(url)
-           
             const data = response.data;
-
-            console.log("rezultat Celebs New actors", data)
 
             setTvShow(data);
             setResults(data.length);

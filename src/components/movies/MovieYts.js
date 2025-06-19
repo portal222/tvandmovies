@@ -27,8 +27,6 @@ const MovieYts = () => {
         setMovies(data.data.movies);
         setTotalMovies(data.data.movie_count);
         setIsLoading(false);
-
-        console.log("detalji filmova",data.data.movies);
     }
 
     const totalPages = Math.ceil(totalMovies / limit);
@@ -73,11 +71,11 @@ const MovieYts = () => {
             <div className="movieGenre" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
                 <p className="timeGenre">Movies <Time /></p>
                 <p className="genreName"
-                onClick={() => clickRating()}>
+                    onClick={() => clickRating()}>
                     Rating
                 </p>
                 <p className="genreName"
-                onClick={() => clickYear()}>
+                    onClick={() => clickYear()}>
                     <Year />
                 </p>
             </div>
@@ -90,7 +88,6 @@ const MovieYts = () => {
                 ))}
             </div>
             <div className="hrGenre"></div>
-
             <div className="movieMain">
                 {movies.map(movie => (
                     <div key={movie.id}

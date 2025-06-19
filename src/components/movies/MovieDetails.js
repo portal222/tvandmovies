@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import MovieActor from "./MovieActor";
 import BackToTop from "../BackToTop";
 import MovieOmdb from "./MovieOmdb";
 import OmdbImg from "./OmdbImg";
@@ -11,8 +10,6 @@ import Loader from "../Loader";
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import FreeMovies from "./FreeMovies";
 import FreeMoviesReview from "./FreeMoviesReview";
-
-
 
 const MovieDetails = () => {
 
@@ -105,15 +102,10 @@ const MovieDetails = () => {
                         <div>
                             <MovieOmdb number={movies.imdb_code} />
                         </div>
-
-
+                        <br></br>
                         <FreeMoviesReview imdbId={movies.imdb_code} />
-
-
-
                     </div>
                 </div>
-
             </div>
             <div className="detailMain">
                 <div className="detailMov">
@@ -197,12 +189,9 @@ const MovieDetails = () => {
                                             MORE PICTURE
                                         </p>
                                     </div>
-
                                 </div>
                             )}
                         </div>
-
-
                     </div>
                 </div>
                 <div className="similar">
@@ -236,7 +225,6 @@ const MovieDetails = () => {
                     </div>
                 ))}
             </div>
-
             <BackToTop />
         </>
     )

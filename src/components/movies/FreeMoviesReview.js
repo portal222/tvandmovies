@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import he from "he";
 
 const FreeMoviesReview = (props) => {
 
     const [movies, setMovies] = useState([]);
     const [error, setError] = useState(null);
-
 
     useEffect(() => {
         getMovie();
@@ -22,20 +21,14 @@ const FreeMoviesReview = (props) => {
 
             setMovies(data);
 
-            console.log("podaci iz freemovies REVIew", data);
-
         } catch (err) {
             setError(err);
         }
     };
 
-
     return (
         <>
             <div>
-                {/* {movies.top?.plot?.plotText?.plainText && (
-                    <p className="review">Plot: {movies.top?.plot?.plotText?.plainText}</p>
-                )} */}
                 {movies.main?.filmingLocations.edges?.[0]?.node.location && (
                     <p className="review">Filming location: {movies.main?.filmingLocations.edges?.[0]?.node.location}</p>
                 )}
@@ -43,14 +36,14 @@ const FreeMoviesReview = (props) => {
                     <p className="writer">Review by {movies.short?.review?.author?.name}</p>
                 )}
                 {movies.short?.review?.name && (
-                    <p className="writer" >{movies.short?.review?.name} </p>
+                    <p className="writer" >{he.decode(movies.short?.review?.name)} </p>
                 )}
                 {movies.short?.review?.reviewBody && (
-                    <p dangerouslySetInnerHTML={{ __html: movies.short?.review?.reviewBody }}
-                        className="review"></p>
+                    <p className="review">{he.decode(movies.short?.review?.reviewBody)}
+                    </p>
                 )}
                 {movies.main?.goofs.edges[0]?.node.text.plaidHtml && (
-                    <p className="goofs"> Goofs: {movies.main?.goofs.edges[0]?.node.text.plaidHtml}
+                    <p className="goofs" dangerouslySetInnerHTML={{ __html: "Goofs:" + movies.main?.goofs.edges[0]?.node.text.plaidHtml }}>
                     </p>
                 )}
             </div>

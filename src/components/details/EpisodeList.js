@@ -5,7 +5,6 @@ import TableRow from "./TableRow";
 const EpisodeList = (props) => {
 
     const [error, setError] = useState(null);
-
     const [episode, setEpisode] = useState([]);
 
     useEffect(() => {
@@ -33,7 +32,6 @@ const EpisodeList = (props) => {
                             <div className="epName">{epis.name}</div>
                             <p className="epNumber">E{epis.number}</p>
                             <p className="airdate"> {epis.airdate}</p>
-
                         </div>
                         <div>
                             <img className="imgSezons"

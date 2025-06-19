@@ -47,7 +47,7 @@ const MovieRes = () => {
         return (
             <>
                 <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
-                <p className="time">{searchStringValue} not found</p>
+                    <p className="time">{searchStringValue} not found</p>
                 </div>
                 <div className="place">
                     <div className="placeBut">
@@ -61,10 +61,9 @@ const MovieRes = () => {
     return (
         <>
             <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
-            <p className="time">{totalMovies} results for: {searchStringValue}</p>
+                <p className="time">{totalMovies} results for: {searchStringValue}</p>
             </div>
             <div className="hrGenre"></div>
-
             <div className="movieMain" >
                 {movies.map(movie => (
                     <div key={movie.id}
@@ -72,10 +71,10 @@ const MovieRes = () => {
                         <div className="dropdownM">
                             <div>
                                 <img src={movie.medium_cover_image} alt="no picture"
-                                   />
+                                />
                             </div>
                             <span className="dropdown-contentM"
-                               >
+                            >
                                 {movie.genres && (
                                     <>
                                         {movie.genres.map(genre => (
@@ -84,8 +83,7 @@ const MovieRes = () => {
                                         ))}
                                     </>
                                 )}
-                                <p style={{paddingTop: "15px"}}> ⏲{movie.runtime} min ⭐{movie.rating}</p>
-
+                                <p style={{ paddingTop: "15px" }}> ⏲{movie.runtime} min ⭐{movie.rating}</p>
                             </span>
                         </div>
                         <div onClick={() => {
@@ -116,5 +114,4 @@ const MovieRes = () => {
         </>
     );
 }
-
 export default MovieRes;

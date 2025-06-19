@@ -9,20 +9,21 @@ const EpisodeNumber = (props) => {
     }
 
     return (
-        <><tr>
-            <td colSpan={2}>
-                <div className="sezone">
-                    {props.sezones.map((sezone) => (
-                        <div key={sezone.id}>
-                            <p>{"Sezone: " + sezone.number + " "}</p>
-                            <p className={`rating ${classFunction(sezone.episodeOrder)}`}>
-                                {" Episode: " + sezone.episodeOrder}
-                            </p>
-                        </div>
-                    ))}
-                </div>
-            </td>
-        </tr>
+        <>
+            <tr>
+                <td colSpan={2}>
+                    <div className="sezone">
+                        {props.sezones.map((sezone) => (
+                            <div key={sezone.id}>
+                                <p>{"Sezone: " + sezone.number + " "}</p>
+                                <p className={`rating ${classFunction(sezone.episodeOrder)}`}>
+                                    {" Episode: " + sezone.episodeOrder}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </td>
+            </tr>
         </>
     )
 }

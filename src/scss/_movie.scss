@@ -4,6 +4,7 @@ $color13: #7077A1;
 $color14: whitesmoke;
 $color15: #f6b17a;
 $color16: #ffd2ae;
+$color17: rgb(222, 226, 255);
 $color7: rgba(18, 16, 62, 0.635);
 $color8: rgb(18, 17, 58);
 
@@ -54,7 +55,7 @@ $color8: rgb(18, 17, 58);
             font-size: 28px;
             font-weight: 500;
             padding: 20px;
-            color: $color14;
+            color: $color17;
         }
 
         .divGenre {
@@ -90,10 +91,17 @@ $color8: rgb(18, 17, 58);
             padding: 30px;
             color: $color14;
             width: 760px;
+            text-align: justify;
         }
 
         .review {
             padding: 10px 30px;
+            margin: 0px;
+            font-family: 'Segoe UI', sans-serif;
+
+            a {
+                color: #42d3e7;
+            }
         }
 
         .writer,
@@ -101,6 +109,8 @@ $color8: rgb(18, 17, 58);
             padding: 5px 10px 5px 30px;
             width: 760px;
             font-size: 20px;
+            margin: 0px;
+
         }
 
         .office {
@@ -114,6 +124,13 @@ $color8: rgb(18, 17, 58);
 
         .goofs {
             font-size: 17px;
+            text-align: justify;
+            font-family: 'Segoe UI', sans-serif;
+
+            a {
+                color: #42d3e7;
+            }
+
         }
 
         .casting {
@@ -221,6 +238,7 @@ $color8: rgb(18, 17, 58);
                     color: $color14;
                     background-color: #009966;
                     border-radius: 8px;
+                    text-align: center;
 
                     &:hover {
                         background-color: #46CB18;
@@ -232,15 +250,17 @@ $color8: rgb(18, 17, 58);
         .freeMovie {
             display: flex;
             width: 500px !important;
-            padding: 0px;
+            padding: 3px 10px;
 
             p {
-                padding: 10px;
+                margin: 0px;
+                padding: 5px 10px 5px 20px;
                 vertical-align: bottom;
                 font-size: 20px;
             }
 
             .actorName {
+                padding: 5px 10px 5px 20px;
                 color: $color15;
                 cursor: pointer;
                 font-size: 20px;
@@ -595,31 +615,33 @@ $color8: rgb(18, 17, 58);
                     }
                 }
             }
-              .freeMovie {
-            display: flex;
-            width: 355px !important;
-            padding: 10px;
 
-            p {
-                padding: 10px;
-                vertical-align: bottom;
-                font-size: 18px;
-            }
+            .freeMovie {
+                display: flex;
+                width: 355px !important;
+                padding: 5px 10px;
 
-            .actorName {
-                color: $color15;
-                cursor: pointer;
-                font-size: 18px;
+                p {
+                    padding: 2px 10px 2px 10px;
+                    vertical-align: bottom;
+                    font-size: 18px;
+                }
 
-                &:hover {
-                    color: $color16;
+                .actorName {
+                    padding: 5px 10px 5px 10px;
+                    color: $color15;
+                    cursor: pointer;
+                    font-size: 18px;
+
+                    &:hover {
+                        color: $color16;
+                    }
+                }
+
+                .freeImg {
+                    width: 120px;
                 }
             }
-
-            .freeImg {
-                width: 120px;
-            }
-        }
         }
 
         .iframe {

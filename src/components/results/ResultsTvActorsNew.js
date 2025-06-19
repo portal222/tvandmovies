@@ -15,18 +15,15 @@ const ResultsTvActorsNew = (props) => {
         getTvShow();
     }, []);
 
-
     const getTvShow = async () => {
         const url = `https://api.tvmaze.com/search/people?q=${props.celebs}`;
 
         try {
             const response = await axios.get(url);
-
             const data = response.data;
 
             setTvShow(data);
             setResults(data.length);
-
 
         } catch (err) {
             setError(err);

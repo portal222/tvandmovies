@@ -29,7 +29,6 @@ const TvShowClickDetails = (props) => {
             const response = await axios.get(url);
             const responseSez = await axios.get(urlSez);
 
-
             const data = response.data;
             const dataSez = responseSez.data.reverse();
 

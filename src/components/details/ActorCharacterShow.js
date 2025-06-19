@@ -20,16 +20,12 @@ const ActorCharacterShow = (props) => {
         try {
 
             const responseCast = await axios.get(urlCast);
-
             const dataCast = responseCast.data;
 
             setShow(dataCast);
 
-
         } catch (err) {
             setError(err);
-
-
         }
     };
 
@@ -45,7 +41,7 @@ const ActorCharacterShow = (props) => {
                     onClick={() => {
                         clickShow(show.id);
                         window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}>
+                    }}>
                     {show.name}
                 </p>
                 <p>{show.premiered}</p>

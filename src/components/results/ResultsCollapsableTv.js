@@ -10,8 +10,6 @@ const ResultsCollapsableTv = (props) => {
 
     const [open, setOpen] = useState(false);
 
-    console.log("iz collapsa props", props.idNumber)
-
     return (
         <>
             <tr>
@@ -38,7 +36,6 @@ const ResultsCollapsableTv = (props) => {
             </tr>
         </>
     )
-
 }
 export default ResultsCollapsableTv;
 

@@ -14,7 +14,6 @@ const ActorCharacter = (props) => {
         const urlCast = `${props.character}`
 
         try {
-
             const responseCast = await axios.get(urlCast);
 
             const dataCast = responseCast.data;

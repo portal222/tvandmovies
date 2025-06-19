@@ -29,6 +29,9 @@ const theme = createTheme({
 
 const Navigation = () => {
 
+  var today = new Date
+  var year = today.getFullYear();
+
   return (
     <>
       <HashRouter
@@ -77,8 +80,8 @@ const Navigation = () => {
 
       <div className="footer">
         <hr></hr>
-        <p>Data base from TvMaze, YTS.mx and OMDb</p>
-        &copy; InTerVal
+        <p>Data base from TvMaze, YTS.mx, OMDb and Free Movie</p>
+        InTerVal &copy;{year}
       </div>
     </>
   )

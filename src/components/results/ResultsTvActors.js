@@ -18,7 +18,6 @@ const ResultsTvActors = () => {
     useEffect(() => {
         getTvShow(searchStringValue);
     }, [searchStringValue]);
-    console.log("iz results tvShow", searchStringValue)
 
     const getTvShow = async (searchStringValue) => {
         const url = `https://api.tvmaze.com/search/people?q=${searchStringValue}`;
@@ -45,9 +44,7 @@ const ResultsTvActors = () => {
             <>
                 <div className="showMain">
                     <br></br>
-
                     <h4>Nothing found</h4>
-
                 </div>
                 <div className="place"></div>
             </>

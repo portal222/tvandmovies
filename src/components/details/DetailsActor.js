@@ -55,7 +55,6 @@ const DetailsActor = () => {
     const paginatedPosts = PaginationGuest(guestCast, pageSize);
     const currentPosts = paginatedPosts[currentPage - 1];
 
-
     if (isLoading) {
         return <Loader />
     }
@@ -63,7 +62,6 @@ const DetailsActor = () => {
         return (
             <div className="showMain">
                 <br></br>
-
                 <h3>Nothing found</h3>
             </div>
         )
@@ -152,7 +150,7 @@ const DetailsActor = () => {
                             siblingCount={0}
                             onChange={(_, newPage) => {
                                 setCurrentPage(newPage);
-                            document.querySelector('.guestCast').scrollIntoView({ behavior: 'smooth' });
+                                document.querySelector('.guestCast').scrollIntoView({ behavior: 'smooth' });
                             }}
                         />
                     </Box>

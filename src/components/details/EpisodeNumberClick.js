@@ -20,7 +20,6 @@ const EpisodeNumberClick = (props) => {
             const dataSez = responseSez.data.reverse();
             setSezons(dataSez)
 
-
         } catch (err) {
             setError(err);
         }
@@ -45,8 +44,6 @@ const EpisodeNumberClick = (props) => {
                                     {" Episode: " + sezone.episodeOrder}
                                 </p>
                             </div>
-
-
                         ))}
                     </div>
                 </td>

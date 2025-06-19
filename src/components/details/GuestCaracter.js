@@ -2,13 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 
-
 const GuestCaracter = (props) => {
 
     const navigate = useNavigate();
-
     const settings = {
-
         dots: false,
         infinite: true,
         slidesToShow: 2,

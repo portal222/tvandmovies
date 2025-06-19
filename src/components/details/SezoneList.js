@@ -26,7 +26,6 @@ const SezoneList = (props) => {
                         </div>
                         <div className="summEpis" dangerouslySetInnerHTML={{ __html: sezon.summary }}>
                         </div>
-
                     </div>
                     <div className="hrGenre"></div>
                     <EpisodeList sezonId={sezon.id} />

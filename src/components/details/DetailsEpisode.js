@@ -10,7 +10,6 @@ const DetailsEpisode = (props) => {
 
     const navigate = useNavigate();
 
-
     useEffect(() => {
         getEpisode();
     }, [])

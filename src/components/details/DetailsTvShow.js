@@ -47,8 +47,6 @@ const DetailsTvShow = () => {
             setSezons(dataSez)
             setIsLoading(false);
 
-            console.log("glumci", data._embedded.cast )
-
         } catch (err) {
             setError(err);
         }
@@ -119,7 +117,7 @@ const DetailsTvShow = () => {
                     className="holdImg">
                     <img className="imgShow"
                         src={show.image?.original} />
-                        <OmdbImgSeries number={show.externals.imdb} />
+                    <OmdbImgSeries number={show.externals.imdb} />
                 </div>
                 <table>
                     <tbody>
@@ -165,7 +163,7 @@ const DetailsTvShow = () => {
                             <td colSpan={3} className="summary" dangerouslySetInnerHTML={{ __html: show.summary }}>
                             </td>
                         </tr>
-                                <SeriesOmdb number={show.externals.imdb} />
+                        <SeriesOmdb number={show.externals.imdb} />
                         <tr>
                             {show.webChannel?.name && (
                                 <td className={`rating3 ${classFunction4(show.webChannel?.name)}`}>

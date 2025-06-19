@@ -9,7 +9,6 @@ const MovieYtsCateg = () => {
     const [movies, setMovies] = useState([]);
     const [page, setPage] = useState(1);
     const [totalMovies, setTotalMovies] = useState(0);
-    const [category, setCategory] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     const limit = 10;

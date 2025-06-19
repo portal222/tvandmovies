@@ -4,7 +4,6 @@ import GlobalContext from "../GlobalContext";
 import ResultsTvTime from "./ResultsTvTime";
 import { useNavigate } from "react-router-dom";
 import BackToTop from "../BackToTop";
-import SeriesOmdb from "../details/SeriesOmdb";
 import SearchTvShow from "../search/SearchTvShow";
 import SearchActors from "../search/SearchActors";
 
@@ -35,20 +34,12 @@ const ResultsTvShow = () => {
 
             const data = response.data;
             const dataAct = responseAct.data;
-        
-
-            console.log("serije pretraga", data);
-            console.log("glumci", dataAct);
-   
-
 
             setTvShow(data);
             setTvActor(dataAct);
 
             setResults(data.length);
             setResAct(dataAct.length);
-        
-
 
         } catch (err) {
             setError(err);
@@ -71,7 +62,6 @@ const ResultsTvShow = () => {
                 <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
                     <p className="time">{searchStringValue} Not found</p>
                 </div>
-
                 <div className="place">
                     <div className="placeBut">
                         <SearchTvShow placeholder={'Tv Show & Actor'} linkTo={'/tvShow'} />
@@ -139,7 +129,6 @@ const ResultsTvShow = () => {
                     </tbody>
                 ))}
             </table >
-
             <table className="showMain">
                 {tvActor.map((dataObj, id) => (
                     <tbody key={id}>
@@ -171,7 +160,6 @@ const ResultsTvShow = () => {
                         </tr>
                         <tr>
                             <td colSpan={2}>
-
                                 <a href={dataObj.person.url} target="_blank">
                                     TvMaze</a>
                             </td>

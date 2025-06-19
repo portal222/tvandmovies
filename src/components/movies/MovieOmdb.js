@@ -82,14 +82,10 @@ const MovieOmdb = (props) => {
                 {movies.Language && (
                     <div className={`writer ${classFunctionL(movies.Language)}`}>
                         Language: {movies.Language}</div>
-
                 )}
                 <div className={`description ${classFunctionP(movies.Plot)}`}>
                     {movies.Plot}
                 </div>
-                {/* {movies.Actors && (
-                    <div className={`writer ${classFunctionA(movies.Actors)}`}>Actors: {movies.Actors}</div>
-                )} */}
                 {movies.Director && (
                     <div className={`writer ${classFunctionD(movies.Director)}`}> Director: {movies.Director}</div>
                 )}

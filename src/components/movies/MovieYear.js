@@ -36,9 +36,9 @@ const MovieYear = () => {
     if (isLoading) {
         return (
             <>
-              <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
-                <p className="time">Sort by years</p>
-            </div>
+                <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
+                    <p className="time">Sort by years</p>
+                </div>
                 <Loader />
             </>
         )
