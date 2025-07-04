@@ -6,6 +6,8 @@ const FreeMoviesReview = (props) => {
 
     const [movies, setMovies] = useState([]);
     const [error, setError] = useState(null);
+    const [expanded, setExpanded] = useState(false);
+
 
     useEffect(() => {
         getMovie();
@@ -26,6 +28,7 @@ const FreeMoviesReview = (props) => {
         }
     };
 
+
     return (
         <>
             <div>
@@ -39,11 +42,19 @@ const FreeMoviesReview = (props) => {
                     <p className="writer" >{he.decode(movies.short?.review?.name)} </p>
                 )}
                 {movies.short?.review?.reviewBody && (
-                    <p className="review">{he.decode(movies.short?.review?.reviewBody)}
+                    <p className="review">
+                        {expanded
+                            ? he.decode(movies.short?.review?.reviewBody)
+                            : he.decode(movies.short?.review?.reviewBody).substring(0, 200) + "... "}
+                        <span className="moreLink" onClick={() => setExpanded(!expanded)}>
+                            {expanded ? " show less" : " show more"}
+                        </span>
                     </p>
                 )}
+
+
                 {movies.main?.goofs.edges[0]?.node.text.plaidHtml && (
-                    <p className="goofs" dangerouslySetInnerHTML={{ __html: "Goofs:" + movies.main?.goofs.edges[0]?.node.text.plaidHtml }}>
+                    <p className="goofs" dangerouslySetInnerHTML={{ __html: "Goofs: " + movies.main?.goofs.edges[0]?.node.text.plaidHtml }}>
                     </p>
                 )}
             </div>

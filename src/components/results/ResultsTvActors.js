@@ -24,7 +24,6 @@ const ResultsTvActors = () => {
 
         try {
             const response = await axios.get(url);
-
             const data = response.data;
 
             setTvShow(data);

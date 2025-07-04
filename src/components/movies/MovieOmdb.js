@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import he from "he";
+
 
 const MovieOmdb = (props) => {
 
     const [movies, setMovies] = useState([]);
     const [error, setError] = useState(null);
+    const [expanded, setExpanded] = useState(false);
+
 
     const imdbId = props.number
 
@@ -83,16 +87,25 @@ const MovieOmdb = (props) => {
                     <div className={`writer ${classFunctionL(movies.Language)}`}>
                         Language: {movies.Language}</div>
                 )}
-                <div className={`description ${classFunctionP(movies.Plot)}`}>
-                    {movies.Plot}
-                </div>
+                {movies.Plot && (
+                    <p className="review">
+                        {expanded
+                            ? he.decode(movies.Plot)
+                            : he.decode(movies.Plot).substring(0, 150) + "... "}
+                        <span className="moreLink" onClick={() => setExpanded(!expanded)}>
+                            {expanded ? " show less" : " show more"}
+                        </span>
+                    </p>
+
+                )}
+
                 {movies.Director && (
                     <div className={`writer ${classFunctionD(movies.Director)}`}> Director: {movies.Director}</div>
                 )}
                 {movies.Writer && (
                     <div className={`writer ${classFunctionW(movies.Writer)}`}>Writer: {movies.Writer}</div>
                 )}
-                      {movies.Awards && (
+                {movies.Awards && (
                     <div className={`writer ${classFunction(movies.Awards)}`}>Awards: {movies.Awards}</div>
                 )}
                 {movies.imdbRating && (

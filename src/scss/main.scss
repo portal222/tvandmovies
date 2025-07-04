@@ -11,9 +11,15 @@ $color8: rgb(18, 17, 58);
 $color9: green;
 $color10: rgb(5, 175, 5);
 
+@font-face {
+    font-family: mainFont;
+    src: url("../../public/assets/Antic-Regular.ttf");
+}
+
 body {
     background-color: $color2;
-    font-family: Tahoma, sans-serif;
+    font-family: mainFont;
+    font-weight: lighter;
     color: $color4;
 }
 
