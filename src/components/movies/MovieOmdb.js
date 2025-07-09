@@ -88,14 +88,16 @@ const MovieOmdb = (props) => {
                         Language: {movies.Language}</div>
                 )}
                 {movies.Plot && (
-                    <p className="review">
-                        {expanded
-                            ? he.decode(movies.Plot)
-                            : he.decode(movies.Plot).substring(0, 150) + "... "}
-                        <span className="moreLink" onClick={() => setExpanded(!expanded)}>
-                            {expanded ? " show less" : " show more"}
-                        </span>
-                    </p>
+                    <div style={{ padding: "5px", backgroundColor: "#2D3250" }}>
+                        <p className="review">
+                            {expanded
+                                ? he.decode(movies.Plot)
+                                : he.decode(movies.Plot).substring(0, 150) + "... "}
+                            <span className="moreLink" onClick={() => setExpanded(!expanded)}>
+                                {expanded ? " show less" : " show more"}
+                            </span>
+                        </p>
+                    </div>
 
                 )}
 

@@ -146,6 +146,15 @@ const MovieDetails = () => {
                                         </div>
                                     </>
                                 )}
+                             
+                                    <p className="morePic"
+                                        onClick={() => {
+                                            clickPicture(movies.imdb_code);
+                                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                                        }}
+                                    >
+                                        More Picture
+                                    </p>
                             </div>
                             {movies.torrents && (
                                 <div>
@@ -179,16 +188,7 @@ const MovieDetails = () => {
                                     <div className="torrent" style={{ padding: "20px" }}>
                                         <span >Uploaded {movies.date_uploaded}</span>
                                     </div>
-                                    <div className="torrent" style={{ padding: "20px" }}>
-                                        <p className="pictureButt"
-                                            onClick={() => {
-                                                clickPicture(movies.imdb_code);
-                                                window.scrollTo({ top: 0, behavior: 'smooth' });
-                                            }}
-                                        >
-                                            MORE PICTURE
-                                        </p>
-                                    </div>
+
                                 </div>
                             )}
                         </div>

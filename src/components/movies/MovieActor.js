@@ -16,7 +16,7 @@ const MovieActor = (props) => {
     }, []);
 
     const getTvShow = async () => {
-        const url = `https://api.tvmaze.com/search/people?q=${actors}`;
+        const url = `https://api.tvmaze.com/search/people?q="${actors}"`;
 
         try {
             const response = await axios.get(url);
@@ -37,7 +37,7 @@ const MovieActor = (props) => {
 
     if (results == 0) {
         return (<>
-            <p>
+            <p className="actorNoPic">
                 {actors}
             </p>
         </>)

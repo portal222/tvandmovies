@@ -35,22 +35,24 @@ const FreeMoviesReview = (props) => {
                 {movies.main?.filmingLocations.edges?.[0]?.node.location && (
                     <p className="review">Filming location: {movies.main?.filmingLocations.edges?.[0]?.node.location}</p>
                 )}
-                {movies.short?.review?.author?.name && (
-                    <p className="writer">Review by {movies.short?.review?.author?.name}</p>
-                )}
-                {movies.short?.review?.name && (
-                    <p className="writer" >{he.decode(movies.short?.review?.name)} </p>
-                )}
-                {movies.short?.review?.reviewBody && (
-                    <p className="review">
-                        {expanded
-                            ? he.decode(movies.short?.review?.reviewBody)
-                            : he.decode(movies.short?.review?.reviewBody).substring(0, 200) + "... "}
-                        <span className="moreLink" onClick={() => setExpanded(!expanded)}>
-                            {expanded ? " show less" : " show more"}
-                        </span>
-                    </p>
-                )}
+                <div style={{ padding: "5px", backgroundColor: "#2D3250" }}>
+                    {movies.short?.review?.name && (
+                        <p className="writer" >{he.decode(movies.short?.review?.name)} </p>
+                    )}
+                    {movies.short?.review?.reviewBody && (
+                        <p className="review">
+                            {expanded
+                                ? he.decode(movies.short?.review?.reviewBody)
+                                : he.decode(movies.short?.review?.reviewBody).substring(0, 200) + "... "}
+                            <span className="moreLink" onClick={() => setExpanded(!expanded)}>
+                                {expanded ? " show less" : " show more"}
+                            </span>
+                        </p>
+                    )}
+                    {movies.short?.review?.author?.name && (
+                        <p className="writer2">Review by {movies.short?.review?.author?.name}</p>
+                    )}
+                </div>
 
 
                 {movies.main?.goofs.edges[0]?.node.text.plaidHtml && (

@@ -7,6 +7,12 @@ const FreeMovies = (props) => {
     const [movies, setMovies] = useState([]);
     const [photo, setPhoto] = useState([]);
     const [error, setError] = useState(null);
+    const [style, setStyle] = useState("largeImg");
+    const [activeImage, setActiveImage] = useState(null);
+
+    const handleImageClick = (url) => {
+        setActiveImage(url);
+    };
 
     useEffect(() => {
         getMovie();
@@ -29,34 +35,47 @@ const FreeMovies = (props) => {
 
     return (
         <>
-            <div>
-                <div className="freeMovie">
-                    <p>Roles:</p>
-                </div>
-                <div>
-                    {movies.main?.cast.edges && (
-                        <>
-                            {movies.main?.cast.edges.map((char, id) => (
-                                <div key={id} className="freeMovie">
-                                    {char.node?.name.primaryImage?.url && (
-                                        <img src={char.node?.name.primaryImage?.url} alt="" className="freeImg" />
-                                    )}
-                                    <MovieActor actor={char.node?.name.nameText?.text} />
-                                    <div>
-                                        {char.node.characters?.[0]?.name && (
-                                            <p> as {char.node.characters?.[0]?.name}</p>
-                                        )}
-                                        {char.node.characters?.[1]?.name && (
-                                            <p> aka {char.node.characters?.[1]?.name}</p>
-                                        )}
-                                    </div>
-                                </div>
-                            ))}
-                        </>
-                    )}
-                </div>
+            <div className="character-grid">
+                {movies.main?.cast.edges.map((char, idx) => {
+                    const imgUrl = char?.node?.name?.primaryImage?.url;
+                    return (
+                        <div key={idx} className="character-item">
+                            <img
+                                src={imgUrl || "fallback.png"}
+                                alt={char?.node?.name?.nameText?.text || "unknown"}
+                                className="avatar-img"
+                                onClick={() => imgUrl && handleImageClick(imgUrl)}
+                                onError={(e) => {
+                                    if (!e.target.src.includes("fallback.png")) {
+                                        e.target.src = "fallback.png";
+                                    }
+                                }}
+                            />
+                            <div>
+                            <MovieActor actor={char.node?.name.nameText?.text} />
+                                {char.node.characters?.[0]?.name && (
+                                    <p> as {char.node.characters?.[0]?.name}</p>
+                                )}
+                                {char.node.characters?.[1]?.name && (
+                                    <p> aka {char.node.characters?.[1]?.name}</p>
+                                )}
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
+
+            {activeImage && (
+                <div className="lightbox" onClick={() => setActiveImage(null)}>
+                    <img src={activeImage} alt="" className="lightbox-img" />
+                </div>
+            )}
+
         </>
     )
 }
 export default FreeMovies;
+
+
+
+
