@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import MovieActor from "./MovieActor";
+import fallback from "../../../public/assets/img/fallback.png"
 
 const FreeMovies = (props) => {
 
@@ -41,13 +42,13 @@ const FreeMovies = (props) => {
                     return (
                         <div key={idx} className="character-item">
                             <img
-                                src={imgUrl || "fallback.png"}
+                                src={imgUrl || fallback}
                                 alt={char?.node?.name?.nameText?.text || "unknown"}
                                 className="avatar-img"
                                 onClick={() => imgUrl && handleImageClick(imgUrl)}
                                 onError={(e) => {
-                                    if (!e.target.src.includes("fallback.png")) {
-                                        e.target.src = "fallback.png";
+                                    if (!e.target.src.includes(fallback)) {
+                                        e.target.src = fallback;
                                     }
                                 }}
                             />
