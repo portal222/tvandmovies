@@ -704,7 +704,7 @@ $color8: rgb(18, 17, 58);
                 font-size: 18px;
                 padding: 10px;
                 color: $color14;
-                width: 355px;
+                width: 345px;
             }
 
             .review {
@@ -712,10 +712,15 @@ $color8: rgb(18, 17, 58);
             }
 
             .writer,
+            .writer2,
             .goofs {
                 padding: 5px 10px 5px 10px;
                 width: 355px;
                 font-size: 16px;
+            }
+
+            .writer2 {
+                font-size: 13px;
             }
 
             .office {
