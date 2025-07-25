@@ -10,6 +10,9 @@ import Loader from "../Loader";
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import FreeMovies from "./FreeMovies";
 import FreeMoviesReview from "./FreeMoviesReview";
+import MovieActor from "./MovieActor";
+import fallback from "../../../public/assets/img/fallback.png"
+
 
 const MovieDetails = () => {
 
@@ -104,6 +107,29 @@ const MovieDetails = () => {
                         </div>
                         <br></br>
                         <FreeMoviesReview imdbId={movies.imdb_code} />
+                        {movies.cast.map((c, id) => {
+                            const imgUrl = c.url_small_image;
+                            return (
+                                <div key={id} className="casting">
+                                    <img
+                                        src={imgUrl || fallback}
+                                        alt=""
+                                        className="actorImg"
+                                        onError={(e) => {
+                                            if (!e.target.src.includes(fallback)) {
+                                                e.target.src = fallback;
+                                            }
+                                        }}
+                                    />
+                                    <MovieActor actor={c.name} />
+                                    {c.character_name && (
+                                        <p className="charName">
+                                            as  {c.character_name}
+                                        </p>
+                                    )}
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
             </div>
@@ -146,15 +172,15 @@ const MovieDetails = () => {
                                         </div>
                                     </>
                                 )}
-                             
-                                    <p className="morePic"
-                                        onClick={() => {
-                                            clickPicture(movies.imdb_code);
-                                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                                        }}
-                                    >
-                                        More Picture
-                                    </p>
+
+                                <p className="morePic"
+                                    onClick={() => {
+                                        clickPicture(movies.imdb_code);
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    }}
+                                >
+                            
+                                </p>
                             </div>
                             {movies.torrents && (
                                 <div>

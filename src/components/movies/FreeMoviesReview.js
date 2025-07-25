@@ -22,6 +22,7 @@ const FreeMoviesReview = (props) => {
             const dataImg = response.data.main.titleMainImages.edges
 
             setMovies(data);
+      
 
         } catch (err) {
             setError(err);

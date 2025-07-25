@@ -21,6 +21,7 @@ const FreeMovies = (props) => {
 
     const getMovie = async () => {
         const url = `https://imdb.iamidiotareyoutoo.com/search?tt=${props.imdbId}`
+    
 
         try {
             const response = await axios.get(url);

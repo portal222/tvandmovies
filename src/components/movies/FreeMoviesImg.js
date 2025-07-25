@@ -19,15 +19,18 @@ const FreeMoviesImg = () => {
 
     const getImg = async () => {
 
-        const urlImg = `https://imdb.iamidiotareyoutoo.com/search?tt=${images}`
+        const urlImg = `https://imdb.iamidiotareyoutoo.co/m/search?tt=${images}`
+    
 
         try {
             const response = await axios.get(urlImg);
             const dataImg = response.data.main.titleMainImages.edges
+        
 
             setPhoto(dataImg);
 
             setIsLoading(false);
+      
 
         } catch (err) {
             setError(err);

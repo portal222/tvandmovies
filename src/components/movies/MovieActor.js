@@ -37,7 +37,7 @@ const MovieActor = (props) => {
 
     if (results == 0) {
         return (<>
-            <p className="actorNoPic">
+            <p className="charName">
                 {actors}
             </p>
         </>)

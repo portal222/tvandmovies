@@ -92,7 +92,7 @@ const MovieOmdb = (props) => {
                         <p className="review">
                             {expanded
                                 ? he.decode(movies.Plot)
-                                : he.decode(movies.Plot).substring(0, 150) + "... "}
+                                : he.decode(movies.Plot).substring(0, 110) + "... "}
                             <span className="moreLink" onClick={() => setExpanded(!expanded)}>
                                 {expanded ? " show less" : " show more"}
                             </span>
