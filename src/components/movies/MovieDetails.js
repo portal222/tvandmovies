@@ -107,29 +107,6 @@ const MovieDetails = () => {
                         </div>
                         <br></br>
                         <FreeMoviesReview imdbId={movies.imdb_code} />
-                        {movies.cast.map((c, id) => {
-                            const imgUrl = c.url_small_image;
-                            return (
-                                <div key={id} className="casting">
-                                    <img
-                                        src={imgUrl || fallback}
-                                        alt=""
-                                        className="actorImg"
-                                        onError={(e) => {
-                                            if (!e.target.src.includes(fallback)) {
-                                                e.target.src = fallback;
-                                            }
-                                        }}
-                                    />
-                                    <MovieActor actor={c.name} />
-                                    {c.character_name && (
-                                        <p className="charName">
-                                            as  {c.character_name}
-                                        </p>
-                                    )}
-                                </div>
-                            )
-                        })}
                     </div>
                 </div>
             </div>
@@ -172,14 +149,13 @@ const MovieDetails = () => {
                                         </div>
                                     </>
                                 )}
-
                                 <p className="morePic"
                                     onClick={() => {
                                         clickPicture(movies.imdb_code);
                                         window.scrollTo({ top: 0, behavior: 'smooth' });
                                     }}
                                 >
-                            
+                            more picture
                                 </p>
                             </div>
                             {movies.torrents && (
@@ -214,7 +190,6 @@ const MovieDetails = () => {
                                     <div className="torrent" style={{ padding: "20px" }}>
                                         <span >Uploaded {movies.date_uploaded}</span>
                                     </div>
-
                                 </div>
                             )}
                         </div>

@@ -14,7 +14,7 @@ import MovieActor from "./MovieActor";
 import fallback from "../../../public/assets/img/fallback.png"
 
 
-const MovieDetails2 = () => {
+const MovieDetailsRezerva = () => {
 
     const [movies, setMovies] = useState([]);
     const [error, setError] = useState(null);
@@ -52,7 +52,7 @@ const MovieDetails2 = () => {
     };
 
     const clickShow = (numId) => {
-        const LinkTo = `/movieDetails/${numId}`;
+        const LinkTo = `/movieDetails2/${numId}`;
         navigate(LinkTo);
     }
 
@@ -107,6 +107,29 @@ const MovieDetails2 = () => {
                         </div>
                         <br></br>
                         <FreeMoviesReview imdbId={movies.imdb_code} />
+                        {movies.cast.map((c, id) => {
+                            const imgUrl = c.url_small_image;
+                            return (
+                                <div key={id} className="casting">
+                                    <img
+                                        src={imgUrl || fallback}
+                                        alt=""
+                                        className="actorImg"
+                                        onError={(e) => {
+                                            if (!e.target.src.includes(fallback)) {
+                                                e.target.src = fallback;
+                                            }
+                                        }}
+                                    />
+                                    <MovieActor actor={c.name} />
+                                    {c.character_name && (
+                                        <p className="charName">
+                                            as  {c.character_name}
+                                        </p>
+                                    )}
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
             </div>
@@ -149,13 +172,14 @@ const MovieDetails2 = () => {
                                         </div>
                                     </>
                                 )}
+
                                 <p className="morePic"
                                     onClick={() => {
                                         clickPicture(movies.imdb_code);
                                         window.scrollTo({ top: 0, behavior: 'smooth' });
                                     }}
                                 >
-                                more picture
+                            more picture
                                 </p>
                             </div>
                             {movies.torrents && (
@@ -231,4 +255,4 @@ const MovieDetails2 = () => {
         </>
     )
 }
-export default MovieDetails2;
+export default MovieDetailsRezerva;

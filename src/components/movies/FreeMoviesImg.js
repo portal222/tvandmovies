@@ -9,6 +9,7 @@ const FreeMoviesImg = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [photo, setPhoto] = useState([]);
+    const [status, setStatus] = useState([]);
 
     const params = useParams()
     const images = params.images;
@@ -19,18 +20,15 @@ const FreeMoviesImg = () => {
 
     const getImg = async () => {
 
-        const urlImg = `https://imdb.iamidiotareyoutoo.co/m/search?tt=${images}`
-    
+        const urlImg = `https://imdb.iamidiotareyoutoo.com/search?tt=${images}`
 
         try {
             const response = await axios.get(urlImg);
             const dataImg = response.data.main.titleMainImages.edges
-        
-
-            setPhoto(dataImg);
 
             setIsLoading(false);
-      
+            setPhoto(dataImg);
+            setStatus(response.status);
 
         } catch (err) {
             setError(err);
@@ -43,8 +41,27 @@ const FreeMoviesImg = () => {
                 <Loader />
             </>
         )
+    } else if (photo.length == 0) {
+        return (
+            <div className="showMain">
+                <div className="bigImg">
+                    <p>
+                        picture not found
+                    </p>
+                </div>
+            </div>
+        )
+    } else if (status == 500) {
+        return (
+            <div className="showMain">
+                <div className="bigImg">
+                    <p>
+                        picture not found
+                    </p>
+                </div>
+            </div>
+        )
     }
-
     return (
         <>
             <div className="showMain">
