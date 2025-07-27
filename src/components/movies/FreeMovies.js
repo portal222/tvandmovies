@@ -21,7 +21,7 @@ const FreeMovies = (props) => {
 
     const getMovie = async () => {
         const url = `https://imdb.iamidiotareyoutoo.com/search?tt=${props.imdbId}`
-    
+
 
         try {
             const response = await axios.get(url);
@@ -54,7 +54,7 @@ const FreeMovies = (props) => {
                                 }}
                             />
                             <div>
-                            <MovieActor actor={char.node?.name.nameText?.text} />
+                                <MovieActor actor={char.node?.name.nameText?.text} />
                                 {char.node.characters?.[0]?.name && (
                                     <p> as {char.node.characters?.[0]?.name}</p>
                                 )}
