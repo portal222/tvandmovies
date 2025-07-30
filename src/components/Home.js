@@ -14,7 +14,7 @@ const Home = () => {
 
     const navigate = useNavigate();
 
-    window.scrollTo({ top: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     useEffect(() => {
         getTv();
@@ -32,6 +32,8 @@ const Home = () => {
             const dataTv = responseTv.data
             setSerije(dataTv);
             setIsLoading(false);
+
+            console.log("detalji serija", dataTv);
         } catch (err) {
             setError(err);
         }
@@ -51,9 +53,9 @@ const Home = () => {
                 <p className="time">Series <Time /></p>
             </div>
             <div className="gridTv">
-                {serije.map((serija, id) => (
+                {serije.map((serija) => (
                     <>
-                        <div key={id}
+                        <div key={serija.id}
                             className="gridItem">
                             <img src={serija._embedded.show.image?.medium} alt="" />
                             <div className="genresTv">
@@ -64,7 +66,7 @@ const Home = () => {
                                     <>
                                         {serija._embedded.show.genres.map((genre, id) => (
                                             < div key={id}>
-                                            <p >{genre}</p>
+                                                <p >{genre}</p>
                                             </ div>
                                         ))}
                                     </>

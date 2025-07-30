@@ -80,7 +80,7 @@ const Navigation = () => {
 
       <div className="footer">
         <hr></hr>
-        <p>Data base from TvMaze, YTS.mx and OMDb </p>
+        <p>Data base from TvMaze, YTS.mx, OMDb and FreeMovies </p>
         InTerVal &copy;{year}
       </div>
     </>

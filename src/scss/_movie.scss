@@ -741,8 +741,6 @@ $color8: rgb(18, 17, 58);
             }
 
             .casting {
-                display: flex;
-                flex-direction: row;
                 padding-left: 20px;
                 width: 355px;
                 font-size: 16px;
@@ -755,6 +753,11 @@ $color8: rgb(18, 17, 58);
                 .actorName {
                     font-size: 14px;
                 }
+                      .actorNoPic {
+               
+                font-size: 14px;
+              
+            }
 
                 .charName {
                     font-size: 14px;
