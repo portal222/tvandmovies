@@ -100,6 +100,7 @@ const DetailsActor = () => {
                                     TvMaze</a>
                             </td>
                         </tr>
+
                         <tr className="showCast">
                             <td>Show name</td>
                             <td>Cast</td>

@@ -14,7 +14,7 @@ import MovieActor from "./MovieActor";
 import fallback from "../../../public/assets/img/fallback.png"
 
 
-const MovieDetailsRezerva = () => {
+const MovieDetailsRezerva2 = () => {
 
     const [movies, setMovies] = useState([]);
     const [error, setError] = useState(null);
@@ -52,7 +52,7 @@ const MovieDetailsRezerva = () => {
     };
 
     const clickShow = (numId) => {
-        const LinkTo = `/movieDetails2/${numId}`;
+        const LinkTo = `/movieDetails/${numId}`;
         navigate(LinkTo);
     }
 
@@ -178,7 +178,6 @@ const MovieDetailsRezerva = () => {
                                     </>
                                 )}
 
-
                             </div>
                             {movies.torrents && (
                                 <div>
@@ -253,4 +252,4 @@ const MovieDetailsRezerva = () => {
         </>
     )
 }
-export default MovieDetailsRezerva;
+export default MovieDetailsRezerva2;

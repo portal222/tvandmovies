@@ -44,6 +44,11 @@ const Home = () => {
         navigate(LinkTo);
     }
 
+        const clickQ = () => {
+        const LinkTo = `/quotes`;
+        navigate(LinkTo);
+    }
+
     if (isLoading) {
         return <Loader />
     }
@@ -51,6 +56,13 @@ const Home = () => {
         <>
             <div className="gridTv" style={{ paddingTop: "60px" }}>
                 <p className="time">Series <Time /></p>
+                <p className="buttonS"
+                  onClick={() => {
+                                    clickQ();
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}>
+                    Quotes from the series
+                </p>
             </div>
             <div className="gridTv">
                 {serije.map((serija) => (

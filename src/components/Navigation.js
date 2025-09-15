@@ -12,13 +12,15 @@ import ResultsTvActors from "./results/ResultsTvActors";
 import MainSearch from "./search/MainSearch";
 import TvShowOnClick from "./details/TvShowOnClick";
 import MovieYts from "./movies/MovieYts";
-import MovieDetails from "./movies/MovieDetails";
+import MovieDetailsRezerva from "./movies/MovieDetailsRezerva";
+import MovieDetailsRezerva2 from "./movies/MovieDetailsRezerva2";
 import MovieDetails2 from "./movies/MovieDetails2";
 import MovieRes from "./movies/MovieRes";
 import MovieYtsCateg from "./movies/MovieYtsCateg";
 import MovieRating from "./movies/MovieRating";
 import MovieYear from "./movies/MovieYear";
 import FreeMoviesImg from "./movies/FreeMoviesImg";
+import Quotes from "./details/Quotes";
 
 const theme = createTheme({
   palette: {
@@ -68,13 +70,14 @@ const Navigation = () => {
           <Route path="/actorDetails/:actorId" element={<DetailsActor />} />
           <Route path="/showClick/:showId" element={<TvShowOnClick />} />
           <Route path="/movie" element={<MovieYts />} />
-          <Route path="/movieDetails/:numId" element={<MovieDetails />} />
-          <Route path="/movieDetails2/:numId" element={<MovieDetails2 />} />
+          <Route path="/movieDetails/:numId" element={<MovieDetailsRezerva />} />
+          <Route path="/movieDetails2/:numId" element={<MovieDetailsRezerva2 />} />
           <Route path="/movies" element={<MovieRes />} />
           <Route path="/categ/:genre" element={<MovieYtsCateg />} />
           <Route path="/rating" element={<MovieRating />} />
           <Route path="/year" element={<MovieYear />} />
           <Route path="/moviePicture/:images" element={<FreeMoviesImg />} />
+          <Route path="/quotes" element={<Quotes />} />
         </Routes>
       </HashRouter>
 

@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import he from "he";
 
-
 const MovieOmdb = (props) => {
 
     const [movies, setMovies] = useState([]);
     const [error, setError] = useState(null);
     const [expanded, setExpanded] = useState(false);
-
 
     const imdbId = props.number
 
@@ -24,7 +22,7 @@ const MovieOmdb = (props) => {
             const response = await axios.get(url);
             const data = response.data
             setMovies(data)
-
+      
         } catch (err) {
             setError(err);
         }
@@ -70,11 +68,6 @@ const MovieOmdb = (props) => {
             return 'average';
         }
     }
-    const classFunctionP = (average) => {
-        if (average == "N/A") {
-            return 'average';
-        }
-    }
 
     return (
         <>
@@ -99,6 +92,9 @@ const MovieOmdb = (props) => {
                         </p>
                     </div>
 
+                )}
+                 {movies.Actors && (
+                    <div className={`writer ${classFunctionD(movies.Actors)}`}> Actors: {movies.Actors}</div>
                 )}
 
                 {movies.Director && (

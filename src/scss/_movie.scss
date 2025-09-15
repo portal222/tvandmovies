@@ -48,6 +48,36 @@ $color8: rgb(18, 17, 58);
             }
         }
 
+        .titleQ {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 500;
+            padding: 20px;
+            color: $color15;
+            cursor: pointer;
+
+            &:hover {
+                color: $color16;
+            }
+        }
+
+        .sentenceQ {
+            background-color: $color11;
+            color: $color14;
+            width: 750px;
+            font-size: 30px;
+            font-weight: 500;
+            padding: 10px 40px;
+            text-align: justify;
+        }
+
+        .nameQ {
+            text-align: right;
+            padding: 10px 40px;
+            color: $color17;
+            font-size: 24px;
+        }
+
         .movieTitle {
             text-align: center;
             font-size: 28px;
@@ -170,8 +200,9 @@ $color8: rgb(18, 17, 58);
                     color: $color16;
                 }
             }
+
             .actorNoPic {
-                  font-weight: 500;
+                font-weight: 500;
                 font-size: 20px;
                 padding: 15px;
             }
@@ -676,6 +707,32 @@ $color8: rgb(18, 17, 58);
                 }
             }
 
+            .titleQ {
+                text-align: center;
+                font-size: 24px;
+                font-weight: 400;
+                padding: 5px;
+
+
+            }
+
+            .sentenceQ {
+
+                width: 355px;
+                font-size: 22px;
+                font-weight: 400;
+                padding: 10px 20px;
+                text-align: justify;
+            }
+
+            .nameQ {
+                text-align: right;
+                padding: 5px 20px;
+                padding-bottom: 50px;
+
+                font-size: 18px;
+            }
+
             .movieTitle {
                 text-align: center;
                 font-size: 20px;
@@ -753,11 +810,12 @@ $color8: rgb(18, 17, 58);
                 .actorName {
                     font-size: 14px;
                 }
-                      .actorNoPic {
-               
-                font-size: 14px;
-              
-            }
+
+                .actorNoPic {
+
+                    font-size: 14px;
+
+                }
 
                 .charName {
                     font-size: 14px;

@@ -107,6 +107,21 @@ body {
         color: $color4;
     }
 
+    .buttonS {
+        margin: 0;
+        width: 250px;
+        padding: 5px;
+        text-align: center;
+        font-size: 22px;
+        background-color: #009966;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #46CB18;
+        }
+    }
+
     .gridItem {
         max-width: 194px;
         text-align: center;
@@ -462,6 +477,7 @@ body {
             z-index: 1;
 
         }
+
         &:hover .imgOmdb {
             display: block;
         }
@@ -646,7 +662,7 @@ body {
     }
 
 
-    
+
     .sezonDate {
         width: 250px;
         padding-left: 15px;
@@ -947,6 +963,12 @@ body {
         .time {
             font-size: 16px;
             padding: 5px 10px;
+        }
+
+        .buttonS {
+            width: 120px;
+            padding: 3px;
+            font-size: 14px;
         }
 
         .gridItem {
