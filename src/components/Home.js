@@ -33,7 +33,6 @@ const Home = () => {
             setSerije(dataTv);
             setIsLoading(false);
 
-            console.log("detalji serija", dataTv);
         } catch (err) {
             setError(err);
         }

@@ -12,8 +12,7 @@ import ResultsTvActors from "./results/ResultsTvActors";
 import MainSearch from "./search/MainSearch";
 import TvShowOnClick from "./details/TvShowOnClick";
 import MovieYts from "./movies/MovieYts";
-import MovieDetailsRezerva from "./movies/MovieDetailsRezerva";
-import MovieDetailsRezerva2 from "./movies/MovieDetailsRezerva2";
+import MovieDetails from "./movies/MovieDetails";
 import MovieDetails2 from "./movies/MovieDetails2";
 import MovieRes from "./movies/MovieRes";
 import MovieYtsCateg from "./movies/MovieYtsCateg";
@@ -70,8 +69,8 @@ const Navigation = () => {
           <Route path="/actorDetails/:actorId" element={<DetailsActor />} />
           <Route path="/showClick/:showId" element={<TvShowOnClick />} />
           <Route path="/movie" element={<MovieYts />} />
-          <Route path="/movieDetails/:numId" element={<MovieDetailsRezerva />} />
-          <Route path="/movieDetails2/:numId" element={<MovieDetailsRezerva2 />} />
+          <Route path="/movieDetails/:numId" element={<MovieDetails />} />
+          <Route path="/movieDetails2/:numId" element={<MovieDetails2 />} />
           <Route path="/movies" element={<MovieRes />} />
           <Route path="/categ/:genre" element={<MovieYtsCateg />} />
           <Route path="/rating" element={<MovieRating />} />

@@ -65,6 +65,16 @@ const MovieDetails2 = () => {
         return (
             <Loader />
         )
+    } else if (movies.title == null) {
+        return (
+            <div className="detailMain" style={{ paddingTop: "80px" }}>
+                <div className="detailMov">
+                    <div className="movieTitle">
+                        NO DATA YET
+                    </div>
+                </div>
+            </div>
+        )
     }
 
     return (
