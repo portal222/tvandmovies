@@ -5,6 +5,7 @@ import parks from "../../../public/assets/img/parks.jpg";
 import thrones from "../../../public/assets/img/thrones.jpg";
 import final from "../../../public/assets/img/finalSpace.jpg";
 import stranger from "../../../public/assets/img/stranger.jpg";
+import demonS from "../../../public/assets/img/slayer.jpg";
 import datas from "../../../public/strangerThings.json";
 import { useNavigate } from "react-router-dom";
 import Loader from "../Loader";
@@ -18,6 +19,7 @@ const Quotes = () => {
     const [bead, setBead] = useState([]);
     const [swanson, setSwanson] = useState([]);
     const [finalSpace, setFinalSpace] = useState([]);
+    const [slayer, setSlayer] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     const navigate = useNavigate();
@@ -27,6 +29,7 @@ const Quotes = () => {
     const parksAnd = 174
     const space = 23314
     const things = 2993
+    const demonSlayer = 41469
 
     const number = Math.floor(Math.random() * 50);
     const numberThings = Math.floor(Math.random() * 107);
@@ -35,6 +38,7 @@ const Quotes = () => {
 
     useEffect(() => {
         getApi();
+        getSlayer();
     }, [])
 
     const getApi = async () => {
@@ -61,6 +65,20 @@ const Quotes = () => {
             setSwanson(dataR)
             setFinalSpace(dataS);
 
+        } catch (err) {
+            setError(err);
+        }
+    }
+
+    const getSlayer = async () => {
+        const url = `https://api.animechan.io/v1/quotes/random?anime=Demon_Slayer`;
+
+        try {
+            const response = await axios.get(url) 
+            const data = response.data
+
+            setSlayer(data);
+         
         } catch (err) {
             setError(err);
         }
@@ -205,6 +223,38 @@ const Quotes = () => {
                         <p className="nameQ">
                             {finalSpace?.[number]?.by}
                         </p>
+                    </div>
+                </div>
+                 <div className="detailMov">
+                    <p className="cover"
+                        onClick={() => {
+                            clickShow(demonSlayer);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}>
+
+                        <img src={demonS} alt="" className="slayer"/>
+                    </p>
+                    <div>
+                        <p className="titleQ"
+                            onClick={() => {
+                                clickShow(demonSlayer);
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }}>
+                            Demon Slayer
+                        </p>
+                         <p className="quotes">
+                            Quotes for this series are limited to three per hour
+                        </p>
+                        {slayer?.data?.content && (
+                        <p className="sentenceQ">
+                            {slayer?.data?.content}
+                        </p>
+                        )}
+                         {slayer.data?.character?.name && (
+                            <p className="nameQ">
+                            {slayer.data?.character?.name}
+                        </p> 
+                         )}
                     </div>
                 </div>
             </div>

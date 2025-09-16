@@ -38,8 +38,6 @@ const ResultsTvShow = () => {
             setTvShow(data);
             setTvActor(dataAct);
 
-            console.log("detalji serija", data);
-
             setResults(data.length);
             setResAct(dataAct.length);
 
