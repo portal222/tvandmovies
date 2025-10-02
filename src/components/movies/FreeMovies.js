@@ -29,6 +29,7 @@ const FreeMovies = (props) => {
             const dataImg = response.data.main.titleMainImages.edges
 
             setMovies(data);
+            console.log("detalji freemovies", data)
 
         } catch (err) {
             setError(err);
@@ -38,7 +39,7 @@ const FreeMovies = (props) => {
     return (
         <>
             <div className="character-grid">
-                {movies.main?.cast.edges.map((char, idx) => {
+                {movies.main?.cast?.edges.map((char, idx) => {
                     const imgUrl = char?.node?.name?.primaryImage?.url;
                     return (
                         <div key={idx} className="character-item">
