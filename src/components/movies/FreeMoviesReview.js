@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import he from "he";
+import FreeTrivia from "./FreeTrivia";
 
 const FreeMoviesReview = (props) => {
 
@@ -22,7 +23,7 @@ const FreeMoviesReview = (props) => {
             const dataImg = response.data.main.titleMainImages.edges
 
             setMovies(data);
-      
+      console.log("free movies review podaci", data);
 
         } catch (err) {
             setError(err);
@@ -33,6 +34,9 @@ const FreeMoviesReview = (props) => {
     return (
         <>
             <div>
+                  {movies.main?.productionBudget?.budget.amount && (
+                    <p className="review">Production budget: {movies.main?.productionBudget.budget.amount} {movies.main?.productionBudget.budget.currency}</p>
+                )}
                 {movies.main?.filmingLocations.edges?.[0]?.node.location && (
                     <p className="review">Filming location: {movies.main?.filmingLocations.edges?.[0]?.node.location}</p>
                 )}
@@ -60,6 +64,13 @@ const FreeMoviesReview = (props) => {
                     <p className="goofs" dangerouslySetInnerHTML={{ __html: "Goofs: " + movies.main?.goofs.edges[0]?.node.text.plaidHtml }}>
                     </p>
                 )}
+                <FreeTrivia movid={movies.imdbId}/>
+                   {/* {movies?.main?.trivia?.edges?.[0]?.node?.text?.plaidHtml && (
+                    <p className="goofs" dangerouslySetInnerHTML={{ __html: "Trivia: " + movies?.main?.triva?.edges?.[0]?.node?.text?.plaidHtml}}>
+                    
+                    </p>
+                )}
+                <p className="goofs" dangerouslySetInnerHTML={{ __html: "Trivia: " + movies?.main?.triva?.edges?.[0]?.node?.text?.plaidHtml}}> Trivia 2: {movies?.main?.trivia?.edges?.[0]?.node?.text?.plaidHtml}</p> */}
             </div>
         </>
     )

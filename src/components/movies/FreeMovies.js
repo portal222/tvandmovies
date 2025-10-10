@@ -39,13 +39,13 @@ const FreeMovies = (props) => {
     return (
         <>
             <div className="character-grid">
-                {movies.main?.cast?.edges.map((char, idx) => {
-                    const imgUrl = char?.node?.name?.primaryImage?.url;
+                {movies.main?.castV2?.[0].credits.map((char, idx) => {
+                    const imgUrl = char?.name?.primaryImage?.url;
                     return (
                         <div key={idx} className="character-item">
                             <img
                                 src={imgUrl || fallback}
-                                alt={char?.node?.name?.nameText?.text || "unknown"}
+                                alt={"no picture" || "unknown"}
                                 className="avatar-img"
                                 onClick={() => imgUrl && handleImageClick(imgUrl)}
                                 onError={(e) => {
@@ -55,12 +55,12 @@ const FreeMovies = (props) => {
                                 }}
                             />
                             <div>
-                                <MovieActor actor={char.node?.name.nameText?.text} />
-                                {char.node.characters?.[0]?.name && (
-                                    <p> as {char.node.characters?.[0]?.name}</p>
+                                <MovieActor actor={char.name.nameText?.text} />
+                                {char.creditedRoles.edges?.[0]?.node.characters.edges?.[0]?.node.name && (
+                                    <p> as {char.creditedRoles.edges?.[0]?.node.characters.edges?.[0]?.node.name}</p>
                                 )}
-                                {char.node.characters?.[1]?.name && (
-                                    <p> aka {char.node.characters?.[1]?.name}</p>
+                                {char.creditedRoles.edges?.[0]?.node.characters.edges?.[1]?.node.name && (
+                                    <p> aka {char.creditedRoles.edges?.[0]?.node.characters.edges?.[1]?.node.name}</p>
                                 )}
                             </div>
                         </div>
