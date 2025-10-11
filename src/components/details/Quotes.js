@@ -74,11 +74,11 @@ const Quotes = () => {
         const url = `https://api.animechan.io/v1/quotes/random?anime=Demon_Slayer`;
 
         try {
-            const response = await axios.get(url) 
+            const response = await axios.get(url)
             const data = response.data
 
             setSlayer(data);
-         
+
         } catch (err) {
             setError(err);
         }
@@ -225,14 +225,14 @@ const Quotes = () => {
                         </p>
                     </div>
                 </div>
-                 <div className="detailMov">
+                <div className="detailMov">
                     <p className="cover"
                         onClick={() => {
                             clickShow(demonSlayer);
                             window.scrollTo({ top: 0, behavior: 'smooth' });
                         }}>
 
-                        <img src={demonS} alt="" className="slayer"/>
+                        <img src={demonS} alt="" className="slayer" />
                     </p>
                     <div>
                         <p className="titleQ"
@@ -242,19 +242,20 @@ const Quotes = () => {
                             }}>
                             Demon Slayer
                         </p>
-                         <p className="quotes">
+
+                        {slayer?.data?.content && (
+                            <p className="sentenceQ">
+                                {slayer?.data?.content}
+                            </p>
+                        )}
+                        {slayer.data?.character?.name && (
+                            <p className="nameQ">
+                                {slayer.data?.character?.name}
+                            </p>
+                        )}
+                        <p className="quotes">
                             Quotes for this series are limited to three per hour
                         </p>
-                        {slayer?.data?.content && (
-                        <p className="sentenceQ">
-                            {slayer?.data?.content}
-                        </p>
-                        )}
-                         {slayer.data?.character?.name && (
-                            <p className="nameQ">
-                            {slayer.data?.character?.name}
-                        </p> 
-                         )}
                     </div>
                 </div>
             </div>

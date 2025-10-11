@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import he from "he";
+import FreePlot from "./FreePlot";
 
 const MovieOmdb = (props) => {
 
@@ -85,14 +86,14 @@ const MovieOmdb = (props) => {
                         <p className="review">
                             {expanded
                                 ? he.decode(movies.Plot)
-                                : he.decode(movies.Plot).substring(0, 110) + "... "}
+                                : he.decode(movies.Plot).substring(0, 80) + "... "}
                             <span className="moreLink" onClick={() => setExpanded(!expanded)}>
                                 {expanded ? " show less" : " show more"}
                             </span>
                         </p>
                     </div>
-
                 )}
+                <FreePlot movid={imdbId} />
                  {movies.Actors && (
                     <div className={`writer ${classFunctionD(movies.Actors)}`}> Actors: {movies.Actors}</div>
                 )}

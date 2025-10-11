@@ -1,5 +1,5 @@
 import React, { useRef, useContext } from "react";
-import { Paper,InputBase,IconButton } from "@mui/material";
+import { Paper, InputBase, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import GlobalContext from "../GlobalContext";
 
@@ -17,8 +17,7 @@ const SearchActors = (props) => {
 
         globalCtx.setSearchStringFn(searchString.current.value.trim());
         navigate(props.linkTo);
-        
-        console.log("pretraga po tvGlumcima", searchString)
+
     };
 
     const handleKeyDown = (e) => {
@@ -30,28 +29,28 @@ const SearchActors = (props) => {
 
     return (
         <Paper className="paper"
-        component = 'form'
-        se={{
-            p: '2px 4px',
-            display: 'flex',
-            alignItems: 'center',
-            width: '40rem',
-            fontSize: '28px',
-            backgroundColor: 'red',
-        }}
+            component='form'
+            se={{
+                p: '2px 4px',
+                display: 'flex',
+                alignItems: 'center',
+                width: '40rem',
+                fontSize: '28px',
+                backgroundColor: 'red',
+            }}
         >
             <InputBase className="base"
-            placeholder={props.placeholder}
-            inputRef={searchString}
-            onKeyDown={handleKeyDown}
+                placeholder={props.placeholder}
+                inputRef={searchString}
+                onKeyDown={handleKeyDown}
             />
-            <IconButton 
-            type='button'
-            onClick={handleClickSearch}
-            sx={{ p: '10px'}}
-            aria-label='search'
+            <IconButton
+                type='button'
+                onClick={handleClickSearch}
+                sx={{ p: '10px' }}
+                aria-label='search'
             >
-        🎥
+                🎥
             </IconButton>
         </Paper>
     );

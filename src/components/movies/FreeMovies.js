@@ -22,14 +22,12 @@ const FreeMovies = (props) => {
     const getMovie = async () => {
         const url = `https://imdb.iamidiotareyoutoo.com/search?tt=${props.imdbId}`
 
-
         try {
             const response = await axios.get(url);
             const data = response.data
             const dataImg = response.data.main.titleMainImages.edges
 
             setMovies(data);
-            console.log("detalji freemovies", data)
 
         } catch (err) {
             setError(err);
@@ -39,7 +37,7 @@ const FreeMovies = (props) => {
     return (
         <>
             <div className="character-grid">
-                {movies.main?.castV2?.[0].credits.map((char, idx) => {
+                {movies.main?.castV2?.[0]?.credits.map((char, idx) => {
                     const imgUrl = char?.name?.primaryImage?.url;
                     return (
                         <div key={idx} className="character-item">
@@ -67,13 +65,11 @@ const FreeMovies = (props) => {
                     );
                 })}
             </div>
-
             {activeImage && (
                 <div className="lightbox" onClick={() => setActiveImage(null)}>
                     <img src={activeImage} alt="" className="lightbox-img" />
                 </div>
             )}
-
         </>
     )
 }

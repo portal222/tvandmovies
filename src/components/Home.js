@@ -64,36 +64,34 @@ const Home = () => {
                 </p>
             </div>
             <div className="gridTv">
-                {serije.map(serija => (
-                    <>
-                        <div key={serija.id}
-                            className="gridItem">
-                            <img src={serija._embedded.show.image?.medium} alt="" />
-                            <div className="genresTv">
-                                <p className="episode">S{serija.season}  E{serija.number}</p>
-                                <p>{serija._embedded.show.language}</p>
-                                <p>{serija._embedded.show.type}</p>
-                                {serija._embedded.show.genres && (
-                                    <>
-                                        {serija._embedded.show.genres.map((genre, id) => (
-                                            < div key={id}>
-                                                <p >{genre}</p>
-                                            </ div>
-                                        ))}
-                                    </>
-                                )}
-                                {serija._embedded.show.runtime && (
-                                    <p style={{ paddingTop: "10px" }}>⏲{serija._embedded.show.runtime} min</p>
-                                )}
-                            </div>
-                            <p className="showName"
-                                onClick={() => {
-                                    clickShow(serija._embedded.show.id);
-                                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                                }}>
-                                {serija._embedded.show.name}</p>
+                {serije.map((serija, id) => (
+                    <div key={id}
+                        className="gridItem">
+                        <img src={serija._embedded.show.image?.medium} alt="" />
+                        <div className="genresTv">
+                            <p className="episode">S{serija.season}  E{serija.number}</p>
+                            <p>{serija._embedded.show.language}</p>
+                            <p>{serija._embedded.show.type}</p>
+                            {serija._embedded.show.genres && (
+                                <>
+                                    {serija._embedded.show.genres.map((genre, id) => (
+                                        < div key={id}>
+                                            <p >{genre}</p>
+                                        </ div>
+                                    ))}
+                                </>
+                            )}
+                            {serija._embedded.show.runtime && (
+                                <p style={{ paddingTop: "10px" }}>⏲{serija._embedded.show.runtime} min</p>
+                            )}
                         </div>
-                    </>
+                        <p className="showName"
+                            onClick={() => {
+                                clickShow(serija._embedded.show.id);
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }}>
+                            {serija._embedded.show.name}</p>
+                    </div>
                 ))}
             </div>
             <BackToTop />
