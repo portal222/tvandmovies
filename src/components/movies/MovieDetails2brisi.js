@@ -95,7 +95,7 @@ const MovieDetails2 = () => {
                                 className="iframe"></iframe>
                         </div>
 
-                        <FreeMovies imdbId={movies.imdb_code} />
+                    <FreeMovies imdbId={movies.imdb_code} />
 
 
                     </div>
@@ -121,95 +121,101 @@ const MovieDetails2 = () => {
                         </div>
                         <br></br>
                         <FreeMoviesReview imdbId={movies.imdb_code} />
-                        <div>
-                            <div className="sugestion">
-                                <div className="screen">
-                                    {movies.medium_screenshot_image1 && (
-                                        <>
-                                            <img src={movies.medium_screenshot_image1} className="imgMedium" />
-                                            <div className="screenImg">
-                                                <span className="fullScreen"><FullscreenIcon /></span>
-                                                <span>
-                                                    <img src={movies.large_screenshot_image1} className="dropScreen" />
-                                                </span>
-                                            </div>
-                                        </>
-                                    )}
-                                    {movies.medium_screenshot_image2 && (
-                                        <>
-                                            <img src={movies.medium_screenshot_image2} className="imgMedium" />
-                                            <div className="screenImg">
-                                                <span className="fullScreen"><FullscreenIcon /></span>
-                                                <span >
-                                                    <img src={movies.large_screenshot_image2} className="dropScreen" />
-                                                </span>
-                                            </div>
-                                        </>
-                                    )}
-                                    {movies.medium_screenshot_image3 && (
-                                        <>
-                                            <img src={movies.medium_screenshot_image3} className="imgMedium" />
-                                            <div className="screenImg">
-                                                <span className="fullScreen"><FullscreenIcon /></span>
-                                                <span>
-                                                    <img src={movies.large_screenshot_image3} className="dropScreen" />
-                                                </span>
-                                            </div>
-                                        </>
-                                    )}
-                                    <p className="morePic"
-                                        onClick={() => {
-                                            clickPicture(movies.imdb_code);
-                                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                                        }}
-                                    >
-                                        more picture
-                                    </p>
-                                </div>
-                                {movies.torrents && (
-                                    <div>
-                                        {movies.torrents.map((tor, id) => (
-                                            <table className="torrent"
-                                                key={id}>
-                                                <tbody >
-                                                    <tr>
-                                                        <td colSpan={2}>
-                                                            {tor.date_uploaded}
-                                                        </td>
-                                                        <td rowSpan={3}>
-                                                            <a href={tor.url}>DOWNLOAD</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>{tor.quality}</td>
-                                                        <td>{tor.size}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            {tor.type}
-                                                        </td>
-                                                        <td>
-                                                            {tor.video_codec}
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        ))}
-                                        <div className="torrent" style={{ padding: "20px" }}>
-                                            <span >Uploaded {movies.date_uploaded}</span>
+
+                    </div>
+                </div>
+            </div>
+            <div className="detailMain">
+                <div className="detailMov">
+                    <div>
+                        <div className="sugestion">
+                            <div className="screen">
+                                {movies.medium_screenshot_image1 && (
+                                    <>
+                                        <img src={movies.medium_screenshot_image1} className="imgMedium" />
+                                        <div className="screenImg">
+                                            <span className="fullScreen"><FullscreenIcon /></span>
+                                            <span>
+                                                <img src={movies.large_screenshot_image1} className="dropScreen" />
+                                            </span>
                                         </div>
-                                    </div>
+                                    </>
                                 )}
+                                {movies.medium_screenshot_image2 && (
+                                    <>
+                                        <img src={movies.medium_screenshot_image2} className="imgMedium" />
+                                        <div className="screenImg">
+                                            <span className="fullScreen"><FullscreenIcon /></span>
+                                            <span >
+                                                <img src={movies.large_screenshot_image2} className="dropScreen" />
+                                            </span>
+                                        </div>
+                                    </>
+                                )}
+                                {movies.medium_screenshot_image3 && (
+                                    <>
+                                        <img src={movies.medium_screenshot_image3} className="imgMedium" />
+                                        <div className="screenImg">
+                                            <span className="fullScreen"><FullscreenIcon /></span>
+                                            <span>
+                                                <img src={movies.large_screenshot_image3} className="dropScreen" />
+                                            </span>
+                                        </div>
+                                    </>
+                                )}
+                                <p className="morePic"
+                                    onClick={() => {
+                                        clickPicture(movies.imdb_code);
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    }}
+                                >
+                                    more picture
+                                </p>
                             </div>
+                            {movies.torrents && (
+                                <div>
+                                    {movies.torrents.map((tor, id) => (
+                                        <table className="torrent"
+                                            key={id}>
+                                            <tbody >
+                                                <tr>
+                                                    <td colSpan={2}>
+                                                        {tor.date_uploaded}
+                                                    </td>
+                                                    <td rowSpan={3}>
+                                                        <a href={tor.url}>DOWNLOAD</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>{tor.quality}</td>
+                                                    <td>{tor.size}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        {tor.type}
+                                                    </td>
+                                                    <td>
+                                                        {tor.video_codec}
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    ))}
+                                    <div className="torrent" style={{ padding: "20px" }}>
+                                        <span >Uploaded {movies.date_uploaded}</span>
+                                    </div>
+
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
-                <div className="similar">
-                    Similar Movies
-                </div>
+              
             </div>
             <div className="movieMain">
-
+                 <div className="similar">
+                    Similar <br></br> Movies
+                </div>
                 {sugestions.map(movie => (
                     <div key={movie.id}
                         className="holder">

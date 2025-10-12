@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import breaking from "../../../public/assets/img/braking.jpg";
-import parks from "../../../public/assets/img/parks.jpg";
-import thrones from "../../../public/assets/img/thrones.jpg";
-import final from "../../../public/assets/img/finalSpace.jpg";
-import stranger from "../../../public/assets/img/stranger.jpg";
-import demonS from "../../../public/assets/img/slayer.jpg";
+import breaking from "../../../public/img/braking.jpg";
+import parks from "../../../public/img/parks.jpg";
+import thrones from "../../../public/img/thrones.jpg";
+import final from "../../../public/img/finalSpace.jpg";
+import stranger from "../../../public/img/stranger.jpg";
+import demonS from "../../../public/img/slayer.jpg";
 import datas from "../../../public/strangerThings.json";
 import { useNavigate } from "react-router-dom";
 import Loader from "../Loader";
@@ -33,8 +33,6 @@ const Quotes = () => {
 
     const number = Math.floor(Math.random() * 50);
     const numberThings = Math.floor(Math.random() * 107);
-
-
 
     useEffect(() => {
         getApi();

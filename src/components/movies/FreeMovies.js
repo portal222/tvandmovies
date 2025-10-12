@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import MovieActor from "./MovieActor";
-import fallback from "../../../public/assets/img/fallback.png"
+import fallback from "../../../public/img/fallback.png"
 
 const FreeMovies = (props) => {
 

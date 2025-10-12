@@ -3,11 +3,14 @@ import axios from "axios";
 import he from "he";
 import FreePlot from "./FreePlot";
 
+
 const MovieOmdb = (props) => {
 
     const [movies, setMovies] = useState([]);
     const [error, setError] = useState(null);
     const [expanded, setExpanded] = useState(false);
+    const [open, setOpen] = useState(false);
+
 
     const imdbId = props.number
 
@@ -93,7 +96,10 @@ const MovieOmdb = (props) => {
                         </p>
                     </div>
                 )}
-                <FreePlot movid={imdbId} />
+
+     <FreePlot movid={imdbId} />
+ 
+
                  {movies.Actors && (
                     <div className={`writer ${classFunctionD(movies.Actors)}`}> Actors: {movies.Actors}</div>
                 )}

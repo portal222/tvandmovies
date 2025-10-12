@@ -124,7 +124,8 @@ $color8: rgb(18, 17, 58);
         }
 
         .description,
-        .review {
+        .review,
+        .morereview {
             font-size: 22px;
             padding: 30px;
             color: $color14;
@@ -132,7 +133,8 @@ $color8: rgb(18, 17, 58);
             text-align: justify;
         }
 
-        .review {
+        .review,
+        .morereview {
             padding: 10px 30px;
             margin: 0px;
 
@@ -149,6 +151,16 @@ $color8: rgb(18, 17, 58);
 
             a {
                 color: #42d3e7;
+            }
+        }
+
+        .morereview {
+            color: $color15;
+            cursor: pointer;
+         
+
+            &:hover {
+                color: $color16;
             }
         }
 
@@ -597,12 +609,16 @@ $color8: rgb(18, 17, 58);
             }
         }
     }
+.wrap {
+    height: 25px;
+}
 
-    .similar {
-        font-size: 20px;
-        padding-top: 30px;
-        padding-left: 0px;
-    }
+}
+
+.similar {
+    font-size: 20px;
+    padding-top: 30px;
+    padding-left: 0px;
 }
 
 .movieMain {
@@ -782,15 +798,22 @@ $color8: rgb(18, 17, 58);
             }
 
             .description,
-            .review {
+            .review,
+            .morereview {
                 font-size: 18px;
                 padding: 10px;
                 color: $color14;
                 width: 345px;
             }
 
-            .review {
+            .review,
+            .morereview {
                 padding: 5px 10px;
+            }
+
+            .morereview {
+                color: $color15;
+
             }
 
             .writer,
@@ -989,12 +1012,14 @@ $color8: rgb(18, 17, 58);
             }
         }
 
-        .similar {
-            font-size: 16px;
-            padding-top: 10px;
-            padding-left: 10px;
-        }
 
+
+    }
+
+    .similar {
+        font-size: 16px;
+        padding-top: 10px;
+        padding-left: 10px;
     }
 
     .movieMain {
