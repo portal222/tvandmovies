@@ -8,6 +8,7 @@ const Time = () => {
     var month = tоday.getMonth() + 1;
     var year = tоday.getFullYear();
 
+
     if (day == 1) {
         day = "Мonday";
     } else if (day == 2) {
@@ -36,6 +37,8 @@ const Time = () => {
         <>
             {day + " " + dayInMonth + "." + month + "." + year}
         </>
+
+
     )
 
 }

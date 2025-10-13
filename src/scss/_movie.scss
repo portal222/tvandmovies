@@ -691,8 +691,7 @@ $color8: rgb(18, 17, 58);
     grid-template-columns: auto auto auto auto auto auto auto auto auto;
     width: 1300px;
 
-    .genreName,
-    .timeGenre {
+    .genreName {
         padding: 2px 10px;
         text-align: center;
         font-weight: 500;
@@ -706,7 +705,12 @@ $color8: rgb(18, 17, 58);
     }
 
     .timeGenre {
+          padding: 2px 10px;
+        text-align: center;
+        font-weight: 500;
+        font-size: 22px;
         color: $color14;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
 }
 

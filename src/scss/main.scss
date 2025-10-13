@@ -59,7 +59,7 @@ body {
 .place {
     margin: auto;
     width: 1300px;
-    height: 600px;
+    height: 400px;
     padding: 80px 10px 10px 10px;
     justify-content: center;
     background-color: $color1;
@@ -105,6 +105,8 @@ body {
         font-size: 22px;
         padding: 3px 25px;
         color: $color4;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
     }
 
     .buttonS {
@@ -186,7 +188,7 @@ body {
     margin: auto;
     padding-top: 10px;
     width: 1300px;
-    height: 1400px;
+    height: 700px;
     font-size: 26px;
     color: $color4;
     text-shadow: 2px 2px 5px gray;
