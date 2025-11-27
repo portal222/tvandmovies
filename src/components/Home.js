@@ -16,6 +16,8 @@ const Home = () => {
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
+    console.log("vreme je", vreme);
+
     useEffect(() => {
         getTv();
     }, [])
@@ -55,13 +57,13 @@ const Home = () => {
         <>
             <div className="gridTv" style={{ paddingTop: "60px" }}>
                 <p className="time">Series <Time /></p>
-                <p className="buttonS"
+                <button className="buttonS"
                     onClick={() => {
                         clickQ();
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}>
                     Quotes from the series
-                </p>
+                </button>
             </div>
             <div className="gridTv">
                 {serije.map((serija, id) => (

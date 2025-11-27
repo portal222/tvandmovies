@@ -9,7 +9,7 @@ const MainSearch = () => {
             <div className="searchMain">
                 <p>
                     Search TV show, actors and movies.<br></br>
-                    You can download movies via torrent
+                    You can download series via torrent
                 </p>
             </div>
         </>

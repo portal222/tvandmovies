@@ -30,12 +30,12 @@ const FreePlot = (props) => {
 
     return (
         <>
-            {movies.plotText?.plainText && (
+            {movies?.plotText?.plainText && (
                 <div style={{ padding: "5px", backgroundColor: "#2D3250" }}>
                     <p className="review">
                         {expanded
-                            ? he.decode(movies.plotText?.plainText)
-                            : he.decode(movies.plotText?.plainText).substring(0, 80) + "... "}
+                            ? he.decode(movies?.plotText?.plainText)
+                            : he.decode(movies?.plotText?.plainText).substring(0, 80) + "... "}
                         <span className="moreLink" onClick={() => setExpanded(!expanded)}>
                             {expanded ? " show less" : " show more"}
                         </span>

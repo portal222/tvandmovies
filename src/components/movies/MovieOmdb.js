@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import he from "he";
-import FreePlot from "./FreePlot";
+// import FreePlot from "./FreePlot";
 
 
 const MovieOmdb = (props) => {
@@ -26,6 +26,8 @@ const MovieOmdb = (props) => {
             const response = await axios.get(url);
             const data = response.data
             setMovies(data)
+
+            console.log("omdb podaci", response);
       
         } catch (err) {
             setError(err);
@@ -97,7 +99,7 @@ const MovieOmdb = (props) => {
                     </div>
                 )}
 
-     <FreePlot movid={imdbId} />
+     {/* <FreePlot movid={imdbId} /> */}
  
 
                  {movies.Actors && (

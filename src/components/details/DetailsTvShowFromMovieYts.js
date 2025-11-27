@@ -11,50 +11,72 @@ import Loader from "../Loader";
 import SeriesOmdb from "./SeriesOmdb";
 import OmdbImgSeries from "./OmdbImgSeries";
 
-const DetailsTvShow = () => {
+const DetailsTvShowFromMovieYts = () => {
     const [error, setError] = useState(null);
     const [show, setShow] = useState([]);
     const [cast, setCast] = useState([]);
+    const [imdbNum, setImdbNum] = useState([]);
     const [sezons, setSezons] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     const navigate = useNavigate();
 
     const params = useParams()
-    const showId = params.showId;
+    const showId = params.numId;
 
-    console.log("prenesen broj imdb", showId)
+    console.log("broj serije iz movieYts", showId)
 
     useEffect(() => {
         getShow();
+        // getCast();
     }, []);
 
     const getShow = async () => {
 
-        const url = `https://api.tvmaze.com/shows/${showId}?embed=cast`
-        const urlEp = `https://api.tvmaze.com/shows/${showId}/episodes`
-        const urlSez = `https://api.tvmaze.com/shows/${showId}/seasons`
+        const url = `https://api.tvmaze.com/search/shows?q=${showId}`;
+        // const url = `https://api.tvmaze.com/lookup/shows?thetvdb=${showId}`;
+        // const url = `https://api.tvmaze.com/lookup/shows?imdb=tt${showId}`;
+
+        // const url = `https://api.tvmaze.com/shows/${showId}?embed=cast`
+        // const urlEp = `https://api.tvmaze.com/shows/${showId}/episodes`
+        // const urlSez = `https://api.tvmaze.com/shows/${showId}/seasons`
 
         try {
             const response = await axios.get(url);
-            const responseEp = await axios.get(urlEp);
-            const responseSez = await axios.get(urlSez);
+            // const responseEp = await axios.get(urlEp);
+            // const responseSez = await axios.get(urlSez);
 
             const data = response.data;
-            const dataEp = responseEp.data;
-            const dataSez = responseSez.data.reverse();
+            // const dataEp = responseEp.data;
+            // const dataSez = responseSez.data.reverse();
 
             setShow(data);
-            setCast(data._embedded.cast);
-            setSezons(dataSez)
+        //  setImdbNum(data.show.externals,imdb)
             setIsLoading(false);
 
-            console.log("detalji iz serije", response);
+            console.log("detalji za seriju iz eztv", data);
 
         } catch (err) {
             setError(err);
         }
     };
+
+    //   const getCast = async () => {
+
+    //     const url = `https://api.tvmaze.com/shows/${imdbNum}?embed=cast`
+     
+    //     try {
+    //         const response = await axios.get(url);
+    //         const data = response.data;
+       
+    //         setCast(data._embedded.cast);
+        
+    //         console.log("detalji za glumce u seriji", data);
+
+    //     } catch (err) {
+    //         setError(err);
+    //     }
+    // };
 
     const settings = {
 
@@ -113,6 +135,15 @@ const DetailsTvShow = () => {
         return (
             <Loader />
         )
+    } else if (show.length === 0) {
+        return (
+            <div className="details">
+                <div className="showName">
+                   There is no data for this show in the TvMaze database.
+                </div>
+                </div>
+
+        )
     }
     return (
         <>
@@ -120,57 +151,55 @@ const DetailsTvShow = () => {
                 <div
                     className="holdImg">
                     <img className="imgShow"
-                        src={show.image?.original} />
-                    <OmdbImgSeries number={show.externals.imdb} />
+                        src={show?.[0]?.show.image?.original} />
+                    {/* <OmdbImgSeries number={show?.[0]?.show.externals.imdb} /> */}
                 </div>
                 <table>
                     <tbody>
                         <tr>
                             <td colSpan={2}
                                 className="showName">
-                                {show.name}
+                                {show?.[0]?.show?.name}
                             </td>
                         </tr>
                         <tr>
                             <td className="language">
-                                {show.type}
+                                {show?.[0]?.show?.type}
                             </td>
-                            {show.genres && (
+                            {show?.[0]?.show?.genres && (
                                 <td >
-                                    {show.genres.map((genre, id) => (
+                                    {show?.[0]?.show?.genres.map((genre, id) => (
                                         <p key={id}>{genre}</p>
                                     ))}
                                 </td>
                             )}
                         </tr>
                         <tr>
-                            <td className="language">{show.language}</td>
+                            <td className="language">{show?.[0]?.show?.language}</td>
                             <td className="runtime">
 
-                                <p className={`rating2 ${classFunction2(show.runtime)}`}>
-                                    {" ⏲ " + show.runtime + " min  " + " "}
+                                <p className={`rating2 ${classFunction2(show?.[0]?.show?.runtime)}`}>
+                                    {" ⏲ " + show?.[0]?.show?.runtime + " min  " + " "}
                                 </p>
-                                <p className={`rating ${classFunction(show.rating?.average)}`}>
-                                    {" " + " ⭐ " + show.rating?.average + " "}
+                                <p className={`rating ${classFunction(show?.[0]?.show?.rating?.average)}`}>
+                                    {" " + " ⭐ " + show?.[0]?.show?.rating?.average + " "}
                                 </p>
                             </td>
                         </tr>
-                        <EpisodeNumber sezones={sezons} />
+                        {/* <EpisodeNumber sezones={sezons} /> */}
                         <tr>
-                            <td className="rating3">Premiered:{" " + show.premiered}</td>
+                            <td className="rating3">Premiered:{" " + show?.[0]?.show.premiered}</td>
                             {show.ended && (
-                                <td className={`rating3 ${classFunction3(show.ended)}`}>
-                                    {"Ended: " + show.ended}</td>
+                                <td className={`rating3 ${classFunction3(show?.[0]?.show?.ended)}`}>
+                                    {"Ended: " + show?.[0]?.show?.ended}</td>
                             )}
                         </tr>
                         <tr>
-                            <td colSpan={3} className="summary" dangerouslySetInnerHTML={{ __html: show.summary }}>
+                            <td colSpan={3} className="summary" dangerouslySetInnerHTML={{ __html: show?.[0].show.summary }}>
                             </td>
                         </tr>
-                        <SeriesOmdb number={show.externals.imdb} />
+                        <SeriesOmdb number={show?.[0]?.show.externals.imdb} />
                         <tr>
-                            <td >
-                            </td>
                             {show.webChannel?.name && (
                                 <td className={`rating3 ${classFunction4(show.webChannel?.name)}`}>
                                     Web Chanel
@@ -179,19 +208,24 @@ const DetailsTvShow = () => {
                                         {" " + show.webChannel?.name}</a>
                                 </td>
                             )}
+                            <td className={`rating3 ${classFunction5(show.network?.name)}`}>
 
+                                <a href={show?.officialSite} target="_blank"
+                                    className={`rating3 ${classFunction5(show.network?.name)}`}>
+                                    Official Site  </a>
+                            </td>
                         </tr>
                         <tr>
+                            <ResultsTvTime datum={show?.[0]?.show.updated} />
                             <td style={{ verticalAlign: "top" }}>
                                 <button className="more"
                                     onClick={() => {
-                                        clickImg(show.id);
+                                        clickImg(show?.[0].show.id);
                                         window.scrollTo({ top: 0, behavior: 'smooth' });
                                     }}>
-                                    More Images
+                                   More Images
                                 </button>
                             </td>
-                            <ResultsTvTime datum={show.updated} />
                         </tr>
                     </tbody>
                 </table>
@@ -286,4 +320,4 @@ const DetailsTvShow = () => {
         </>
     )
 };
-export default DetailsTvShow;
+export default DetailsTvShowFromMovieYts;

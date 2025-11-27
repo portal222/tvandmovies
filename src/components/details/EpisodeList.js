@@ -18,6 +18,8 @@ const EpisodeList = (props) => {
             const response = await axios.get(url);
             const data = response.data.reverse();
             setEpisode(data);
+
+            console.log("episode tvmaze detalji", data);
         } catch (err) {
             setError(err);
         }

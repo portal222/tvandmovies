@@ -115,12 +115,15 @@ body {
         padding: 5px;
         text-align: center;
         font-size: 22px;
-        background-color: #009966;
+        background-color: $color11;
+        color: #f6b17a;
+
         border-radius: 5px;
         cursor: pointer;
 
         &:hover {
-            background-color: #46CB18;
+            background-color: $color13;
+            color: $color16;
         }
     }
 
@@ -433,25 +436,46 @@ body {
     font-size: 18px;
     padding: 60px 10px 10px 10px;
 
+    .torrButt {
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 5px 15px;
+        font-size: 20px;
+        background-color: $color11;
+        color: #f6b17a;
+
+
+        a {
+            text-decoration: none;
+            color: #f6b17a;
+            font-size: 20px;
+        }
+
+        &:hover {
+            background-color: $color13;
+            color: $color16;
+        }
+    }
+
     p {
         padding: 5px;
         margin: 0;
     }
 
     .more {
-        border-radius: 5px;
-        background-color: $color9;
-        color: $color4;
-        font-size: 16px;
         cursor: pointer;
-        text-align: center;
-        vertical-align: middle;
-        width: 160px;
-        padding: 10px 15px;
+        border-radius: 5px;
+        padding: 5px 15px;
+        font-size: 20px;
+        background-color: $color11;
+        color: #f6b17a;
+        margin-right: 20px;
+        width: 180px;
 
         &:hover {
 
-            background-color: $color10;
+            background-color: $color13;
+            color: $color16;
         }
     }
 
@@ -847,7 +871,7 @@ body {
             max-width: 150px;
 
             .genres {
-                font-size: 16px;
+                font-size: 21px;
             }
         }
 
@@ -876,10 +900,19 @@ body {
         font-size: 14px;
         padding: 60px 5px 5px 5px;
 
+        .torrButt {
+            padding: 3px 10px;
+            font-size: 14px;
+
+            a {
+                font-size: 14px;
+            }
+        }
+
         .more {
-            font-size: 10px;
+            font-size: 14px;
             padding: 4px 6px;
-            width: 100px;
+            width: 127px;
         }
 
         .holdImg {

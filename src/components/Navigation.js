@@ -20,6 +20,7 @@ import MovieRating from "./movies/MovieRating";
 import MovieYear from "./movies/MovieYear";
 import FreeMoviesImg from "./movies/FreeMoviesImg";
 import Quotes from "./details/Quotes";
+import ResultsOnClickTvShow from "./results/ResultsOnClickTvShow";
 
 const theme = createTheme({
   palette: {
@@ -49,7 +50,7 @@ const Navigation = () => {
               <Button variant="contained" sx={{ ml: 2 }}
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               >
-                Movies</Button>
+                EZTV </Button>
             </NavLink>
             <NavLink to="/search">
               <Button variant="contained" sx={{ ml: 2 }}
@@ -70,6 +71,7 @@ const Navigation = () => {
           <Route path="/showClick/:showId" element={<TvShowOnClick />} />
           <Route path="/movie" element={<MovieYts />} />
           <Route path="/movieDetails/:numId" element={<MovieDetails />} />
+          <Route path="/seriesDetails/:showName" element={<ResultsOnClickTvShow />} />
           <Route path="/movieDetails2/:numId" element={<MovieDetails2 />} />
           <Route path="/movies" element={<MovieRes />} />
           <Route path="/categ/:genre" element={<MovieYtsCateg />} />
@@ -82,7 +84,7 @@ const Navigation = () => {
 
       <div className="footer">
         <hr></hr>
-        <p>Data base from TvMaze, YTS.mx, OMDb and FreeMovies </p>
+        <p>Data base from TvMaze, OMDb, FreeMovies and EZTV</p>
         InTerVal &copy;{year}
       </div>
     </>

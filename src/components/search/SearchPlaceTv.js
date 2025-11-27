@@ -9,7 +9,7 @@ const SearchPlaceTv = () => {
         <div className="place">
             <div className="placeBut">
                 <SearchTvShow placeholder={'Tv Show & Actor'} linkTo={'/tvShow'} />
-                <SearchActors placeholder={'Movies'} linkTo={'/movies'} />
+                <SearchActors placeholder={'Movies & Series'} linkTo={'/movies'} />
             </div>
         </div>
     )
