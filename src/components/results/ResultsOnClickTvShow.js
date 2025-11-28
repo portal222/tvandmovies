@@ -31,6 +31,8 @@ const ResultsOnClickTvShow = () => {
             setTvShow(data);
             setResults(data.length);
 
+            console.log("rezultat na klik", data)
+
         } catch (err) {
             setError(err);
         }

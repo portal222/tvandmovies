@@ -23,8 +23,6 @@ const DetailsTvShow = () => {
     const params = useParams()
     const showId = params.showId;
 
-    console.log("prenesen broj imdb", showId)
-
     useEffect(() => {
         getShow();
     }, []);
@@ -48,8 +46,6 @@ const DetailsTvShow = () => {
             setCast(data._embedded.cast);
             setSezons(dataSez)
             setIsLoading(false);
-
-            console.log("detalji iz serije", response);
 
         } catch (err) {
             setError(err);
@@ -280,7 +276,6 @@ const DetailsTvShow = () => {
                 )
                 )
             )}
-
             <SezoneList sezone={sezons} />
             <BackToTop />
         </>

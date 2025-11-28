@@ -113,7 +113,7 @@ const MovieDetails = () => {
                                             window.scrollTo({ top: 0, behavior: 'smooth' });
                                         }}
                                     >
-                                        Picture
+                                        More Images
                                     </button>
                              
                               <EztvBaze numId={movies.imdbID.slice(2)}/>

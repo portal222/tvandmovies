@@ -8,8 +8,6 @@ const EztvBaze = (props) => {
 
     const showId = props.numId
 
-    console.log("broj koji dolazi u eztvBaze", showId)
-
     useEffect(() => {
         getDetails();
     }, [showId]);
@@ -19,14 +17,10 @@ const EztvBaze = (props) => {
         const url = ` https://eztvx.to/api/get-torrents?imdb_id=${showId}`;
 
 
-
         try {
             const response = await axios.get(url);
             const data = response.data
             setMovies(data.torrents);
-
-
-            console.log("eztv podaci", response);
 
         } catch (err) {
             setError(err);

@@ -21,6 +21,7 @@ import MovieYear from "./movies/MovieYear";
 import FreeMoviesImg from "./movies/FreeMoviesImg";
 import Quotes from "./details/Quotes";
 import ResultsOnClickTvShow from "./results/ResultsOnClickTvShow";
+import TvMazeDate from "./details/TvMazeDate";
 
 const theme = createTheme({
   palette: {
@@ -79,6 +80,7 @@ const Navigation = () => {
           <Route path="/year" element={<MovieYear />} />
           <Route path="/moviePicture/:images" element={<FreeMoviesImg />} />
           <Route path="/quotes" element={<Quotes />} />
+          <Route path="/tvmazedate/:formattedDate" element={<TvMazeDate />} />
         </Routes>
       </HashRouter>
 

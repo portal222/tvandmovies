@@ -1,38 +1,40 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from 'axios';
-import GlobalContext from "./GlobalContext";
 import { useNavigate } from "react-router-dom";
-import BackToTop from "./BackToTop";
-import Loader from "./Loader";
-import Time from "./Time";
-import TvMazeDate from "./details/TvMazeDate";
+import BackToTop from "../BackToTop";
+import { useParams } from "react-router-dom";
+import Loader from "../Loader";
 
-const Home = () => {
-
-
+const TvMazeDate = () => {
 
     const [error, setError] = useState(null);
-
+    const [vreme, setVreme] = useState([]);
     const [serije, setSerije] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
+    const params = useParams()
+    const formattedDate = params.formattedDate;
+
     const navigate = useNavigate();
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
 
 
     useEffect(() => {
-        getTv();
+        getTv(formattedDate);
     }, [])
 
-    const getTv = async () => {
+    const getTv = async (formattedDate) => {
 
-        const urlTv = `https://api.tvmaze.com/schedule/web`;
+        const urlTv = `https://api.tvmaze.com/schedule/web?date=${formattedDate}`;
 
         try {
             const responseTv = await axios.get(urlTv);
-
             const dataTv = responseTv.data
             setSerije(dataTv);
             setIsLoading(false);
+            setVreme(formattedDate)
 
         } catch (err) {
             setError(err);
@@ -42,11 +44,10 @@ const Home = () => {
     const handleStartDateChange = (e) => {
         const date = new Date(e.target.value);
         const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-        const LinkTo = `/tvmazedate/${formattedDate}`;
-        navigate(LinkTo);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+        setVreme(formattedDate)
+        getTv(formattedDate);
 
+    };
 
     const clickShow = (showId) => {
         const LinkTo = `/showDetails/${showId}`;
@@ -64,7 +65,7 @@ const Home = () => {
     return (
         <>
             <div className="gridTv" style={{ paddingTop: "60px" }}>
-                <p className="time">Series <Time /></p>
+                <p className="time">Series on {vreme}</p>
                 <fieldset className="fieldset">
                     <legend>choose a date:</legend>
                     <input type="date"
@@ -115,4 +116,4 @@ const Home = () => {
         </>
     )
 }
-export default Home;
+export default TvMazeDate;

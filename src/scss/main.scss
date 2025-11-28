@@ -100,23 +100,41 @@ body {
     font-size: 18px;
     padding: 20px 18px;
 
+
+
     .time {
         margin: 0;
-        font-size: 22px;
-        padding: 3px 25px;
+        font-size: 24px;
+        padding: 20px 25px;
         color: $color4;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        vertical-align: middle;
+    }
 
+    .fieldset {
+        border-color: $color3;
+        color: $color3;
+        border-radius: 5px;
+        width: 120px;
+        font-size: 20px;
+
+        .dateInput {
+            background-color: $color3;
+            color: #f6b17a;
+            font-size: 18px;
+         
+            width: 150px;
+        }
     }
 
     .buttonS {
         margin: 0;
-        width: 250px;
+        width: 180px;
         padding: 5px;
         text-align: center;
         font-size: 22px;
         background-color: $color11;
         color: #f6b17a;
+        margin-right: 15px;
 
         border-radius: 5px;
         cursor: pointer;
@@ -1000,8 +1018,23 @@ body {
             padding: 5px 10px;
         }
 
+        .fieldset {
+
+            border-radius: 5px;
+            width: 90px;
+            font-size: 12px;
+
+            .dateInput {
+
+
+                font-size: 12px;
+               
+                width: 100px;
+            }
+        }
+
         .buttonS {
-            width: 120px;
+            width: 80px;
             padding: 3px;
             font-size: 14px;
         }
