@@ -230,6 +230,11 @@ body {
     font-size: 18px;
     padding: 50px 10px 10px 10px;
 
+    h3 {
+        background-color: $color2;
+        padding: 5px 15px;
+    }
+
     .borderBotom {
         border-bottom: 1px solid $color2;
 

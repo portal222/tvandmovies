@@ -64,7 +64,7 @@ const Home = () => {
     return (
         <>
             <div className="gridTv" style={{ paddingTop: "60px" }}>
-                <p className="time">Series <Time /></p>
+                <p className="time">Series from TvMaze. <Time /></p>
                 <fieldset className="fieldset">
                     <legend>choose a date:</legend>
                     <input type="date"

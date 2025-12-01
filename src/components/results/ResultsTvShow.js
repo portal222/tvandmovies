@@ -129,9 +129,14 @@ const ResultsTvShow = () => {
                     </tbody>
                 ))}
             </table >
+            <div className="showMain">
+
+                <h3>Results for {searchStringValue} in actors base</h3>
+            </div>
             <table className="showMain">
                 {tvActor.map((dataObj, id) => (
                     <tbody key={id}>
+
                         <tr>
                             <td rowSpan={5} className="holdImg">
                                 <img className="imgActor"
