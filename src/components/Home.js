@@ -85,8 +85,6 @@ const Home = () => {
                         </button>
                     </div>
                 </div>
-
-
             </div>
             <div className="gridTv">
                 {serije.map((serija, id) => (

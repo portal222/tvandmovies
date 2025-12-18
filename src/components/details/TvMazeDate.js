@@ -64,22 +64,28 @@ const TvMazeDate = () => {
     }
     return (
         <>
-            <div className="gridTv" style={{ paddingTop: "60px" }}>
-                <p className="time">Series on {vreme}</p>
-                <fieldset className="fieldset">
-                    <legend>choose a date:</legend>
-                    <input type="date"
-                        title="choose a start date"
-                        className="dateInput"
-                        onChange={handleStartDateChange} />
-                </fieldset>
-                <button className="buttonS"
-                    onClick={() => {
-                        clickQ();
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}>
-                    Quotes
-                </button>
+            <div className="homeCont" style={{ paddingTop: "60px" }}>
+                <div className="time">Series on {vreme}</div>
+                <div style={{ display: "flex" }}>
+                    <div style={{ padding: "15px" }}>
+                        <fieldset className="fieldset">
+                            <legend>choose a date:</legend>
+                            <input type="date"
+                                title="choose a start date"
+                                className="dateInput"
+                                onChange={handleStartDateChange} />
+                        </fieldset>
+                    </div>
+                    <div style={{ padding: "15px" }}>
+                        <button className="buttonS"
+                            onClick={() => {
+                                clickQ();
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }}>
+                            Quotes
+                        </button>
+                    </div>
+                </div>
             </div>
             <div className="gridTv">
                 {serije.map((serija, id) => (
