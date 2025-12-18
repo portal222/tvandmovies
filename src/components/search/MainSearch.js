@@ -8,8 +8,8 @@ const MainSearch = () => {
             <SearchPlaceTv />
             <div className="searchMain">
                 <p>
-                    Search TV show, actors and movies.<br></br>
-                    You can download series via torrent
+                    <br></br>
+                  
                 </p>
             </div>
         </>

@@ -68,6 +68,11 @@ body {
         display: flex;
         justify-content: space-around;
 
+        .text {
+            margin-top: 15px;
+            font-size: 24px;
+        }
+
         .paper {
             width: 240px;
             height: 42px;
@@ -90,27 +95,24 @@ body {
     font-size: 20px;
 }
 
-.gridTv {
+.homeCont {
     margin: auto;
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    display: flex;
     width: 1300px;
-    gap: 20px;
     background-color: $color1;
-    font-size: 18px;
-    padding: 20px 18px;
 
 
 
     .time {
         margin: 0;
         font-size: 24px;
-        padding: 20px 25px;
+        padding: 45px 25px 5px 25px;
         color: $color4;
         vertical-align: middle;
     }
 
     .fieldset {
+        margin: 0;
         border-color: $color3;
         color: $color3;
         border-radius: 5px;
@@ -118,16 +120,17 @@ body {
         font-size: 20px;
 
         .dateInput {
+            margin: 0;
             background-color: $color3;
             color: #f6b17a;
             font-size: 18px;
-         
+
             width: 150px;
         }
     }
 
     .buttonS {
-        margin: 0;
+        margin-top: 20px;
         width: 180px;
         padding: 5px;
         text-align: center;
@@ -144,6 +147,22 @@ body {
             color: $color16;
         }
     }
+}
+
+.gridTv {
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    width: 1300px;
+    gap: 20px;
+    background-color: $color1;
+    font-size: 18px;
+    padding: 20px 18px;
+
+    .time {
+        font-size: 24px;
+    }
+
 
     .gridItem {
         max-width: 194px;
@@ -466,7 +485,6 @@ body {
         font-size: 20px;
         background-color: $color11;
         color: #f6b17a;
-
 
         a {
             text-decoration: none;
@@ -1008,7 +1026,40 @@ body {
         .placeBut {
             padding: 2px;
             display: block;
+
+            .text {
+                font-size: 18px;
+            }
         }
+    }
+
+    .homeCont {
+        display: block;
+        width: 355px;
+
+        .time {
+            font-size: 18px;
+            padding: 5px 15px 5px 15px;
+        }
+
+        .fieldset {
+            border-radius: 5px;
+            width: 90px;
+            font-size: 12px;
+
+            .dateInput {
+                font-size: 12px;
+                width: 100px;
+            }
+        }
+
+        .buttonS {
+            margin-top: 15px;
+            width: 80px;
+            padding: 3px;
+            font-size: 14px;
+        }
+
     }
 
     .gridTv {
@@ -1019,30 +1070,10 @@ body {
         padding: 10px 4px;
 
         .time {
-            font-size: 16px;
-            padding: 5px 10px;
+            font-size: 18px;
         }
 
-        .fieldset {
 
-            border-radius: 5px;
-            width: 90px;
-            font-size: 12px;
-
-            .dateInput {
-
-
-                font-size: 12px;
-               
-                width: 100px;
-            }
-        }
-
-        .buttonS {
-            width: 80px;
-            padding: 3px;
-            font-size: 14px;
-        }
 
         .gridItem {
             padding: 2px;

@@ -41,25 +41,17 @@ const Quotes = () => {
 
     const getApi = async () => {
 
-        const urlB = `https://api.breakingbadquotes.xyz/v1/quotes`;
-        const urlP = `https://api.gameofthronesquotes.xyz/v1/random`;
         const urlR = `https://ron-swanson-quotes.herokuapp.com/v2/quotes`;
         const urlS = `https://finalspaceapi.com/api/v0/quote`;
 
         try {
-            const responseP = await axios.get(urlP);
-            const responseB = await axios.get(urlB);
             const responseR = await axios.get(urlR);
             const responseS = await axios.get(urlS);
 
-            const dataB = responseB;
-            const dataP = responseP;
             const dataR = responseR.data;
             const dataS = responseS.data;
 
             setIsLoading(false);
-            setGot(dataP.data);
-            setBead(dataB.data);
             setSwanson(dataR)
             setFinalSpace(dataS);
 
@@ -94,60 +86,6 @@ const Quotes = () => {
     return (
         <>
             <div className="detailMain" style={{ paddingTop: "80px" }}>
-                <div className="detailMov">
-                    <p className="cover"
-                        onClick={() => {
-                            clickShow(gameOf);
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}>
-
-                        <img src={thrones} alt="" />
-                    </p>
-                    <div>
-                        <p className="titleQ"
-                            onClick={() => {
-                                clickShow(gameOf);
-                                window.scrollTo({ top: 0, behavior: 'smooth' });
-                            }}>
-                            Game of Thrones
-                        </p>
-                        <p className="sentenceQ">
-                            {got.sentence}
-                        </p>
-                        <p className="nameQ">
-                            {got.character?.name}
-                        </p>
-                    </div>
-                </div>
-                <div className="detailMov">
-                    <p className="cover"
-                        onClick={() => {
-                            clickShow(breakingBead);
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}>
-
-                        <img src={breaking} alt="" />
-                    </p>
-                    <div>
-                        {bead.map((b, id) => (
-                            <div key={id}>
-                                <p className="titleQ"
-                                    onClick={() => {
-                                        clickShow(breakingBead);
-                                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                                    }}>
-                                    Breaking Bad
-                                </p>
-                                <p className="sentenceQ">
-                                    {b.quote}
-                                </p>
-                                <p className="nameQ">
-                                    {b.author}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
                 <div className="detailMov">
                     <p className="cover"
                         onClick={() => {
