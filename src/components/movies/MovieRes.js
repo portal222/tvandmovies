@@ -30,6 +30,7 @@ const MovieRes = () => {
 
     useEffect(() => {
         getDetails();
+        getIamtoo();
     }, [searchStringValue, page, pageS]);
 
     const getDetails = async () => {
@@ -62,6 +63,40 @@ const MovieRes = () => {
             }
         }
     };
+
+
+      const getIamtoo = async () => {
+        setIsLoading(true);
+
+      
+          const url =  `https://imdb.iamidiotareyoutoo.com/search?q=${searchStringValue}`
+        //   const url =  `https://imdb.iamidiotareyoutoo.com/search?tt=7&v=1`
+        // const url = 'https://imdb.iamidiotareyoutoo.com/photo/{tt127079}?w=1&h=1'
+          
+       
+
+        try {
+            const response = await axios.get(url);
+      
+            const data = response.data
+      
+
+            setIsLoading(false);
+    
+
+            console.log("iamidiot detalji", data);
+
+        } catch (err) {
+
+            setIsLoading(false);
+            if (err.response && err.response.status === 401) {
+                setError('You have reached your request limit for today. Please try again tomorrow.');
+            } else {
+                setError('An error occurred while loading the omdb.');
+            }
+        }
+    };
+
 
     const totalPages = Math.ceil(totalMovies / 10);
     const totalPagesS = Math.ceil(totalSeries / 10);

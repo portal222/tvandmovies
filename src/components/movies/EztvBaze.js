@@ -22,6 +22,8 @@ const EztvBaze = (props) => {
             const data = response.data
             setMovies(data.torrents);
 
+            console.log("detalji za torent", data);
+
         } catch (err) {
             setError(err);
         }
@@ -29,9 +31,9 @@ const EztvBaze = (props) => {
 
     return (
         <>
-            {movies?.[0]?.torrent_url && (
+            {movies?.[0]?.magnet_url && (
                 <button className="torrButt">
-                    <a href={movies?.[0]?.torrent_url} target="_blank">Download Torrent</a>
+                    <a href={movies?.[0]?.magnet_url} target="_blank">Download Torrent</a>
                 </button>
             )}
         </>

@@ -34,6 +34,8 @@ const FreeMoviesReview = (props) => {
 
             setMovies(data);
 
+            console.log("detalji sa iamidion", data);
+
         } catch (err) {
             setError(err);
         }

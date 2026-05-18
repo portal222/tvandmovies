@@ -29,26 +29,28 @@ const MovieDetails = () => {
     const getDetails = async () => {
 
         const url = `https://www.omdbapi.com/?i=${numId}&apikey=f91358c4&plot=full`;
-        const urlI = `https://imdb.iamidiotareyoutoo.com/search?tt=${numId}`
+        // const urlI = `https://imdb.iamidiotareyoutoo.com/search?tt=${numId}`
 
         try {
             const response = await axios.get(url);
-            const responseI = await axios.get(urlI);
+            // const responseI = await axios.get(urlI);
             const data = response.data
-            const dataI = responseI.data
+            // const dataI = responseI.data
             setMovies(data);
-            setImdbMov(dataI);
+            // setImdbMov(dataI);
             setIsLoading(false);
+
+            console.log("detalji za filmove", data);
 
         } catch (err) {
             setError(err);
         }
     };
 
-    const clickPicture = (images) => {
-        const LinkTo = `/moviePicture/${images}`;
-        navigate(LinkTo);
-    }
+    // const clickPicture = (images) => {
+    //     const LinkTo = `/moviePicture/${images}`;
+    //     navigate(LinkTo);
+    // }
 
     if (isLoading) {
         return (
@@ -72,11 +74,9 @@ const MovieDetails = () => {
                 <div className="detailMov">
                     <div>
                         <div className="cover">
-                            {/* {movies.Poster && (
+                        
+                              {movies.Poster && (
                                 <img src={movies.Poster} alt="no picture" />
-                            )} */}
-                              {imdbMov.main.primaryImage?.url && (
-                                <img src={imdbMov.main.primaryImage?.url} alt="no picture" />
                             )}
 
                         </div>
@@ -106,7 +106,7 @@ const MovieDetails = () => {
                         <div>
                             <div className="sugestion">
                               
-
+{/* 
                                     <button className="torrButt"
                                         onClick={() => {
                                             clickPicture(movies.imdbID);
@@ -114,7 +114,7 @@ const MovieDetails = () => {
                                         }}
                                     >
                                         More Images
-                                    </button>
+                                    </button> */}
                              
                               <EztvBaze numId={movies.imdbID.slice(2)}/>
 
