@@ -22,8 +22,6 @@ const EztvBaze = (props) => {
             const data = response.data
             setMovies(data.torrents);
 
-            console.log("detalji za torent", data);
-
         } catch (err) {
             setError(err);
         }

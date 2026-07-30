@@ -4,8 +4,6 @@ import GlobalContext from "../GlobalContext";
 import Loader from "../Loader";
 import BackToTop from "../BackToTop";
 import axios from "axios";
-import SearchActors from "../search/SearchActors";
-import SearchTvShow from "../search/SearchTvShow";
 import fallback from "../../../public/img/fallbackimg.png"
 import MovieDetailsDrop from "./MovieDetailsDrop";
 
@@ -30,7 +28,6 @@ const MovieRes = () => {
 
     useEffect(() => {
         getDetails();
-        getIamtoo();
     }, [searchStringValue, page, pageS]);
 
     const getDetails = async () => {
@@ -51,10 +48,9 @@ const MovieRes = () => {
             setTotalMovies(data.totalResults || 0);
             setTotalSeries(dataS.totalResults || 0);
 
-            console.log("movie i serije detalji", data);
-
         } catch (err) {
 
+            setError(err)
             setIsLoading(false);
             if (err.response && err.response.status === 401) {
                 setError('You have reached your request limit for today. Please try again tomorrow.');
@@ -65,37 +61,6 @@ const MovieRes = () => {
     };
 
 
-      const getIamtoo = async () => {
-        setIsLoading(true);
-
-      
-          const url =  `https://imdb.iamidiotareyoutoo.com/search?q=${searchStringValue}`
-        //   const url =  `https://imdb.iamidiotareyoutoo.com/search?tt=7&v=1`
-        // const url = 'https://imdb.iamidiotareyoutoo.com/photo/{tt127079}?w=1&h=1'
-          
-       
-
-        try {
-            const response = await axios.get(url);
-      
-            const data = response.data
-      
-
-            setIsLoading(false);
-    
-
-            console.log("iamidiot detalji", data);
-
-        } catch (err) {
-
-            setIsLoading(false);
-            if (err.response && err.response.status === 401) {
-                setError('You have reached your request limit for today. Please try again tomorrow.');
-            } else {
-                setError('An error occurred while loading the omdb.');
-            }
-        }
-    };
 
 
     const totalPages = Math.ceil(totalMovies / 10);
@@ -114,8 +79,8 @@ const MovieRes = () => {
         return (
             <Loader />
         )
-    } 
-   
+    }
+
     return (
         <>
             {error ? (
