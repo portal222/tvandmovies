@@ -120,7 +120,7 @@ const ShowDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div style={{ textAlign: "left", fontSize: "24px", paddingTop: "30px"}}>
+                <div className="similar">
                     Similar series
                 </div>
 

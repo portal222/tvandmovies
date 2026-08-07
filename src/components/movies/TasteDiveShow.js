@@ -37,7 +37,6 @@ const TasteDiveShow
 
             try {
                 const response = await axios.get(url);
-                console.log("taste dive odgovor", response);
                 setMoviTaste(response.data.similar.results)
 
             } catch (err) {
@@ -57,7 +56,7 @@ const TasteDiveShow
         return (
             <>
                 <div className="detailMain" style={{ paddingTop: "80px" }}>
-                    <div style={{ textAlign: "left", fontSize: "24px" }}>
+                    <div className="similar">
                         Similar show
                     </div>
                 </div>

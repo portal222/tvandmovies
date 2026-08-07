@@ -29,6 +29,13 @@ $color8: rgb(18, 17, 58);
     padding: 30px 30px 5px 30px;
     background-color: $color10;
 
+    .similar {
+        padding: 15px;
+        font-size: 26px;
+        text-align: left;
+        color: rgb(111, 111, 254);
+    }
+
     .detailMov {
         display: flex;
 
@@ -717,10 +724,12 @@ $color8: rgb(18, 17, 58);
             color: $color15;
             text-align: center;
             cursor: pointer;
+
             &:hover {
                 color: $color16;
             }
         }
+
         .desTaste {
             text-align: justify;
             padding: 10px;
@@ -807,9 +816,15 @@ $color8: rgb(18, 17, 58);
 
     .detailMain,
     .movieMain,
-    .movieMain2 {
+    .movieMain2,
+    .movieMainTaste {
         width: 355px;
         padding: 0px;
+
+        .similar {
+            padding: 10px;
+            font-size: 18px;
+        }
 
         .detailMov {
             display: block;
@@ -1139,6 +1154,30 @@ $color8: rgb(18, 17, 58);
         padding: 10px 10px;
         gap: 15px;
         grid-template-columns: auto auto;
+    }
+
+    .movieMainTaste {
+        padding: 10px 0px;
+        display: grid;
+
+        grid-template-columns: auto;
+
+        .holderTaste {
+            width: 355px;
+
+            p {
+                padding: 10px;
+                font-size: 22px;
+
+
+            }
+
+            .desTaste {
+
+                padding: 10px;
+                font-size: 16px;
+            }
+        }
     }
 
     .movieNum {

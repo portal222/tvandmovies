@@ -60,7 +60,7 @@ const TasteDiveMoviesClick
             <>
 
                 <div className="detailMain" style={{ paddingTop: "80px" }}>
-                    <div style={{ textAlign: "left", fontSize: "24px" }}>
+                    <div className="similar">
 
                         Similar movies
                     </div>

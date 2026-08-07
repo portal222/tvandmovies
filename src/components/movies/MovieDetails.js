@@ -53,7 +53,6 @@ const MovieDetails = () => {
 
         try {
             const response = await axios.get(url);
-            console.log("taste dive odgovor", response);
             setMoviTaste(response.data.similar.results)
         } catch (err) {
             setError(err.message);
@@ -65,11 +64,7 @@ const MovieDetails = () => {
         navigate(LinkTo);
     }
 
-    if (isLoading) {
-        return (
-            <Loader />
-        )
-    } else if (movies.Title == null) {
+   if (movies.Title == null) {
         return (
             <div className="detailMain" style={{ paddingTop: "80px" }}>
                 <div className="detailMov">
@@ -120,7 +115,7 @@ const MovieDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div style={{ textAlign: "left", fontSize: "24px" }}>
+                <div className="similar">
                     Similar movies
                 </div>
 
