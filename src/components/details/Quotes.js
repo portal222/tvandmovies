@@ -62,12 +62,16 @@ const Quotes = () => {
 
     const getSlayer = async () => {
         const url = `https://api.animechan.io/v1/quotes/random?anime=Demon_Slayer`;
+        const urlBB =`https://ridlejoke-proxy.kvaka32.workers.dev/brebed`;
 
         try {
             const response = await axios.get(url)
+            const responseBB = await axios.get(urlBB)
             const data = response.data
+            const dataBB = responseBB.data
 
             setSlayer(data);
+            console.log("breking bed", dataBB);
 
         } catch (err) {
             setError(err);

@@ -25,12 +25,14 @@ const FreeMoviesReview = (props) => {
     }, []);
 
     const getMovie = async () => {
-        const url = `https://imdb.iamidiotareyoutoo.com/search?tt=${idimd}`
+       
+        const url = `https://ridlejoke-proxy.kvaka32.workers.dev/imdb?tt=${idimd}`;
+
 
         try {
             const response = await axios.get(url);
             const data = response.data
-            const dataImg = response.data.main.titleMainImages.edges
+            // const dataImg = response.data.main.titleMainImages.edges
 
             setMovies(data);
 

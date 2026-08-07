@@ -8,7 +8,7 @@ import Released from "./Released";
 import Loader from "../Loader";
 
 
-const MovieDetails = () => {
+const ShowDetails = () => {
 
     const [movies, setMovies] = useState([]);
     const [error, setError] = useState(null);
@@ -49,19 +49,19 @@ const MovieDetails = () => {
     const getTaste = async () => {
         setIsLoading(true);
 
-        const url = `https://ridlejoke-proxy.kvaka32.workers.dev/tastedive?q=${movTitle}`;
+        const url = `https://ridlejoke-proxy.kvaka32.workers.dev/tastediveshow?q=${movTitle}`;
 
         try {
             const response = await axios.get(url);
-            console.log("taste dive odgovor", response);
+     
             setMoviTaste(response.data.similar.results)
         } catch (err) {
             setError(err.message);
         }
     }
 
-    const clickMovi = (name) => {
-        const LinkTo = `/movieResTaste/${name}`;
+    const clickShow = (name) => {
+        const LinkTo = `/showResTaste/${name}`;
         navigate(LinkTo);
     }
 
@@ -120,8 +120,8 @@ const MovieDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div style={{ textAlign: "left", fontSize: "24px" }}>
-                    Similar movies
+                <div style={{ textAlign: "left", fontSize: "24px", paddingTop: "30px"}}>
+                    Similar series
                 </div>
 
             </div>
@@ -131,7 +131,7 @@ const MovieDetails = () => {
                         className="holderTaste">
                         <p
                             onClick={() => {
-                                clickMovi(mov.name);
+                                clickShow(mov.name);
                                 window.scrollTo({ top: 0, behavior: 'smooth' });
                             }}
                         >
@@ -161,4 +161,4 @@ const MovieDetails = () => {
         </>
     )
 }
-export default MovieDetails;
+export default ShowDetails;

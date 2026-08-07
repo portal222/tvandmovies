@@ -22,7 +22,8 @@ $color8: rgb(18, 17, 58);
 
 .detailMain,
 .movieMain,
-.movieMain2 {
+.movieMain2,
+.movieMainTaste {
     margin: auto;
     width: 1300px;
     padding: 30px 30px 5px 30px;
@@ -699,6 +700,33 @@ $color8: rgb(18, 17, 58);
     display: grid;
     gap: 30px;
     grid-template-columns: auto auto;
+}
+
+.movieMainTaste {
+    padding: 10px 25px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: auto auto auto;
+
+    .holderTaste {
+        width: 395px;
+
+        p {
+            padding: 10px;
+            font-size: 28px;
+            color: $color15;
+            text-align: center;
+            cursor: pointer;
+            &:hover {
+                color: $color16;
+            }
+        }
+        .desTaste {
+            text-align: justify;
+            padding: 10px;
+            font-size: 20px;
+        }
+    }
 }
 
 .movieNum {

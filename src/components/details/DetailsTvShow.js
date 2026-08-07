@@ -10,6 +10,7 @@ import Slider from "react-slick";
 import Loader from "../Loader";
 import SeriesOmdb from "./SeriesOmdb";
 import OmdbImgSeries from "./OmdbImgSeries";
+import TasteDiveShow from "../movies/TasteDiveShow";
 
 const DetailsTvShow = () => {
     const [error, setError] = useState(null);
@@ -277,6 +278,7 @@ const DetailsTvShow = () => {
                 )
             )}
             <SezoneList sezone={sezons} />
+            <TasteDiveShow showTitle={show.name}/>
             <BackToTop />
         </>
     )

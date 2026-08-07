@@ -22,6 +22,11 @@ import FreeMoviesImg from "./movies/FreeMoviesImg";
 import Quotes from "./details/Quotes";
 import ResultsOnClickTvShow from "./results/ResultsOnClickTvShow";
 import TvMazeDate from "./details/TvMazeDate";
+import MovieResTaste from "./movies/MovieResTaste";
+import TasteDiveMoviesClick from "./movies/TasteDiveMoviesClick";
+import ResultsTasteShow from "./results/ResultsTasteShow";
+import ShowDetails from "./movies/ShowDetails";
+import MovieResShow from "./movies/MovieResShow";
 
 const theme = createTheme({
   palette: {
@@ -81,12 +86,17 @@ const Navigation = () => {
           <Route path="/moviePicture/:images" element={<FreeMoviesImg />} />
           <Route path="/quotes" element={<Quotes />} />
           <Route path="/tvmazedate/:formattedDate" element={<TvMazeDate />} />
+          <Route path="/movieResTaste/:name" element={<MovieResTaste />} />
+          <Route path="/testdive/:movName" element={<TasteDiveMoviesClick />} />
+          <Route path="/tastediveshow/:showName" element={<ResultsTasteShow />} />
+          <Route path="/showOmdbDetails/:numId" element={<ShowDetails />} />
+          <Route path="/showResTaste/:name" element={<MovieResShow />} />
         </Routes>
       </HashRouter>
 
       <div className="footer">
         <hr></hr>
-        <p>Data base from TvMaze, OMDb, FreeMovies and EZTV</p>
+        <p>Data base from TvMaze, OMDb, TasteDive and EZTV</p>
         InTerVal &copy;{year}
       </div>
     </>

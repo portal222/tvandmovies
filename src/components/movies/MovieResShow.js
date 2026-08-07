@@ -7,8 +7,10 @@ import axios from "axios";
 import fallback from "../../../public/img/fallbackimg.png"
 import MovieDetailsDrop from "./MovieDetailsDrop";
 import TasteDiveMovies from "./TasteDiveMovies";
+import { useParams } from "react-router-dom";
 
-const MovieRes = () => {
+
+const MovieResShow = () => {
 
     const [movies, setMovies] = useState([]);
     const [series, setSeries] = useState([]);
@@ -24,31 +26,31 @@ const MovieRes = () => {
 
     const navigate = useNavigate();
 
-    const globalCtx = useContext(GlobalContext);
-    const searchStringValue = globalCtx.searchStringValue;
+    const params = useParams()
+    const name = params.name;
 
     useEffect(() => {
         getDetails();
-    }, [searchStringValue, page, pageS]);
+    }, [name, pageS]);
 
     const getDetails = async () => {
         setIsLoading(true);
 
-        const url = `https://www.omdbapi.com/?s=${searchStringValue}&apikey=f91358c4&page=${page}&type=movie`;
-        const urlS = `https://www.omdbapi.com/?s=${searchStringValue}&apikey=f91358c4&page=${pageS}&type=series`;
+
+        const urlS = `https://www.omdbapi.com/?s=${name}&apikey=f91358c4&page=${pageS}&type=series`;
 
         try {
-            const response = await axios.get(url);
+
             const responseS = await axios.get(urlS);
-            const data = response.data
+
             const dataS = responseS.data
 
 
 
             setIsLoading(false);
-            setMovies(data.Search || []);
+
             setSeries(dataS.Search || []);
-            setTotalMovies(data.totalResults || 0);
+
             setTotalSeries(dataS.totalResults || 0);
 
         } catch (err) {
@@ -63,17 +65,14 @@ const MovieRes = () => {
         }
     };
 
-    const totalPages = Math.ceil(totalMovies / 10);
+
     const totalPagesS = Math.ceil(totalSeries / 10);
 
     const scrollToSelect = () => {
         selectRef.current?.scrollIntoView({ behavior: "smooth" });
     };
 
- const clickMovie = (numId) => {
-        const LinkTo = `/movieDetails/${numId}`;
-        navigate(LinkTo);
-    }
+
 
     const clickShow = (numId) => {
         const LinkTo = `/showOmdbDetails/${numId}`;
@@ -96,106 +95,14 @@ const MovieRes = () => {
                 </>
             ) : (
                 <>
-                    <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
-                        <p className="time">{totalMovies} results in Movie base for: {searchStringValue}</p>
-                    </div>
-                    <div className="hrGenre"></div>
-                    <div className="movieMain" >
-                        {movies.map((movie, id) => {
-                            const imgUrl = movie.Poster;
-                            return (
-                                <div key={id}
-                                    className="holder">
-                                    <div className="dropdownM">
-                                        <div>
-                                            <img
-                                                src={imgUrl || fallback}
-                                                alt={"no picture" || "unknown"}
-                                                className="poster"
-                                                onError={(e) => {
-                                                    if (!e.target.src.includes(fallback)) {
-                                                        e.target.src = fallback;
-                                                    }
-                                                }}
-                                            />
-                                        </div>
-                                        <span className="dropdown-contentM">
-                                            <p style={{ paddingTop: "15px" }}> {movie.Type}</p>
-                                            <MovieDetailsDrop number={movie.imdbID} />
-                                        </span>
-                                    </div>
-                                    <div onClick={() => {
-                                        clickMovie(movie.imdbID);
-                                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                                    }}
-                                        className="titleLong">
-                                        {movie.Title + " - " + movie.Year}
-                                    </div>
-                                </div>
-                            )
-                        })}
-                    </div>
-                    <div className="movieNum">
-                        <button
-                            className="numb"
-                            onClick={() => {
-                                if (page > 1) {
-                                    setPage(page - 1);
-                                    window.scrollTo({ top: 0, behavior: "smooth" });
-                                }
-                            }}
-                            disabled={page === 1}
-                        >
-                            Prev
-                        </button>
-                        {Array.from({ length: totalPages }, (_, i) => i + 1)
-                            .filter((p) => {
 
-                                return (
-                                    p === 1 ||
-                                    p === totalPages ||
-                                    (p >= page - 1 && p <= page + 1)
-                                );
-                            })
-                            .map((p, idx, arr) => {
-                                const prev = arr[idx - 1];
-                                return (
-                                    <React.Fragment key={p}>
 
-                                        {prev && p - prev > 1 && <span className="dots">. . .</span>}
-                                        <button
-                                            className={page === p ? "numbAct" : "numb"}
-                                            onClick={() => {
-                                                if (page !== p) {
-                                                    setPage(p);
-                                                    window.scrollTo({ top: 0, behavior: "smooth" });
-                                                }
-                                            }}
-                                        >
-                                            {p}
-                                        </button>
-                                    </React.Fragment>
-                                );
-                            })}
-                        <button
-                            className="numb"
-                            onClick={() => {
-                                if (page < totalPages) {
-                                    setPage(page + 1);
-                                    window.scrollTo({ top: 0, behavior: "smooth" });
-                                }
-                            }}
-                            disabled={page === totalPages}
-                        >
-                            Next
-                        </button>
-                    </div>
 
                     <div ref={selectRef}></div>
 
                     <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
 
-                        <p className="time">{totalSeries} results in Series base for: {searchStringValue}</p>
+                        <p className="time">{totalSeries} results in Series base for: {name}</p>
                     </div>
                     <div className="hrGenre"></div>
                     <div className="movieMain" >
@@ -289,10 +196,8 @@ const MovieRes = () => {
                     </div>
                 </>
             )}
-
-
             <BackToTop />
         </>
     );
 }
-export default MovieRes;
+export default MovieResShow;

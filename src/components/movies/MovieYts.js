@@ -38,8 +38,8 @@ const MovieYts = () => {
             setIsLoading(false);
 
         } catch (err) {
-           
-              if (err.response && err.response.status === 502) {
+
+            if (err.response && err.response.status === 502) {
                 setError('You have reached your request limit for today. Please try again tomorrow.');
             } else {
                 setError('An error occurred while loading the EZTV. Please try to refresh site');
@@ -70,9 +70,9 @@ const MovieYts = () => {
                 </div>
             ) : (
                 <>
-                 <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
-                    <p className="time">Series from EZTV</p>
-                </div>
+                    <div className="gridTv" style={{ paddingTop: "60px", paddingLeft: "25px" }}>
+                        <p className="time">Series from EZTV</p>
+                    </div>
                     <div className="movieMain">
                         {movies.map(movie => (
                             <div key={movie.id}
@@ -149,6 +149,8 @@ const MovieYts = () => {
                     </div>
                 </>
             )}
+
+      
             <BackToTop />
         </>
     );

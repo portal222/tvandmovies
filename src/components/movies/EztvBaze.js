@@ -7,6 +7,7 @@ const EztvBaze = (props) => {
     const [error, setError] = useState(null);
 
     const showId = props.numId
+    console.log("eztv baze broj filma", showId);
 
     useEffect(() => {
         getDetails();
